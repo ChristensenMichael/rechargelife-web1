@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="da" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RechargeLife | For Sportsklubber</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Belleza -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Konfiguration med RechargeLife Farver -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rl-darkblue': '#013F58',
+                        'rl-lightblue': '#B6CCD7',
+                        'rl-taupe': '#94857B',
+                        'rl-lightbg': '#E0DFD8',
+                        'rl-black': '#151F28',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Belleza', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hover-underline-animation {
+            position: relative;
+        }
+        .hover-underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: #ffffff;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .hover-underline-animation:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        /* CSS Animation til lag-på-lag grafen */
+        .animate-overlap-bar {
+            height: 100%;
+        }
+        .in-view .animate-overlap-bar {
+            animation: shrinkToHBOT 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        @keyframes shrinkToHBOT {
+            0% { height: 100%; }
+            100% { height: 40%; } /* Skrumper ned til ca. 26 dages mærket */
+        }
+
+        /* Input styling for beregnere */
+        .rl-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #E0DFD8;
+            background-color: #FAF9F6;
+            color: #151F28;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .rl-input:focus {
+            outline: none;
+            border-color: #013F58;
+            box-shadow: 0 0 0 3px rgba(1, 63, 88, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-[#FAF9F6] text-rl-black font-sans antialiased">
+
+    <!-- ======= HEADER / NAVIGATION ======= -->
+    <header class="bg-rl-darkblue shadow-md sticky top-0 z-50 border-b border-rl-darkblue/50">
+        <nav class="container mx-auto px-6 flex items-center justify-between">
+            <a href="index.html" class="flex items-center group py-2">
+                <img src="pictures/Recharge Life_Large_Transparent_Variant 1.png" alt="RechargeLife Logo" class="h-20 md:h-28 -ml-4 md:-ml-6 object-contain object-left transition-transform duration-300 group-hover:scale-105">
+            </a>
+            <div class="hidden lg:flex items-center gap-6 font-medium text-sm text-white">
+                <a href="index.html#sportsklubber" class="text-rl-lightblue font-semibold border-b border-rl-lightblue">Sportsklubber</a>
+                <a href="index.html#medical" class="hover-underline-animation">Medicinske klinikker</a>
+                <a href="index.html#process" class="hover-underline-animation">Hvordan det foregår</a>
+                <a href="index.html#about" class="hover-underline-animation">Om RechargeLife</a>
+                <a href="index.html#faq" class="hover-underline-animation">FAQ</a>
+            </div>
+            <div class="flex items-center gap-4 text-sm">
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-white font-semibold border border-white/30 rounded-full px-3 py-1.5 bg-transparent hover:bg-white/10 transition">
+                        <span>DA</span>
+                        <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ======= HERO SECTION ======= -->
+    <main>
+        <section class="relative flex items-center min-h-[70vh] py-20 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1765046876564-aa4034b6c71a?q=80&w=2000&auto=format&fit=crop" alt="Team spirit" class="h-full w-full object-cover object-center">
+                <div class="absolute inset-0 bg-rl-darkblue/75 mix-blend-multiply"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] via-transparent to-transparent opacity-90"></div>
+            </div>
+
+            <div class="container relative z-10 mx-auto px-6 pt-10">
+                <div class="max-w-3xl space-y-6">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-rl-darkblue bg-white px-4 py-1.5 rounded-full shadow-lg">
+                        Nøglefærdig løsning for Eliteklubber
+                    </span>
+                    <h1 class="font-serif text-5xl md:text-7xl leading-[1.1] text-white text-shadow-sm">
+                        Den ultimative fordel på banen
+                    </h1>
+                    <p class="text-white/90 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
+                        Giv jeres atleter en unik, luksuriøs behandling. Med et avanceret trykkammer-setup (HBOT) øger I performance, forbedrer VO2Max, og skaber rammerne for en uovertruffen holdånd efter kampen.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= GRAFIK OG PERFORMANCE (VO2Max & Skader) ======= -->
+        <section class="py-20 bg-[#FAF9F6]">
+            <div class="container mx-auto px-6">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-taupe">Data der tæller</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-rl-darkblue mt-2">Maksimer kapacitet og "return-to-play".</h2>
+                    <p class="text-rl-black/70 mt-4 text-lg">Hyperbaric Oxygen Therapy understøttes af tung videnskabelig evidens inden for elitesport. Det handler om at genoprette biologisk kapacitet og fysiologisk overskud hurtigere.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    
+                    <!-- Venstre side: Den grafiske fremstilling -->
+                    <div class="space-y-12">
+                        
+                        <!-- 1. VO2Max og VO2AT Visualisering -->
+                        <div class="bg-white p-8 rounded-3xl shadow-md border border-rl-lightbg">
+                            <h3 class="font-serif text-2xl text-rl-darkblue mb-6">Performance forbedringer</h3>
+                            <div class="flex flex-col sm:flex-row gap-8 justify-around">
+                                <div class="flex flex-col items-center text-center group">
+                                    <div class="w-36 h-36 rounded-full border-8 border-rl-lightblue flex flex-col items-center justify-center mb-4 transition-transform group-hover:scale-105">
+                                        <span class="font-bold text-xl text-rl-darkblue">+5%</span>
+                                        <span class="font-bold text-xl text-rl-darkblue">VO₂Max</span>
+                                    </div>
+                                    <h4 class="font-semibold text-rl-black">Maksimal Iltoptagelse</h4>
+                                    <p class="text-sm text-rl-taupe mt-1 max-w-[150px]">Øget kapillær tæthed og forbedret lungefunktion. <br><a href="https://sportsmedicine-open.springeropen.com/articles/10.1186/s40798-021-00403-w" target="_blank" class="underline hover:text-rl-darkblue">[Kilde: 1]</a></p>
+                                </div>
+                                <div class="flex flex-col items-center text-center group">
+                                    <div class="w-36 h-36 rounded-full border-8 border-rl-darkblue flex flex-col items-center justify-center mb-4 transition-transform group-hover:scale-105">
+                                        <span class="font-bold text-xl text-rl-darkblue">+10%</span>
+                                        <span class="font-bold text-xl text-rl-darkblue">VO₂AT</span>
+                                    </div>
+                                    <h4 class="font-semibold text-rl-black">Anaerob tærskel</h4>
+                                    <p class="text-sm text-rl-taupe mt-1 max-w-[150px]">Hurtigere clearance af mælkesyre forbedrer udholdenhed. <br><a href="https://sportsmedicine-open.springeropen.com/articles/10.1186/s40798-021-00403-w" target="_blank" class="underline hover:text-rl-darkblue">[Kilde: 2]</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Graf: Skadesnedetid med Y-akse & Overlap -->
+                        <div class="bg-white p-8 rounded-3xl shadow-md border border-rl-lightbg">
+                            <h3 class="font-serif text-2xl text-rl-darkblue mb-2">Markant reduktion af skadesperioden</h3>
+                            <p class="text-sm text-rl-taupe mb-10">Case-rapporter fra professionel fodbold viser, at fraværsperioden ved udvalgte skader kan reduceres med mellem 55 % og 70 % ved brug af trykkammerbehandling. <br>
+                            <a href="https://www.ncbi.nlm.nih.gov/pmc/" target="_blank" class="underline hover:text-rl-darkblue">[Kilde: 3]</a> · <a href="https://www.midlandsdivingchamber.co.uk/" target="_blank" class="underline hover:text-rl-darkblue">[Kilde: 4]</a>
+                            </p>
+                            
+                            <!-- Overlapping Bar Chart med Y-akse -->
+                            <div id="recovery-chart" class="relative h-[22rem] w-[85%] mx-auto mt-24 border-b-2 border-l-2 border-rl-lightbg ml-10">
+                                
+                                <!-- Y-akse Mærker -->
+                                <div class="absolute -left-2 top-0 w-2 h-0.5 bg-rl-lightbg z-0"></div>
+                                <span class="absolute -left-8 -top-3 text-rl-taupe font-bold text-sm z-0">70</span>
+                                
+                                <div class="absolute -left-2 bottom-0 w-2 h-0.5 bg-rl-lightbg z-0"></div>
+                                <span class="absolute -left-6 -bottom-3 text-rl-taupe font-bold text-sm z-0">0</span>
+                                
+                                <!-- Baggrund: Konventionel -->
+                                <!-- z-20 på teksten og ikonet så de forbliver synlige, når den blå boks skrumper over -->
+                                <div class="absolute bottom-0 left-0 w-full h-full bg-rl-lightblue/20 rounded-tr-xl z-0 flex flex-col items-center justify-end pb-8 border-t-2 border-r-2 border-dashed border-rl-lightblue">
+                                </div>
+                                
+                                <!-- Konventionel Tekst & Ikon -->
+                                <div class="absolute top-[20%] left-1/2 -translate-x-1/2 z-20 flex flex-col items-center w-full">
+                                    <span class="text-rl-darkblue font-medium text-sm md:text-base mb-3 block">Konventionel behandling</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-rl-darkblue/70">
+                                        <path d="M20 10.5h-4.5V6a1 1 0 0 0-1-1h-5a1 1 0 0 0-1 1v4.5H4a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h4.5V22a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-4.5H20a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1z" fill="currentColor" fill-opacity="0.1" stroke="none"/>
+                                        <path d="M12 3v18"/>
+                                        <path d="M9.5 8.5c0-2.5 5-2.5 5 0 0 2-5 3-5 5s5 3 5 5-5 3-5 5"/>
+                                        <circle cx="14" cy="6" r="1"/>
+                                    </svg>
+                                </div>
+
+                                <!-- Forgrund: HBOT -->
+                                <div class="animate-overlap-bar absolute bottom-0 left-0 w-full bg-rl-darkblue rounded-tr-xl z-10 flex flex-col justify-end shadow-2xl">
+                                    
+                                    <!-- Tracker linje til Y-aksen der følger toppen af grafen -->
+                                    <div class="absolute top-0 -left-6 w-6 border-t-2 border-dashed border-rl-darkblue flex items-center z-20">
+                                        <div class="absolute -left-1.5 w-3 h-3 rounded-full bg-rl-darkblue -translate-y-1/2"></div>
+                                    </div>
+
+                                    <!-- Svævende Tæller -->
+                                    <div class="absolute -top-16 left-1/2 -translate-x-1/2 text-center w-32 z-30">
+                                        <div class="relative h-10 w-full flex justify-center items-center">
+                                            <span id="hbot-counter" class="absolute text-rl-darkblue font-bold text-4xl drop-shadow-sm transition-opacity duration-300">70</span>
+                                            <span id="hbot-final" class="absolute text-rl-darkblue font-bold text-4xl drop-shadow-sm opacity-0 transition-opacity duration-500 whitespace-nowrap">21-31</span>
+                                        </div>
+                                        <span class="block text-rl-darkblue text-xs uppercase tracking-widest font-bold mt-1">Dage</span>
+                                    </div>
+                                    
+                                    <!-- Ikon i bunden -->
+                                    <div class="p-4 pb-8 text-center relative z-20">
+                                        <span class="text-white font-medium text-sm md:text-base block mb-3">Avanceret HBOT</span>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 mx-auto text-white">
+                                            <rect x="2" y="8" width="20" height="9" rx="4.5" />
+                                            <circle cx="12" cy="12.5" r="2.5" />
+                                            <path d="M6 8v9M18 8v9" stroke-dasharray="1 2"/>
+                                            <path d="M6 17v2M18 17v2" />
+                                            <circle cx="12" cy="5" r="0.5" fill="currentColor"/>
+                                            <circle cx="14" cy="3" r="1" fill="currentColor"/>
+                                            <circle cx="10" cy="2" r="0.5" fill="currentColor"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Højre side: Evidens og Luksus -->
+                    <div class="space-y-8">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="Pictures/DressingRoomHuddle.jpg" alt="Team spirit" class="w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-rl-darkblue/20"></div>
+                        </div>
+
+                        <div class="bg-rl-lightbg/30 p-8 rounded-3xl border border-rl-lightbg">
+                            <h3 class="font-serif text-2xl text-rl-darkblue mb-4">Evidensbaseret recovery</h3>
+                            <p class="text-rl-black/80 mb-6 leading-relaxed">
+                                Efter en udmattende kamp er et fælles recovery-miljø uvurderligt. Mens atleterne restituerer luksuriøst sammen og opbygger holdånden, arbejder 100% ilt under tryk på at reparere mikrotraumer.
+                            </p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-rl-darkblue shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <div>
+                                        <h4 class="font-semibold text-rl-black">Reducerer ødem og inflammation</h4>
+                                        <p class="text-sm text-rl-taupe mt-1">Trykket formindsker hævelser ved akutte sportsskader øjeblikkeligt.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-rl-darkblue shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <div>
+                                        <h4 class="font-semibold text-rl-black">Hurtigere kollagen-syntese</h4>
+                                        <p class="text-sm text-rl-taupe mt-1">Kritisk for at genopbygge brusk, ledbånd og muskelfibre op til 50% hurtigere.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-rl-darkblue shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <div>
+                                        <h4 class="font-semibold text-rl-black">Angiogenese (nye blodkar)</h4>
+                                        <p class="text-sm text-rl-taupe mt-1">Fremmer dannelsen af nye blodkar til beskadiget væv og sener (som normalt har dårlig blodtilførsel).</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= BEREGNERE (ROI & VÆRDI) ======= -->
+        <section class="py-20 bg-white border-t border-rl-lightbg">
+            <div class="container mx-auto px-6">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-taupe">Return on Investment</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-rl-darkblue mt-2">Beregn jeres besparelse og merværdi</h2>
+                    <p class="text-rl-black/70 mt-4 text-lg">Indtast jeres egne tal for at se, hvor hurtigt trykkammeret tjener sig hjem i sparet løn, og hvor meget værdi I kan bevare i truppen ved at forlænge spillernes peak.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-10">
+                    
+                    <!-- Calculator 1: ROI på skader -->
+                    <div class="bg-rl-lightbg/30 p-8 rounded-3xl border border-rl-lightbg">
+                        <h3 class="font-serif text-2xl text-rl-darkblue mb-2">Lønbesparelse ved skader</h3>
+                        <p class="text-sm text-rl-taupe mb-6">Baseret på en gennemsnitlig halvering (50%) af skadesperioden.</p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div>
+                                <label class="block text-sm font-semibold text-rl-black mb-1">Gns. løn pr. uge pr. spiller (DKK)</label>
+                                <!-- Opdateret til FC Nordsjælland gns. (70 mio / 29 spillere / 52 uger) -->
+                                <input type="number" id="calc1-salary" class="rl-input" value="46419" oninput="calculateSavings()">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-rl-black mb-1">Antal skader i truppen pr. sæson</label>
+                                <!-- Opdateret til 50 skader -->
+                                <input type="number" id="calc1-injuries" class="rl-input" value="50" oninput="calculateSavings()">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-rl-black mb-1">Gns. fraværsdage pr. skade</label>
+                                <!-- Opdateret til 20 dage -->
+                                <input type="number" id="calc1-days" class="rl-input" value="20" oninput="calculateSavings()">
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-6 border border-rl-lightblue/50 text-center shadow-sm">
+                            <span class="block text-sm text-rl-taupe uppercase tracking-wider font-semibold mb-2">Tid før besparelsen rammer 2 mio. DKK:</span>
+                            <div class="text-4xl font-bold text-rl-darkblue" id="calc1-result">...</div>
+                        </div>
+                    </div>
+
+                    <!-- Calculator 2: Longevity & Markedsværdi -->
+                    <div class="bg-rl-darkblue p-8 rounded-3xl shadow-lg text-white">
+                        <h3 class="font-serif text-2xl mb-2">Truppens værdi og periode for aktivt top-niveau</h3>
+                        <p class="text-sm text-rl-lightblue mb-6">Mitokondriel konditionering og bevarelse af telomer-længde modstår fysiologisk forfald.</p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div>
+                                <label class="block text-sm font-semibold text-rl-lightblue mb-1">Samlet værdi af truppens spillere (DKK)</label>
+                                <!-- Standardværdi 335.000.000 DKK -->
+                                <input type="number" id="calc2-value" class="rl-input border-transparent bg-white/10 text-white focus:bg-white focus:text-rl-black" value="335000000" oninput="calculateLongevity()">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-rl-lightblue mb-1">Antal ekstra år på topniveau (Longevity-effekt)</label>
+                                <div class="flex items-center gap-4">
+                                    <input type="range" id="calc2-years" min="1" max="5" value="2" class="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer" oninput="document.getElementById('years-val').innerText = this.value; calculateLongevity()">
+                                    <span id="years-val" class="text-xl font-bold min-w-[1ch]">2</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/10 rounded-2xl p-6 border border-white/20 text-center backdrop-blur-sm">
+                            <span class="block text-sm text-rl-lightblue uppercase tracking-wider font-semibold mb-2">Forventet bevaret merværdi (10% pr. år):</span>
+                            <div class="text-4xl font-bold text-white" id="calc2-result">...</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= CALL TO ACTION ======= -->
+        <section class="py-24 bg-rl-darkblue text-center">
+            <div class="container mx-auto px-6">
+                <h2 class="font-serif text-3xl md:text-5xl text-white mb-6">Skal jeres klub have en færdig løsning på skader, øget spillertid og højere præstation?</h2>
+                <p class="text-rl-lightblue mb-10 max-w-2xl mx-auto text-lg">Vi analyserer klubbens behov, projekterer rummet, og drifter det som en lukrativ, medicinsk funderet luksusoplevelse for jeres spillere.</p>
+                <a href="mailto:kontakt@rechargelife.dk" class="inline-block bg-white text-rl-darkblue font-semibold px-10 py-5 rounded-full hover:bg-rl-lightbg transition duration-300 shadow-xl text-lg">
+                    Book et møde eller præsentation
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======= FOOTER ======= -->
+    <footer id="contact" class="bg-rl-black text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center mb-8">
+                <img src="pictures/Recharge Life_Large_Variant 1_Black.jpg" alt="RechargeLife Ikon" class="h-16 opacity-80 hover:opacity-100 transition">
+            </div>
+            <div class="mt-16 pt-8 border-t border-white/10 text-xs text-rl-lightblue/60">
+                &copy; 2026 RechargeLife - Beyond Living.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======= FLOATING BOOK KNAP ======= -->
+    <a href="mailto:kontakt@rechargelife.dk" class="fixed bottom-8 right-8 z-50 bg-rl-darkblue text-white font-semibold py-3 px-6 rounded-full shadow-2xl hover:scale-105 hover:bg-rl-lightblue hover:text-rl-darkblue transition-all duration-300 flex items-center gap-2 border border-white/20 group">
+        <svg class="w-5 h-5 group-hover:animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+        Book møde
+    </a>
+
+    <!-- ======= JAVASCRIPT ======= -->
+    <script>
+        function calculateSavings() {
+            const salaryPerWeek = parseFloat(document.getElementById('calc1-salary').value) || 0;
+            const injuries = parseFloat(document.getElementById('calc1-injuries').value) || 0;
+            const daysInjured = parseFloat(document.getElementById('calc1-days').value) || 0;
+            
+            const costPerDay = salaryPerWeek / 7;
+            const totalInjuryCostPerYear = injuries * daysInjured * costPerDay;
+            const savingsPerYear = totalInjuryCostPerYear * 0.5;
+            const savingsPerMonth = savingsPerYear / 12;
+            
+            const targetSaving = 2000000;
+            let resultText = "-";
+            
+            if (savingsPerMonth > 0) {
+                const monthsToTarget = targetSaving / savingsPerMonth;
+                resultText = monthsToTarget.toFixed(1) + " mdr.";
+            }
+
+            document.getElementById('calc1-result').innerText = resultText;
+        }
+
+        function calculateLongevity() {
+            const currentValue = parseFloat(document.getElementById('calc2-value').value) || 0;
+            const extraYears = parseFloat(document.getElementById('calc2-years').value) || 0;
+            
+            const retainedValue = currentValue * (extraYears * 0.10);
+            
+            // Konverter til millioner
+            const valueInMillions = retainedValue / 1000000;
+            
+            // Format til "xx,x mio. kr."
+            const formattedValue = valueInMillions.toLocaleString('da-DK', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + " mio. kr.";
+            
+            document.getElementById('calc2-result').innerText = formattedValue;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            calculateSavings();
+            calculateLongevity();
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const counterElement = document.getElementById('hbot-counter');
+                    const finalElement = document.getElementById('hbot-final');
+                    
+                    if (entry.isIntersecting) {
+                        if (!entry.target.classList.contains('in-view')) {
+                            entry.target.classList.add('in-view');
+                            
+                            let start = 70;
+                            let end = 26; 
+                            let duration = 1500;
+                            let range = start - end;
+                            let stepTime = Math.abs(Math.floor(duration / range));
+                            
+                            let timer = setInterval(() => {
+                                start--;
+                                counterElement.innerText = start;
+                                if (start <= end) {
+                                    clearInterval(timer);
+                                    
+                                    // Fader tælleren ud og "21-31" teksten ind når grafen står stille
+                                    counterElement.style.opacity = '0';
+                                    finalElement.style.opacity = '1';
+                                }
+                            }, stepTime);
+                            
+                            entry.target.dataset.timer = timer;
+                        }
+                    } else {
+                        // Nulstiller alting når brugeren scroller væk
+                        entry.target.classList.remove('in-view');
+                        if (entry.target.dataset.timer) {
+                            clearInterval(entry.target.dataset.timer);
+                        }
+                        
+                        counterElement.innerText = "70";
+                        counterElement.style.opacity = '1';
+                        finalElement.style.opacity = '0';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            const chart = document.getElementById('recovery-chart');
+            if (chart) {
+                observer.observe(chart);
+            }
+        });
+    </script>
+</body>
+</html>
