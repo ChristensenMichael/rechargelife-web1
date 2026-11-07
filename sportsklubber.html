@@ -109,14 +109,26 @@
                         <span>DA</span>
                         <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div class="absolute top-full right-0 mt-2 w-28 bg-white border border-rl-lightbg rounded-xl shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto py-1">
-                        <button class="block w-full text-left px-4 py-2 hover:bg-rl-lightbg/50 text-rl-darkblue font-medium">DA</button>
-                        <button class="block w-full text-left px-4 py-2 hover:bg-rl-lightbg/50 text-rl-black">EN</button>
-                        <button class="block w-full text-left px-4 py-2 hover:bg-rl-lightbg/50 text-rl-black">DE</button>
-                    </div>
                 </div>
+
+                <!-- Hamburger Knap (Kun synlig på mobil/tablet) -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none ml-2">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
         </nav>
+        <!-- Mobil Menu Skuffe (Skjult som standard) -->
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-rl-darkblue border-t border-white/10 lg:hidden shadow-xl">
+            <div class="flex flex-col px-6 py-4 space-y-2 text-white text-lg">
+                <a href="sportsklubber.html" class="block py-3 border-b border-white/10">Sportsklubber</a>
+                <a href="medical.html" class="block py-3 border-b border-white/10">Medicinske klinikker</a>
+                <a href="how-it-works.html" class="block py-3 border-b border-white/10">Hvordan det foregår</a>
+                <a href="about.html" class="block py-3 border-b border-white/10">Om RechargeLife</a>
+                <a href="faq.html" class="block py-3">FAQ</a>
+            </div>
+        </div>
     </header>
 
     <!-- ======= HERO SECTION ======= -->
@@ -553,6 +565,15 @@
                     menu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
                 }
             });
+            // Mobil Menu Logik
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
         });
     </script>
 </body>

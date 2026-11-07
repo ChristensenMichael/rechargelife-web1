@@ -81,8 +81,26 @@
                         <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                 </div>
+
+                <!-- Hamburger Knap (Kun synlig på mobil/tablet) -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none ml-2">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
         </nav>
+
+        <!-- Mobil Menu Skuffe (Skjult som standard) -->
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-rl-darkblue border-t border-white/10 lg:hidden shadow-xl">
+            <div class="flex flex-col px-6 py-4 space-y-2 text-white text-lg">
+                <a href="sportsklubber.html" class="block py-3 border-b border-white/10">Sportsklubber</a>
+                <a href="medical.html" class="block py-3 border-b border-white/10">Medicinske klinikker</a>
+                <a href="how-it-works.html" class="block py-3 border-b border-white/10">Hvordan det foregår</a>
+                <a href="about.html" class="block py-3 border-b border-white/10">Om RechargeLife</a>
+                <a href="faq.html" class="block py-3">FAQ</a>
+            </div>
+        </div>
     </header>
 
     <!-- ======= HERO SECTION ======= -->
@@ -303,28 +321,37 @@
         </button>
     </div>
 
-    <!-- JavaScript til at folde kontakt-menuen ud ved KLIK -->
+    <!-- JavaScript til at folde kontakt-menuen og mobil-menuen ud ved KLIK -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Kontakt Menu Logik
             const toggleBtn = document.getElementById('contact-toggle');
-            const menu = document.getElementById('contact-menu');
+            const contactMenu = document.getElementById('contact-menu');
             
             toggleBtn.addEventListener('click', () => {
-                menu.classList.toggle('opacity-0');
-                menu.classList.toggle('pointer-events-none');
-                menu.classList.toggle('translate-y-4');
-                menu.classList.toggle('opacity-100');
-                menu.classList.toggle('pointer-events-auto');
-                menu.classList.toggle('translate-y-0');
+                contactMenu.classList.toggle('opacity-0');
+                contactMenu.classList.toggle('pointer-events-none');
+                contactMenu.classList.toggle('translate-y-4');
+                contactMenu.classList.toggle('opacity-100');
+                contactMenu.classList.toggle('pointer-events-auto');
+                contactMenu.classList.toggle('translate-y-0');
             });
             
             document.addEventListener('click', (event) => {
-                const isClickInside = toggleBtn.contains(event.target) || menu.contains(event.target);
+                const isClickInside = toggleBtn.contains(event.target) || contactMenu.contains(event.target);
                 
-                if (!isClickInside && menu.classList.contains('opacity-100')) {
-                    menu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
-                    menu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                if (!isClickInside && contactMenu.classList.contains('opacity-100')) {
+                    contactMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                    contactMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
                 }
+            });
+
+            // Mobil Menu Logik
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
         });
     </script>
