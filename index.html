@@ -66,9 +66,24 @@
                 <img src="pictures/Recharge Life_Large_Transparent_Variant 1.png" alt="RechargeLife Logo" class="h-20 md:h-28 -ml-4 md:-ml-6 object-contain object-left transition-transform duration-300 group-hover:scale-105">
             </a>
             
-            <div class="hidden lg:flex items-center gap-6 font-medium text-sm text-white">
-                <a href="sportsklubber.html" class="hover-underline-animation">Sportsklubber</a>
-                <a href="medical.html" class="hover-underline-animation">Medicinske klinikker</a>
+            <div class="hidden lg:flex items-center gap-8 font-medium text-sm text-white relative">
+                <!-- Dropdown for Løsninger -->
+                <div class="group relative py-2">
+                    <button class="flex items-center gap-1 hover-underline-animation focus:outline-none cursor-pointer">
+                        Løsninger
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    
+                    <div class="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border border-rl-lightbg rounded-xl shadow-xl w-64 py-2 overflow-hidden flex flex-col">
+                            <a href="sportsklubber.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Sportsklubber</a>
+                            <a href="medical.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Medicinske klinikker</a>
+                            <a href="bluezonefitness.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Blue-zone fitness kæder</a>
+                            <a href="hotel.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition">Hotel- og konferencecentre</a>
+                        </div>
+                    </div>
+                </div>
+
                 <a href="how-it-works.html" class="hover-underline-animation">Hvordan det foregår</a>
                 <a href="about.html" class="hover-underline-animation">Om RechargeLife</a>
                 <a href="faq.html" class="hover-underline-animation">FAQ</a>

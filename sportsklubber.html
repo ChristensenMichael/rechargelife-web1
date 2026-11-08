@@ -95,9 +95,25 @@
                 <img src="pictures/Recharge Life_Large_Transparent_Variant 1.png" alt="RechargeLife Logo" class="h-20 md:h-28 -ml-4 md:-ml-6 object-contain object-left transition-transform duration-300 group-hover:scale-105">
             </a>
             
-            <div class="hidden lg:flex items-center gap-6 font-medium text-sm text-white">
-                <a href="sportsklubber.html" class="text-rl-lightblue font-semibold border-b border-rl-lightblue">Sportsklubber</a>
-                <a href="medical.html" class="hover-underline-animation">Medicinske klinikker</a>
+            <div class="hidden lg:flex items-center gap-8 font-medium text-sm text-white relative">
+                <!-- Dropdown for Løsninger -->
+                <div class="group relative py-2">
+                    <!-- ÆNDRING: "Løsninger" er nu gjort lyseblå (text-rl-lightblue) og har fået en fast understregning (border-b pb-1) i stedet for hover-effekten -->
+                    <button class="flex items-center gap-1 text-rl-lightblue font-semibold border-b border-rl-lightblue pb-1 focus:outline-none cursor-pointer">
+                        Løsninger
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    
+                    <div class="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border border-rl-lightbg rounded-xl shadow-xl w-64 py-2 overflow-hidden flex flex-col">
+                            <a href="sportsklubber.html" class="px-5 py-3 text-rl-darkblue font-bold bg-rl-lightbg/50 border-b border-rl-lightbg/30">Sportsklubber</a>
+                            <a href="medical.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Medicinske klinikker</a>
+                            <a href="bluezonefitness.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Blue-zone fitness kæder</a>
+                            <a href="hotel.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition">Hotel- og konferencecentre</a>
+                        </div>
+                    </div>
+                </div>
+
                 <a href="how-it-works.html" class="hover-underline-animation">Hvordan det foregår</a>
                 <a href="about.html" class="hover-underline-animation">Om RechargeLife</a>
                 <a href="faq.html" class="hover-underline-animation">FAQ</a>
@@ -111,7 +127,7 @@
                     </button>
                 </div>
 
-                <!-- Hamburger Knap (Kun synlig på mobil/tablet) -->
+                <!-- Hamburger Knap -->
                 <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none ml-2">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -119,10 +135,10 @@
                 </button>
             </div>
         </nav>
-        <!-- Mobil Menu Skuffe (Skjult som standard) -->
+        <!-- Mobil Menu Skuffe -->
         <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-rl-darkblue border-t border-white/10 lg:hidden shadow-xl">
             <div class="flex flex-col px-6 py-4 space-y-2 text-white text-lg">
-                <a href="sportsklubber.html" class="block py-3 border-b border-white/10">Sportsklubber</a>
+                <a href="sportsklubber.html" class="block py-3 border-b border-white/10 text-rl-lightblue font-bold">Sportsklubber</a>
                 <a href="medical.html" class="block py-3 border-b border-white/10">Medicinske klinikker</a>
                 <a href="how-it-works.html" class="block py-3 border-b border-white/10">Hvordan det foregår</a>
                 <a href="about.html" class="block py-3 border-b border-white/10">Om RechargeLife</a>
@@ -135,8 +151,9 @@
     <main>
         <section class="relative flex items-center min-h-[70vh] py-20 overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <img src="https://images.unsplash.com/photo-1765046876564-aa4034b6c71a?q=80&w=2000&auto=format&fit=crop" alt="Team spirit" class="h-full w-full object-cover object-center">
-                <div class="absolute inset-0 bg-rl-darkblue/75 mix-blend-multiply"></div>
+                <!-- Billede ændret til performance/fokus i stedet for jubel -->
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=2000&auto=format&fit=crop" alt="Athlete focus and performance" class="h-full w-full object-cover object-center">
+                <div class="absolute inset-0 bg-rl-darkblue/80 mix-blend-multiply"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] via-transparent to-transparent opacity-90"></div>
             </div>
 
@@ -149,7 +166,7 @@
                         Den ultimative fordel på banen
                     </h1>
                     <p class="text-white/90 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
-                        Giv jeres atleter en unik, luksuriøs behandling. Med et avanceret trykkammer-setup (HBOT) øger I performance, forbedrer VO2Max, og skaber rammerne for en uovertruffen holdånd efter kampen.
+                        Beskyt jeres trup og optimer 'return-to-play'. Med et medicinsk funderet trykkammer-setup (HBOT) øger I performance, forbedrer VO2Max, og halverer skadesperioden for kritiske muskelskader.
                     </p>
                 </div>
             </div>
@@ -203,19 +220,15 @@
                             <!-- Overlapping Bar Chart med Y-akse -->
                             <div id="recovery-chart" class="relative h-[22rem] w-[85%] mx-auto mt-24 border-b-2 border-l-2 border-rl-lightbg ml-10">
                                 
-                                <!-- Y-akse Mærker -->
                                 <div class="absolute -left-2 top-0 w-2 h-0.5 bg-rl-lightbg z-0"></div>
                                 <span class="absolute -left-8 -top-3 text-rl-taupe font-bold text-sm z-0">70</span>
                                 
                                 <div class="absolute -left-2 bottom-0 w-2 h-0.5 bg-rl-lightbg z-0"></div>
                                 <span class="absolute -left-6 -bottom-3 text-rl-taupe font-bold text-sm z-0">0</span>
                                 
-                                <!-- Baggrund: Konventionel -->
-                                <!-- z-20 på teksten og ikonet så de forbliver synlige, når den blå boks skrumper over -->
                                 <div class="absolute bottom-0 left-0 w-full h-full bg-rl-lightblue/20 rounded-tr-xl z-0 flex flex-col items-center justify-end pb-8 border-t-2 border-r-2 border-dashed border-rl-lightblue">
                                 </div>
                                 
-                                <!-- Konventionel Tekst & Ikon (sat til at ligge FORAN den animerede boks' øverste del, så det står tilbage når den skrumper) -->
                                 <div class="absolute top-[10%] left-1/2 -translate-x-1/2 z-20 flex flex-col items-center w-full">
                                     <span class="text-rl-darkblue font-medium text-sm md:text-base mb-3 block">Konventionel behandling</span>
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-rl-darkblue/70">
@@ -226,15 +239,11 @@
                                     </svg>
                                 </div>
 
-                                <!-- Forgrund: HBOT -->
                                 <div class="animate-overlap-bar absolute bottom-0 left-0 w-full bg-rl-darkblue rounded-tr-xl z-10 flex flex-col justify-end shadow-2xl">
-                                    
-                                    <!-- Tracker linje til Y-aksen der følger toppen af grafen -->
                                     <div class="absolute top-0 -left-6 w-6 border-t-2 border-dashed border-rl-darkblue flex items-center z-20">
                                         <div class="absolute -left-1.5 w-3 h-3 rounded-full bg-rl-darkblue -translate-y-1/2"></div>
                                     </div>
 
-                                    <!-- Svævende Tæller -->
                                     <div class="absolute -top-16 left-1/2 -translate-x-1/2 text-center w-32 z-30">
                                         <div class="relative h-10 w-full flex justify-center items-center">
                                             <span id="hbot-counter" class="absolute text-rl-darkblue font-bold text-4xl drop-shadow-sm transition-opacity duration-300">70</span>
@@ -243,7 +252,6 @@
                                         <span class="block text-rl-darkblue text-xs uppercase tracking-widest font-bold mt-1">Dage</span>
                                     </div>
                                     
-                                    <!-- Ikon i bunden -->
                                     <div class="p-4 pb-8 text-center relative z-20">
                                         <span class="text-white font-medium text-sm md:text-base block mb-3">Avanceret HBOT</span>
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 mx-auto text-white">
@@ -261,38 +269,40 @@
                         </div>
                     </div>
 
-                    <!-- Højre side: Evidens og Luksus -->
+                    <!-- Højre side: Evidens (Tidligere luksus/holdånd) -->
                     <div class="space-y-8 flex flex-col mt-0 h-full">
                         <div class="relative rounded-3xl overflow-hidden shadow-2xl flex-grow h-auto min-h-[400px]">
-                            <img src="Pictures/DressingRoomHuddle.jpg" alt="Team spirit" class="absolute inset-0 w-full h-full object-cover">
+                            <!-- Billede ændret til atlet i restitution/behandling -->
+                            <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1200&auto=format&fit=crop" alt="Athlete recovery" class="absolute inset-0 w-full h-full object-cover">
                             <div class="absolute inset-0 bg-rl-darkblue/20"></div>
                         </div>
 
                         <div class="bg-rl-lightbg/30 p-8 rounded-3xl border border-rl-lightbg">
-                            <h3 class="font-serif text-2xl text-rl-darkblue mb-4">Evidensbaseret recovery</h3>
+                            <!-- Fokus flyttet fra holdånd til klinisk effekt -->
+                            <h3 class="font-serif text-2xl text-rl-darkblue mb-4">Klinisk acceleration af vævsheling</h3>
                             <p class="text-rl-black/80 mb-6 leading-relaxed">
-                                Efter en udmattende kamp er et fælles recovery-miljø uvurderligt. Mens atleterne restituerer luksuriøst sammen og opbygger holdånden, arbejder 100% ilt under tryk på at reparere mikrotraumer.
+                                I elitesport er tid lig med point og lønkroner. HBOT er ikke wellness, det er fysiologisk manipulation. Ved at udsætte beskadiget væv for 100 % ilt under tryk, forcerer vi kroppens egen mikrotraume-reparation og nedbringer den kritiske inaktive fase markant.
                             </p>
                             <ul class="space-y-4">
                                 <li class="flex items-start gap-3">
                                     <svg class="w-6 h-6 text-rl-darkblue shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                     <div>
                                         <h4 class="font-semibold text-rl-black">Reducerer ødem og inflammation</h4>
-                                        <p class="text-sm text-rl-taupe mt-1">Trykket formindsker hævelser ved akutte sportsskader øjeblikkeligt.</p>
+                                        <p class="text-sm text-rl-taupe mt-1">Trykket formindsker hævelser ved akutte sportsskader øjeblikkeligt, hvilket lader rehabiliteringen starte tidligere.</p>
                                     </div>
                                 </li>
                                 <li class="flex items-start gap-3">
                                     <svg class="w-6 h-6 text-rl-darkblue shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                     <div>
                                         <h4 class="font-semibold text-rl-black">Hurtigere kollagen-syntese</h4>
-                                        <p class="text-sm text-rl-taupe mt-1">Kritisk for at genopbygge brusk, ledbånd og muskelfibre op til 50% hurtigere.</p>
+                                        <p class="text-sm text-rl-taupe mt-1">Kritisk for at genopbygge brusk, ledbånd og muskelfibre med en strukturel styrke, der modvirker tilbagefald.</p>
                                     </div>
                                 </li>
                                 <li class="flex items-start gap-3">
                                     <svg class="w-6 h-6 text-rl-darkblue shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                     <div>
                                         <h4 class="font-semibold text-rl-black">Angiogenese (nye blodkar)</h4>
-                                        <p class="text-sm text-rl-taupe mt-1">Fremmer dannelsen af nye blodkar til beskadiget væv og sener (som normalt har dårlig blodtilførsel).</p>
+                                        <p class="text-sm text-rl-taupe mt-1">Fremmer dannelsen af nye blodkar til beskadiget væv og ledbånd (der normalt har dårlig blodtilførsel).</p>
                                     </div>
                                 </li>
                             </ul>
@@ -323,17 +333,14 @@
                         <div class="space-y-4 mb-8">
                             <div>
                                 <label class="block text-sm font-semibold text-rl-black mb-1">Gns. løn pr. uge pr. spiller (DKK)</label>
-                                <!-- Opdateret til FC Nordsjælland gns. (70 mio / 29 spillere / 52 uger) -->
                                 <input type="number" id="calc1-salary" class="rl-input" value="46419" oninput="calculateSavings()">
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-rl-black mb-1">Antal skader i truppen pr. sæson</label>
-                                <!-- Opdateret til 50 skader -->
                                 <input type="number" id="calc1-injuries" class="rl-input" value="50" oninput="calculateSavings()">
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-rl-black mb-1">Gns. fraværsdage pr. skade</label>
-                                <!-- Opdateret til 20 dage -->
                                 <input type="number" id="calc1-days" class="rl-input" value="20" oninput="calculateSavings()">
                             </div>
                         </div>
@@ -356,7 +363,6 @@
                         
                         <div class="space-y-4 mb-8">
                             <div>
-                                <!-- Label opdateret til at vise mio. DKK, og value sat til 335 -->
                                 <label class="block text-sm font-semibold text-rl-lightblue mb-1">Samlet værdi af truppens spillere (mio. DKK)</label>
                                 <input type="number" id="calc2-value" class="rl-input border-transparent bg-white/10 text-white focus:bg-white focus:text-rl-black" value="335" oninput="calculateLongevity()">
                             </div>
@@ -383,8 +389,9 @@
         <!-- ======= CALL TO ACTION ======= -->
         <section class="py-24 bg-rl-darkblue text-center">
             <div class="container mx-auto px-6">
+                <!-- CTA opdateret til at fokusere på drift som en integreret del -->
                 <h2 class="font-serif text-3xl md:text-5xl text-white mb-6">Skal jeres klub have en færdig løsning på skader, øget spillertid og højere præstation?</h2>
-                <p class="text-rl-lightblue mb-10 max-w-2xl mx-auto text-lg">Vi analyserer klubbens behov, projekterer rummet, og drifter det som en lukrativ, medicinsk funderet luksusoplevelse for jeres spillere.</p>
+                <p class="text-rl-lightblue mb-10 max-w-2xl mx-auto text-lg">Vi analyserer klubbens behov, projekterer rummet, og drifter det som en integreret, evidensbaseret del af jeres medicinske stab, der beviseligt forlænger spillernes topniveau.</p>
                 <a href="mailto:kontakt@rechargelife.dk" class="inline-block bg-white text-rl-darkblue font-semibold px-10 py-5 rounded-full hover:bg-rl-lightbg transition duration-300 shadow-xl text-lg">
                     Book et møde eller præsentation
                 </a>
@@ -399,7 +406,6 @@
         </div>
         <div class="container mx-auto px-6 text-center">
                 <div class="flex justify-center mb-8">
-                    <!-- Det gyldne ikon i footeren med scale-effekt -->
                     <img src="pictures/Recharge Life_Large_Transparent_Variant 1.png" alt="RechargeLife logo" class="h-20 transition-transform duration-300 hover:scale-105">
                 </div>
                 <div class="max-w-xl mx-auto space-y-6">
@@ -414,20 +420,13 @@
     
     <!-- ======= FLOATING KONTAKT OS KNAP MED KLIK-UDFOLDNING ======= -->
     <div class="fixed bottom-8 right-8 z-50">
-        
-        <!-- De små under-knapper (WhatsApp og Email) der folder sig ud (skjult som standard) -->
-        <!-- Toggle-funktionalitet klares af det lille JavaScript i bunden -->
         <div id="contact-menu" class="absolute bottom-full right-0 mb-4 flex flex-col gap-3 items-end opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4">
-            
-            <!-- Opkald / Telefon Knap -->
             <a href="tel:+4531443772" class="flex items-center gap-2 bg-white text-rl-darkblue px-4 py-2.5 rounded-full shadow-xl hover:scale-105 transition-transform border border-rl-lightbg/50">
                 <span class="text-sm font-semibold whitespace-nowrap">Ring til os</span>
                 <svg fill="currentColor" viewBox="0 0 20 20" class="w-5 h-5">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
                 </svg>
             </a>
-            
-            <!-- Email Knap -->
             <a href="mailto:kontakt@rechargelife.dk" class="flex items-center gap-2 bg-white text-rl-darkblue px-4 py-2.5 rounded-full shadow-xl hover:scale-105 transition-transform border border-rl-lightbg/50">
                 <span class="text-sm font-semibold whitespace-nowrap">Send en e-mail</span>
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5">
@@ -435,9 +434,6 @@
                 </svg>
             </a>
         </div>
-
-        <!-- Den primære "Kontakt os" knap -->
-        <!-- hover:scale-105 gør den lidt større når musen holdes over -->
         <button id="contact-toggle" class="bg-rl-darkblue text-white font-semibold py-3 px-6 rounded-full shadow-2xl transition-all duration-300 flex items-center gap-2 border border-white/20 hover:scale-105 hover:bg-rl-lightblue hover:text-rl-darkblue group relative z-10">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
@@ -446,7 +442,6 @@
         </button>
     </div>
 
-    <!-- JavaScript til at folde kontakt-menuen ud ved KLIK -->
     <script>
         function calculateSavings() {
             const salaryPerWeek = parseFloat(document.getElementById('calc1-salary').value) || 0;
@@ -470,19 +465,13 @@
         }
 
         function calculateLongevity() {
-            // Henter den nye inputværdi som nu er i millioner (f.eks. 335)
             const currentValueInMillions = parseFloat(document.getElementById('calc2-value').value) || 0;
             const extraYears = parseFloat(document.getElementById('calc2-years').value) || 0;
-            
-            // Beregner den bevarede værdi i millioner
             const valueInMillions = currentValueInMillions * (extraYears * 0.10);
-            
-            // Afrund til hele millioner og formatér som "xx mio. kr."
             const formattedValue = Math.round(valueInMillions).toLocaleString('da-DK') + " mio. kr.";
             
             document.getElementById('calc2-result').innerText = formattedValue;
             
-            // Opdaterer den dynamiske konklusionstekst
             const conclusionEl = document.getElementById('calc2-conclusion');
             if(conclusionEl) {
                 conclusionEl.innerHTML = `Gennem avanceret recovery forhindrer I et tab i truppens samlede salgsværdi på <strong>${formattedValue}</strong>, fordi spillerne bevarer deres topniveau i <strong>${extraYears}</strong> ekstra år.`;
@@ -513,8 +502,6 @@
                                 counterElement.innerText = start;
                                 if (start <= end) {
                                     clearInterval(timer);
-                                    
-                                    // Fader tælleren ud og "21-31" teksten ind når grafen står stille
                                     counterElement.style.opacity = '0';
                                     finalElement.style.opacity = '1';
                                 }
@@ -523,12 +510,10 @@
                             entry.target.dataset.timer = timer;
                         }
                     } else {
-                        // Nulstiller alting når brugeren scroller væk
                         entry.target.classList.remove('in-view');
                         if (entry.target.dataset.timer) {
                             clearInterval(entry.target.dataset.timer);
                         }
-                        
                         counterElement.innerText = "70";
                         counterElement.style.opacity = '1';
                         finalElement.style.opacity = '0';
@@ -556,7 +541,6 @@
                 menu.classList.toggle('translate-y-0');
             });
             
-            // Lukker menuen hvis man klikker uden for knappen
             document.addEventListener('click', (event) => {
                 const isClickInside = toggleBtn.contains(event.target) || menu.contains(event.target);
                 
@@ -565,7 +549,7 @@
                     menu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
                 }
             });
-            // Mobil Menu Logik
+
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             
