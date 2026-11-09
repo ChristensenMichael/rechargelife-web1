@@ -5,15 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RechargeLife | Blue-Zone Fitness & Longevity</title>
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter & Belleza -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind Konfiguration -->
     <script>
         tailwind.config = {
             theme: {
@@ -36,14 +32,9 @@
     
     <style>
         .hover-underline-animation { position: relative; }
-        .hover-underline-animation::after {
-            content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 1px; bottom: -4px; left: 0; background-color: #ffffff; transform-origin: bottom right; transition: transform 0.25s ease-out;
-        }
+        .hover-underline-animation::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 1px; bottom: -4px; left: 0; background-color: #ffffff; transform-origin: bottom right; transition: transform 0.25s ease-out; }
         .hover-underline-animation:hover::after { transform: scaleX(1); transform-origin: bottom left; }
-        
-        .rl-input {
-            width: 100%; padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px solid #E0DFD8; background-color: #FAF9F6; color: #151F28; font-weight: 500; transition: all 0.3s ease;
-        }
+        .rl-input { width: 100%; padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px solid #E0DFD8; background-color: #FAF9F6; color: #151F28; font-weight: 500; transition: all 0.3s ease; }
         .rl-input:focus { outline: none; border-color: #013F58; box-shadow: 0 0 0 3px rgba(1, 63, 88, 0.1); }
     </style>
 </head>
@@ -52,15 +43,12 @@
     <!-- ======= HEADER / NAVIGATION ======= -->
     <header class="bg-rl-darkblue shadow-md sticky top-0 z-50 border-b border-rl-darkblue/50 h-20 flex items-center">
         <nav class="container mx-auto px-6 flex items-center justify-between w-full">
-            
             <a href="index.html" class="flex items-center group py-2">
                 <img src="pictures/Recharge Life_Large_Transparent_Variant 1.png" alt="RechargeLife Logo" class="h-20 md:h-28 -ml-4 md:-ml-6 object-contain object-left transition-transform duration-300 group-hover:scale-105">
             </a>
             
             <div class="hidden lg:flex items-center gap-8 font-medium text-sm text-white relative">
-                <!-- Dropdown for Løsninger -->
                 <div class="group relative py-2">
-                    <!-- Fremhævet "Løsninger" -->
                     <button class="flex items-center gap-1 text-rl-lightblue font-semibold border-b border-rl-lightblue pb-1 focus:outline-none cursor-pointer">
                         Løsninger
                         <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -70,9 +58,8 @@
                         <div class="bg-white border border-rl-lightbg rounded-xl shadow-xl w-64 py-2 overflow-hidden flex flex-col">
                             <a href="sportsklubber.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Sportsklubber</a>
                             <a href="medical.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Medicinske klinikker</a>
-                            <!-- Aktiv side fremhævet her -->
                             <a href="bluezonefitness.html" class="px-5 py-3 text-rl-darkblue font-bold bg-rl-lightbg/50 border-b border-rl-lightbg/30">Blue-zone fitness kæder</a>
-                            <a href="hotel.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition">Hotel- og konferencecentre</a>
+                            <a href="hotel.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Hotel- og konferencecentre</a>
                         </div>
                     </div>
                 </div>
@@ -89,8 +76,6 @@
                         <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                 </div>
-
-                <!-- Hamburger Knap -->
                 <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none ml-2">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -98,12 +83,12 @@
                 </button>
             </div>
         </nav>
-        <!-- Mobil Menu Skuffe -->
         <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-rl-darkblue border-t border-white/10 lg:hidden shadow-xl">
             <div class="flex flex-col px-6 py-4 space-y-2 text-white text-lg">
                 <a href="sportsklubber.html" class="block py-3 border-b border-white/10">Sportsklubber</a>
                 <a href="medical.html" class="block py-3 border-b border-white/10">Medicinske klinikker</a>
                 <a href="bluezonefitness.html" class="block py-3 border-b border-white/10 text-rl-lightblue font-bold">Blue-zone fitness kæder</a>
+                <a href="hotel.html" class="block py-3 border-b border-white/10">Hotel- og konferencecentre</a>
                 <a href="how-it-works.html" class="block py-3 border-b border-white/10">Hvordan det foregår</a>
                 <a href="about.html" class="block py-3 border-b border-white/10">Om RechargeLife</a>
                 <a href="faq.html" class="block py-3">FAQ</a>
@@ -115,7 +100,6 @@
     <main>
         <section class="relative flex items-center min-h-[70vh] py-20 overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <!-- Billede af luksuriøst, meditativt recovery miljø -->
                 <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=2000&auto=format&fit=crop" alt="Premium Wellness Recovery" class="h-full w-full object-cover object-center">
                 <div class="absolute inset-0 bg-rl-darkblue/70 mix-blend-multiply"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] via-transparent to-transparent opacity-90"></div>
@@ -148,9 +132,7 @@
 
                 <div class="grid lg:grid-cols-2 gap-16 items-start">
                     
-                    <!-- Venstre side: Telomer og Energi Grafer -->
                     <div class="space-y-12">
-                        
                         <div class="bg-white p-8 rounded-3xl shadow-md border border-rl-lightbg">
                             <h3 class="font-serif text-2xl text-rl-darkblue mb-6">Biologisk foryngelse</h3>
                             <div class="flex flex-col sm:flex-row gap-8 justify-around">
@@ -173,9 +155,8 @@
                             </div>
                         </div>
 
-                        <!-- Kognitivt Overskud & Glød -->
                         <div class="bg-white p-8 rounded-3xl shadow-md border border-rl-lightbg">
-                            <h3 class="font-serif text-2xl text-rl-darkblue mb-4">Executive Performance & Velvære</h3>
+                            <h3 class="font-serif text-2xl text-rl-darkblue mb-4">Executive performance og velvære</h3>
                             <p class="text-sm text-rl-taupe mb-8">Når ilt opløses direkte i blodplasmaet under tryk, når den ud til væv og hjerneregioner, som normalt er underforsynede.</p>
                             
                             <ul class="space-y-6">
@@ -210,10 +191,8 @@
                         </div>
                     </div>
 
-                    <!-- Højre side: Synergi og luksus -->
                     <div class="space-y-8 flex flex-col h-full">
                         <div class="relative rounded-3xl overflow-hidden shadow-2xl flex-grow h-auto min-h-[300px]">
-                            <!-- Billede af luksuriøs afslapning/biohacking miljø -->
                             <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop" alt="Premium Wellness Spa" class="absolute inset-0 w-full h-full object-cover">
                             <div class="absolute inset-0 bg-rl-darkblue/10"></div>
                         </div>
@@ -225,6 +204,13 @@
                             </p>
                             <div class="space-y-4">
                                 <div class="bg-white p-4 rounded-2xl border border-rl-lightbg/50 shadow-sm flex items-center gap-4">
+                                    <span class="text-2xl">🔥</span>
+                                    <div>
+                                        <h4 class="font-semibold text-rl-black text-sm">Efter infrarød sauna eller photobiomodulation</h4>
+                                        <p class="text-xs text-rl-taupe">Åbne porer og vasodilaterede kar efter saunaen gør iltoptagelsen under tryk endnu mere effektiv.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-2xl border border-rl-lightbg/50 shadow-sm flex items-center gap-4">
                                     <span class="text-2xl">❄️</span>
                                     <div>
                                         <h4 class="font-semibold text-rl-black text-sm">Efter Isbadet</h4>
@@ -232,23 +218,110 @@
                                     </div>
                                 </div>
                                 <div class="bg-white p-4 rounded-2xl border border-rl-lightbg/50 shadow-sm flex items-center gap-4">
-                                    <span class="text-2xl">🔥</span>
-                                    <div>
-                                        <h4 class="font-semibold text-rl-black text-sm">Med Infrarød Sauna</h4>
-                                        <p class="text-xs text-rl-taupe">Åbne porer og vasodilaterede kar efter saunaen gør iltoptagelsen under tryk endnu mere effektiv.</p>
-                                    </div>
-                                </div>
-                                <div class="bg-white p-4 rounded-2xl border border-rl-lightbg/50 shadow-sm flex items-center gap-4">
                                     <span class="text-2xl">💧</span>
                                     <div>
-                                        <h4 class="font-semibold text-rl-black text-sm">Før IV-Terapi</h4>
-                                        <p class="text-xs text-rl-taupe">Øget mikrocirkulation fra kammeret sikrer optimal og hurtigere cellulær optagelse af vitamin-drop.</p>
+                                        <h4 class="font-semibold text-rl-black text-sm">Før hydrogen-terapi</h4>
+                                        <p class="text-xs text-rl-taupe">Sænker inflamationen og sikrer optimal og hurtigere cellulær heling.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- ======= SOCIAL PROOF: STREAMER & BIOHACKING ELITEN ======= -->
+        <section class="py-20 bg-rl-darkblue text-white overflow-hidden border-t border-white/10">
+            <div class="w-full bg-rl-black/50 py-4 mb-16 relative flex items-center border-y border-white/10">
+                <div class="absolute left-0 w-16 h-full bg-gradient-to-r from-rl-darkblue to-transparent z-10 pointer-events-none"></div>
+                <div class="absolute right-0 w-16 h-full bg-gradient-to-l from-rl-darkblue to-transparent z-10 pointer-events-none"></div>
+                
+                <style>
+                    @keyframes scroll {
+                        0% { transform: translateX(0); }
+                        100% { transform: translateX(-50%); }
+                    }
+                    .animate-scroll { animation: scroll 30s linear infinite; display: flex; width: max-content; }
+                    .animate-scroll:hover { animation-play-state: paused; }
+                </style>
+
+                <div class="animate-scroll gap-12 px-6 items-center">
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">Bryan Johnson (Blueprint)</span>
+                    <span class="text-rl-lightblue">•</span>
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">Next Health</span>
+                    <span class="text-rl-lightblue">•</span>
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">Gary Brecka (The Ultimate Human)</span>
+                    <span class="text-rl-lightblue">•</span>
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">Remedy Place</span>
+                    <span class="text-rl-lightblue">•</span>
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">Tony Robbins & Dr. Peter Diamandis</span>
+                    <span class="text-rl-lightblue">•</span>
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">AYUN Zürich</span>
+                    <span class="text-rl-lightblue">•</span>
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">Dr. Mark Hyman</span>
+                    <span class="text-rl-lightblue">•</span>
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">Alo Yoga Beverly Hills</span>
+                    <span class="text-rl-lightblue">•</span>
+                    
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">Bryan Johnson (Blueprint)</span>
+                    <span class="text-rl-lightblue">•</span>
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">Next Health</span>
+                    <span class="text-rl-lightblue">•</span>
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">Gary Brecka (The Ultimate Human)</span>
+                    <span class="text-rl-lightblue">•</span>
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">Remedy Place</span>
+                    <span class="text-rl-lightblue">•</span>
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">Tony Robbins & Dr. Peter Diamandis</span>
+                    <span class="text-rl-lightblue">•</span>
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">AYUN Zürich</span>
+                    <span class="text-rl-lightblue">•</span>
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">Dr. Mark Hyman</span>
+                    <span class="text-rl-lightblue">•</span>
+                    <span class="text-xl font-serif text-white/80 whitespace-nowrap">Alo Yoga Beverly Hills</span>
+                    <span class="text-rl-lightblue">•</span>
+                </div>
+            </div>
+
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="font-serif text-3xl md:text-5xl text-white">Et "Who's Who" inden for Biohacking</h2>
+                    <p class="text-rl-lightblue mt-4 text-lg">Når I vælger HPO.TECH gennem RechargeLife, træder I ind i et globalt netværk af de mest anerkendte stemmer og klinikker inden for longevity.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white/5 rounded-3xl p-8 border border-white/10 hover:bg-white/10 transition duration-300 relative overflow-hidden group">
+                        <div class="absolute -right-4 -top-4 text-6xl opacity-10 group-hover:scale-110 transition-transform">🧬</div>
+                        <h3 class="font-serif text-2xl text-white mb-4">Verdens stærkeste ambassadører</h3>
+                        <p class="text-sm text-white/70 mb-4">Den ypperste elite har valgt HPO.TECH til deres personlige protokoller:</p>
+                        <ul class="space-y-3 text-sm text-rl-lightblue">
+                            <li class="flex items-start gap-2"><span>•</span> <strong>Bryan Johnson (Blueprint):</strong> Bruger et ZEUGMA-kammer til sin 12-ugers HBOT-protokol.</li>
+                            <li class="flex items-start gap-2"><span>•</span> <strong>Gary Brecka (Ultimate Human):</strong> Behandler i den forlængede MEDITERRANEAN model.</li>
+                            <li class="flex items-start gap-2"><span>•</span> <strong>Fountain Life:</strong> Stiftet af Tony Robbins & Dr. Peter Diamandis.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white/5 rounded-3xl p-8 border border-white/10 hover:bg-white/10 transition duration-300 relative overflow-hidden group">
+                        <div class="absolute -right-4 -top-4 text-6xl opacity-10 group-hover:scale-110 transition-transform">🏢</div>
+                        <h3 class="font-serif text-2xl text-white mb-4">Globale klub- og klinikreferencer</h3>
+                        <p class="text-sm text-white/70 mb-4">Integreret i de mest luksuriøse wellness-koncepter verden over:</p>
+                        <ul class="space-y-3 text-sm text-rl-lightblue">
+                            <li class="flex items-start gap-2"><span>•</span> <strong>Next Health (USA):</strong> 25+ lokationer med "NH"-brandede ATLANTIS kamre.</li>
+                            <li class="flex items-start gap-2"><span>•</span> <strong>Remedy Place:</strong> Flåder af kamre i SoHo og Boston Seaport.</li>
+                            <li class="flex items-start gap-2"><span>•</span> <strong>Eksklusivitet:</strong> Alo Yoga (Beverly Hills), AYUN (Zürich), MTM Gym (Berlin) og Lejonkliniken (Stockholm).</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-rl-lightblue/10 rounded-3xl p-8 border border-rl-lightblue/30 hover:bg-rl-lightblue/20 transition duration-300 relative overflow-hidden group">
+                        <div class="absolute -right-4 -top-4 text-6xl opacity-10 group-hover:scale-110 transition-transform">🤝</div>
+                        <h3 class="font-serif text-2xl text-white mb-4">Den sociale vinkel: "Shared HBOT"</h3>
+                        <p class="text-sm text-white/80 leading-relaxed">
+                            Med modeller som <strong>ATLANTIS</strong> og <strong>ZEUGMA PANORAMA</strong> kan to medlemmer dele oplevelsen samtidigt. 
+                        </p>
+                        <p class="text-sm text-white/80 mt-3 leading-relaxed">
+                            Dette fordobler jeres kapacitet på nøjagtig samme gulvareal. De store panoramavinduer og den sociale interaktion fjerner al klaustrofobi og gør behandlingen til et fælles højdepunkt.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -256,7 +329,6 @@
         <!-- ======= BEREGNER (Premium Medlemskaber) ======= -->
         <section class="py-20 bg-white border-t border-rl-lightbg">
             <div class="container mx-auto px-6">
-                
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-taupe">Business Case</span>
                     <h2 class="font-serif text-3xl md:text-5xl text-rl-darkblue mt-2">High-Ticket medlemskaber</h2>
@@ -301,37 +373,141 @@
                 </a>
             </div>
         </section>
-
     </main>
 
     <!-- ======= FOOTER ======= -->
-    <footer id="contact" class="bg-rl-black text-white py-16">
-        <div class="container mx-auto px-6 text-center">
-            <div class="flex justify-center mb-8">
-                <img src="pictures/Recharge Life_Large_Variant 1_Black.jpg" alt="RechargeLife logo" class="h-16 opacity-80 hover:opacity-100 transition">
+    <footer class="bg-rl-darkblue text-white pt-20 pb-12 border-t border-white/10">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-sm text-rl-lightbg/80 font-light tracking-wide mb-12">
+                
+                <!-- Kolonne 1: RechargeLife -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">RechargeLife</h4>
+                    <ul class="space-y-4">
+                        <li><a href="about.html" class="hover:text-white transition-colors duration-200">Om</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Finansiering</a></li>
+                        <li><a href="https://www.rechargelife.dk" target="_blank" class="hover:text-white transition-colors duration-200">Pilotklinik</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolonne 2: Løsninger -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">Løsninger</h4>
+                    <ul class="space-y-4">
+                        <li><a href="sportsklubber.html" class="hover:text-white transition-colors duration-200">Sportsklubber</a></li>
+                        <li><a href="bluezonefitness.html" class="hover:text-white transition-colors duration-200">Blue-zone fitness</a></li>
+                        <li><a href="medical.html" class="hover:text-white transition-colors duration-200">Medicinske klinikker</a></li>
+                        <li><a href="hotel.html" class="hover:text-white transition-colors duration-200">Hoteller & konferencecentre</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolonne 3: Vilkår -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">Vilkår</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Vilkår & betingelser</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Privatlivspolitik</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Cookie-politik</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolonne 4: Følg med & Nyhedsbrev -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">Følg med</h4>
+                    
+                    <div class="flex gap-4 mb-8">
+                        <a href="https://instagram.com/rechargelifehbotdk/" target="_blank" class="hover:text-white transition" aria-label="Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://facebook.com/RechargeLifeDK" target="_blank" class="hover:text-white transition" aria-label="Facebook">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/company/rechargelife-dk" target="_blank" class="hover:text-white transition" aria-label="LinkedIn">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="tel:+4531443772" class="hover:text-white transition" aria-label="Telefon">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Nyhedsbrev -->
+                    <p class="mb-4">Tilmeld dig nyhedsbrevet, og vær blandt de første til at høre om nyheder og tilbud.</p>
+                    <form action="https://formspree.io/f/mnppkeeq" method="POST" target="_blank" class="flex items-end pb-2 border-b border-rl-lightbg/30 mt-3">
+                        <input type="email" name="Nyhedsbrev_Email" placeholder="Din e-mail" required class="bg-transparent w-full text-white placeholder-rl-lightbg/50 focus:outline-none font-light">
+                        <input type="hidden" name="_next" value="tak-nyhedsbrev.html">
+                        <button type="submit" class="uppercase text-xs font-semibold tracking-wider hover:text-white transition-colors shrink-0">Abonnér</button>
+                    </form>
+                </div>
             </div>
-            <div class="mt-16 pt-8 border-t border-white/10 text-xs text-rl-lightblue/60">
-                &copy; 2026 RechargeLife - Beyond Living.
+            
+            <div class="pt-8 mt-4 border-t border-white/10 text-xs text-rl-lightbg/60 text-center md:text-left">
+                &copy; 2026 RechargeLife - Beyond Living. CVR: 45890589. Recovery klinik, leasing, udlejning og driftede trykkammerløsninger.
             </div>
         </div>
     </footer>
 
-    <!-- ======= FLOATING KONTAKT OS KNAP MED KLIK-UDFOLDNING ======= -->
-    <div class="fixed bottom-8 right-8 z-50">
-        <div id="contact-menu" class="absolute bottom-full right-0 mb-4 flex flex-col gap-3 items-end opacity-0 pointer-events-none transition-all duration-300 transform translate-y-4">
-            <a href="tel:+4531443772" class="flex items-center gap-2 bg-white text-rl-darkblue px-4 py-2.5 rounded-full shadow-xl hover:scale-105 transition-transform border border-rl-lightbg/50">
-                <span class="text-sm font-semibold whitespace-nowrap">Ring til os</span>
-                <svg fill="currentColor" viewBox="0 0 20 20" class="w-5 h-5"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-            </a>
-            <a href="mailto:kontakt@rechargelife.dk" class="flex items-center gap-2 bg-white text-rl-darkblue px-4 py-2.5 rounded-full shadow-xl hover:scale-105 transition-transform border border-rl-lightbg/50">
-                <span class="text-sm font-semibold whitespace-nowrap">Send en e-mail</span>
-                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-            </a>
+    <!-- ======= FAST "BLIV KONTAKTET" KNAP ======= -->
+    <button id="open-contact-modal" class="fixed bottom-0 right-8 z-40 bg-white hover:bg-rl-lightbg text-rl-darkblue font-serif text-sm uppercase tracking-widest px-8 py-4 transition-colors duration-300 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] rounded-t-lg">
+        Bliv kontaktet
+    </button>
+
+    <!-- ======= KONTAKT MODAL (POP-UP) ======= -->
+    <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm p-4">
+        <div class="bg-white w-full max-w-4xl flex flex-col md:flex-row shadow-2xl rounded-sm overflow-hidden transform scale-95 transition-transform duration-300" id="contact-modal-content">
+            
+            <!-- Venstre: Billede af trykkammer -->
+            <div class="hidden md:block md:w-1/2 relative">
+                <img src="https://images.unsplash.com/photo-1581091226033-bf5c4dce7ef2?q=80&w=800&auto=format&fit=crop" alt="HPO.TECH Hyperbaric Chamber" class="w-full h-full object-cover grayscale opacity-90">
+                <div class="absolute inset-0 bg-rl-darkblue/20"></div>
+            </div>
+
+            <!-- Højre: Formular -->
+            <div class="w-full md:w-1/2 p-8 md:p-12 relative bg-[#FAF9F6]">
+                <button id="close-contact-modal" class="absolute top-6 right-6 text-rl-black/50 hover:text-rl-black transition-colors" aria-label="Luk">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-taupe block mb-4">Kontakt</span>
+                <h3 class="font-serif text-3xl md:text-4xl text-rl-black mb-2">Har du nogle spørgsmål?</h3>
+                <p class="text-sm text-rl-black/70 mb-8">Skriv til os, så vender vi tilbage hurtigst muligt.</p>
+
+                <form action="https://formspree.io/f/xkjjldqw" method="POST" class="space-y-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Navn</label>
+                        <input type="text" name="Navn" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="w-1/3">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Landekode</label>
+                            <select name="Landekode" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors cursor-pointer appearance-none">
+                                <option>+45 DK</option><option>+46 SE</option><option>+47 NO</option><option>+49 DE</option>
+                            </select>
+                        </div>
+                        <div class="w-2/3">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Telefon</label>
+                            <input type="tel" name="Telefon" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">E-mail</label>
+                        <input type="email" name="Email" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Kommentar</label>
+                        <textarea name="Kommentar" rows="3" placeholder="Skriv dit spørgsmål her" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors resize-none placeholder-rl-lightbg text-sm"></textarea>
+                    </div>
+                    
+                    <input type="hidden" name="_next" value="tak.html">
+
+                    <button type="submit" class="w-full bg-rl-darkblue hover:bg-rl-black text-white font-serif text-sm uppercase tracking-widest py-4 transition-colors duration-300 mt-4">
+                        Kontakt mig
+                    </button>
+                </form>
+            </div>
         </div>
-        <button id="contact-toggle" class="bg-rl-darkblue text-white font-semibold py-3 px-6 rounded-full shadow-2xl transition-all duration-300 flex items-center gap-2 border border-white/20 hover:scale-105 hover:bg-rl-lightblue hover:text-rl-darkblue group relative z-10">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-            Kontakt os
-        </button>
     </div>
 
     <script>
@@ -339,10 +515,8 @@
             const totalMembers = parseFloat(document.getElementById('calc3-members').value) || 0;
             const conversionRate = parseFloat(document.getElementById('calc3-conversion').value) || 0;
             const premiumPrice = parseFloat(document.getElementById('calc3-price').value) || 0;
-            
             const premiumMembers = totalMembers * (conversionRate / 100);
             const annualRevenue = premiumMembers * premiumPrice * 12;
-            
             const formattedValue = Math.round(annualRevenue).toLocaleString('da-DK') + " kr.";
             document.getElementById('calc3-result').innerText = formattedValue;
         }
@@ -350,24 +524,37 @@
         document.addEventListener("DOMContentLoaded", () => {
             calculateBlueZoneROI();
 
-            // Toggle funktionalitet til kontakt knappen
-            const toggleBtn = document.getElementById('contact-toggle');
-            const menu = document.getElementById('contact-menu');
-            toggleBtn.addEventListener('click', () => {
-                menu.classList.toggle('opacity-0');
-                menu.classList.toggle('pointer-events-none');
-                menu.classList.toggle('translate-y-4');
-                menu.classList.toggle('opacity-100');
-                menu.classList.toggle('pointer-events-auto');
-                menu.classList.toggle('translate-y-0');
-            });
-            document.addEventListener('click', (event) => {
-                const isClickInside = toggleBtn.contains(event.target) || menu.contains(event.target);
-                if (!isClickInside && menu.classList.contains('opacity-100')) {
-                    menu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
-                    menu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-                }
-            });
+            // Modal Logik for Bliv Kontaktet
+            const openBtn = document.getElementById('open-contact-modal');
+            const closeBtn = document.getElementById('close-contact-modal');
+            const modal = document.getElementById('contact-modal');
+            const modalContent = document.getElementById('contact-modal-content');
+
+            if (openBtn && modalContent) {
+                openBtn.addEventListener('click', () => {
+                    modal.classList.remove('opacity-0', 'pointer-events-none');
+                    modalContent.classList.remove('scale-95');
+                    modalContent.classList.add('scale-100');
+                });
+            }
+
+            if (closeBtn && modalContent) {
+                closeBtn.addEventListener('click', () => {
+                    modal.classList.add('opacity-0', 'pointer-events-none');
+                    modalContent.classList.remove('scale-100');
+                    modalContent.classList.add('scale-95');
+                });
+            }
+            
+            if (modal && modalContent) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.add('opacity-0', 'pointer-events-none');
+                        modalContent.classList.remove('scale-100');
+                        modalContent.classList.add('scale-95');
+                    }
+                });
+            }
 
             // Mobil Menu Logik
             const mobileBtn = document.getElementById('mobile-menu-btn');
