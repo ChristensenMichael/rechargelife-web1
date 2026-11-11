@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="da" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RechargeLife | Hoteller & Konferencecentre</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Belleza -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Konfiguration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rl-darkblue': '#013F58',
+                        'rl-lightblue': '#B6CCD7',
+                        'rl-taupe': '#94857B',
+                        'rl-lightbg': '#E0DFD8',
+                        'rl-black': '#151F28',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Belleza', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hover-underline-animation { position: relative; }
+        .hover-underline-animation::after {
+            content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 1px; bottom: -4px; left: 0; background-color: #ffffff; transform-origin: bottom right; transition: transform 0.25s ease-out;
+        }
+        .hover-underline-animation:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+        
+        .rl-input {
+            width: 100%; padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px solid #E0DFD8; background-color: #FAF9F6; color: #151F28; font-weight: 500; transition: all 0.3s ease;
+        }
+        .rl-input:focus { outline: none; border-color: #013F58; box-shadow: 0 0 0 3px rgba(1, 63, 88, 0.1); }
+    </style>
+</head>
+<body class="bg-[#FAF9F6] text-rl-black font-sans antialiased">
+
+    <!-- ======= HEADER / NAVIGATION ======= -->
+    <header class="bg-rl-darkblue shadow-md sticky top-0 z-50 border-b border-rl-darkblue/50 h-20 flex items-center">
+        <nav class="container mx-auto px-6 flex items-center justify-between w-full">
+            
+            <a href="index.html" class="flex items-center group py-2">
+                <img src="pictures/Recharge Life_Large_Transparent_Variant 1.png" alt="RechargeLife Logo" class="h-20 md:h-28 -ml-4 md:-ml-6 object-contain object-left transition-transform duration-300 group-hover:scale-105">
+            </a>
+            
+            <div class="hidden lg:flex items-center gap-8 font-medium text-sm text-white relative">
+                <!-- Dropdown for Løsninger -->
+                <div class="group relative py-2">
+                    <!-- Fremhævet "Løsninger" -->
+                    <button class="flex items-center gap-1 text-rl-lightblue font-semibold border-b border-rl-lightblue pb-1 focus:outline-none cursor-pointer">
+                        Løsninger
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    
+                    <div class="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border border-rl-lightbg rounded-xl shadow-xl w-64 py-2 overflow-hidden flex flex-col">
+                            <a href="sportsklubber.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Sportsklubber</a>
+                            <a href="medical.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Medicinske klinikker</a>
+                            <a href="bluezonefitness.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Blue-zone fitness kæder</a>
+                            <!-- Aktiv side fremhævet her -->
+                            <a href="hotel.html" class="px-5 py-3 text-rl-darkblue font-bold bg-rl-lightbg/50 border-b border-rl-lightbg/30">Hotel- og konferencecentre</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="how-it-works.html" class="hover-underline-animation">Hvordan det foregår</a>
+                <a href="about.html" class="hover-underline-animation">Om RechargeLife</a>
+                <a href="faq.html" class="hover-underline-animation">FAQ</a>
+            </div>
+
+            <div class="flex items-center gap-4 text-sm">
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-white font-semibold border border-white/30 rounded-full px-3 py-1.5 bg-transparent hover:bg-white/10 transition">
+                        <span>DA</span>
+                        <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Hamburger Knap -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none ml-2">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobil Menu Skuffe -->
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-rl-darkblue border-t border-white/10 lg:hidden shadow-xl">
+            <div class="flex flex-col px-6 py-4 space-y-2 text-white text-lg">
+                <a href="sportsklubber.html" class="block py-3 border-b border-white/10">Sportsklubber</a>
+                <a href="medical.html" class="block py-3 border-b border-white/10">Medicinske klinikker</a>
+                <a href="bluezonefitness.html" class="block py-3 border-b border-white/10">Blue-zone fitness kæder</a>
+                <a href="hotel.html" class="block py-3 border-b border-white/10 text-rl-lightblue font-bold">Hotel- og konferencecentre</a>
+                <a href="how-it-works.html" class="block py-3 border-b border-white/10">Hvordan det foregår</a>
+                <a href="about.html" class="block py-3 border-b border-white/10">Om RechargeLife</a>
+                <a href="faq.html" class="block py-3">FAQ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ======= HERO SECTION ======= -->
+    <main>
+        <section class="relative flex items-center min-h-[70vh] py-20 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <!-- Billede af luksuriøst hotelmiljø/spa -->
+                <img src="https://images.unsplash.com/photo-1582719478250-c89af14fbbee?q=80&w=2000&auto=format&fit=crop" alt="Premium Hotel Wellness" class="h-full w-full object-cover object-center">
+                <div class="absolute inset-0 bg-rl-darkblue/75 mix-blend-multiply"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] via-transparent to-transparent opacity-90"></div>
+            </div>
+
+            <div class="container relative z-10 mx-auto px-6 pt-10">
+                <div class="max-w-3xl space-y-6">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-rl-darkblue bg-white px-4 py-1.5 rounded-full shadow-lg">
+                        Turnkey Løsning for Executive Hospitality
+                    </span>
+                    <h1 class="font-serif text-5xl md:text-7xl leading-[1.1] text-white text-shadow-sm">
+                        Wellness uden kompromis på rejsen
+                    </h1>
+                    <p class="text-white/90 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
+                        Dine mest krævende gæster afbryder ikke deres longevity-rutiner, blot fordi de rejser. Integrér markedets mest avancerede trykkammer-teknologi sømløst i jeres bookingsystem og tilbyd "Executive Performance" direkte på hotellet.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= EVIDENS OG BIOHACKING ======= -->
+        <section class="py-20 bg-[#FAF9F6]">
+            <div class="container mx-auto px-6">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-taupe">Konference & Jetlag</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-rl-darkblue mt-2">Præstér optimalt på trods af tidszoner</h2>
+                    <p class="text-rl-black/70 mt-4 text-lg">Forretningsrejsende og konferencegæster er ofte pressede på søvn og tid. HBOT tilbyder en genvej til at resette døgnrytmen og maksimere det kognitive overskud inden de store beslutninger træffes.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-16 items-start">
+                    
+                    <!-- Venstre side: Kognitive og Fysiske Fordele -->
+                    <div class="space-y-12">
+                        
+                        <div class="bg-white p-8 rounded-3xl shadow-md border border-rl-lightbg">
+                            <h3 class="font-serif text-2xl text-rl-darkblue mb-6">Executive overskud</h3>
+                            <div class="flex flex-col sm:flex-row gap-8 justify-around">
+                                <div class="flex flex-col items-center text-center group">
+                                    <div class="w-36 h-36 rounded-full border-8 border-rl-lightblue flex flex-col items-center justify-center mb-4 transition-transform group-hover:scale-105">
+                                        <span class="font-bold text-2xl text-rl-darkblue">Jetlag</span>
+                                        <span class="font-bold text-sm text-rl-darkblue mt-1">Recovery</span>
+                                    </div>
+                                    <h4 class="font-semibold text-rl-black">Cirkadisk nulstilling</h4>
+                                    <p class="text-sm text-rl-taupe mt-1 max-w-[150px]">Fysisk tryk og ilt stabiliserer døgnrytmen markant hurtigere.</p>
+                                </div>
+                                <div class="flex flex-col items-center text-center group">
+                                    <div class="w-36 h-36 rounded-full border-8 border-rl-darkblue flex flex-col items-center justify-center mb-4 transition-transform group-hover:scale-105">
+                                        <span class="font-bold text-2xl text-rl-darkblue">Fokus</span>
+                                        <span class="font-bold text-sm text-rl-darkblue mt-1">Klarhed</span>
+                                    </div>
+                                    <h4 class="font-semibold text-rl-black">Fjern 'Brain Fog'</h4>
+                                    <p class="text-sm text-rl-taupe mt-1 max-w-[150px]">Massiv iltning af underforsynede hjerneområder skaber akut skarphed.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Integration & Booking -->
+                        <div class="bg-white p-8 rounded-3xl shadow-md border border-rl-lightbg">
+                            <h3 class="font-serif text-2xl text-rl-darkblue mb-4">Sømløs integration i jeres hotel-drift</h3>
+                            <p class="text-sm text-rl-taupe mb-8">Et luksustilbud må aldrig skabe friktion for jeres reception eller spa-personale. Vi sikrer en turnkey-oplevelse.</p>
+                            
+                            <ul class="space-y-6">
+                                <li class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-rl-lightblue/20 flex items-center justify-center shrink-0">
+                                        <svg class="w-6 h-6 text-rl-darkblue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-rl-black text-lg">Direkte i bookingsystemet</h4>
+                                        <p class="text-rl-taupe text-sm mt-1">Gæsten kan booke en "Longevity Session" som en direkte add-on til værelset allerede ved reservationen.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-rl-lightblue/20 flex items-center justify-center shrink-0">
+                                        <svg class="w-6 h-6 text-rl-darkblue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-rl-black text-lg">Executive Lounge Adgang</h4>
+                                        <p class="text-rl-taupe text-sm mt-1">Positionér trykkammeret som en eksklusiv fordel for gæster på executive floors eller særlige suit-reservationer.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-rl-lightblue/20 flex items-center justify-center shrink-0">
+                                        <svg class="w-6 h-6 text-rl-darkblue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-rl-black text-lg">Turnkey drift og uddannelse</h4>
+                                        <p class="text-rl-taupe text-sm mt-1">Vi klæder jeres spa- eller receptionsteam på til at levere en sikker, behagelig og premium behandling hver gang.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Højre side: Synergi og luksus -->
+                    <div class="space-y-8 flex flex-col h-full">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl flex-grow h-auto min-h-[300px]">
+                            <!-- Billede af luksuriøs spa/wellness behandling -->
+                            <img src="https://images.unsplash.com/photo-1574680178050-55c6f699762a?q=80&w=1200&auto=format&fit=crop" alt="Premium Wellness Spa" class="absolute inset-0 w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-rl-darkblue/10"></div>
+                        </div>
+
+                        <div class="bg-rl-lightbg/30 p-8 rounded-3xl border border-rl-lightbg">
+                            <h3 class="font-serif text-2xl text-rl-darkblue mb-4">Et uovertruffent tillægsprodukt</h3>
+                            <p class="text-rl-black/80 mb-6 leading-relaxed">
+                                Ved at tilbyde HBOT transformerer I jeres hotel fra blot at være "overnatning med spa" til at være en innovativ, sundhedsorienteret destination.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-2xl border border-rl-lightbg/50 shadow-sm flex items-center gap-4">
+                                    <span class="text-2xl">✨</span>
+                                    <div>
+                                        <h4 class="font-semibold text-rl-black text-sm">Den unikke "Glow"</h4>
+                                        <p class="text-xs text-rl-taupe">HBOT forbedrer blodcirkulationen og hudens kollagen, perfekt inden store gallamiddage eller konferencer.</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white p-4 rounded-2xl border border-rl-lightbg/50 shadow-sm flex items-center gap-4">
+                                    <span class="text-2xl">🤝</span>
+                                    <div>
+                                        <h4 class="font-semibold text-rl-black text-sm">Mødearrangørens trumfkort</h4>
+                                        <p class="text-xs text-rl-taupe">Tilbyd 'biohacking breaks' til bestyrelsesmøder i stedet for den traditionelle kaffepause.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+<!-- ======= EKSKLUSIVE REFERENCER (HOTELLER & SPA) ======= -->
+<section class="py-24 bg-rl-darkblue text-white overflow-hidden border-t border-white/10">
+    <div class="container mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-lightblue">Global Anerkendelse</span>
+            <h2 class="font-serif text-3xl md:text-5xl mt-2">På verdens mest eksklusive adresser</h2>
+            <p class="text-white/70 mt-4 text-lg">HPO.TECH-teknologien er allerede en integreret del af spa- og wellness-menuen på nogle af klodens mest prestigefyldte hoteller og resorts. Det er 'hospitality' taget til næste fysiologiske niveau.</p>
+        </div>
+
+        <!-- Elegante Reference-kort i et roligt grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <!-- Roomers Hotels -->
+            <div class="bg-white/5 rounded-3xl p-8 border border-white/10 hover:bg-white/10 transition duration-300 relative group">
+                <!-- Diskret ikon/vandmærke i baggrunden -->
+                <div class="absolute -right-4 -top-4 text-7xl opacity-5 group-hover:scale-110 transition-transform">🏨</div>
+                <h3 class="font-serif text-2xl text-white mb-1">Roomers Hotels</h3>
+                <p class="text-rl-lightblue text-sm font-semibold tracking-wider uppercase mb-5">Frankfurt & Baden-Baden</p>
+                <p class="text-sm text-white/70 leading-relaxed">
+                    Den luksuriøse designhotel-kæde har integreret konceptet 'Recover Society' direkte i deres hoteller, hvilket giver gæsterne adgang til absolut premium restitution (herunder trykkammer og longevity-behandlinger) under deres ophold.
+                </p>
+            </div>
+
+            <!-- Raffles & Fairmont -->
+            <div class="bg-white/5 rounded-3xl p-8 border border-white/10 hover:bg-white/10 transition duration-300 relative group">
+                <div class="absolute -right-4 -top-4 text-7xl opacity-5 group-hover:scale-110 transition-transform">🌏</div>
+                <h3 class="font-serif text-2xl text-white mb-1">Raffles & Fairmont</h3>
+                <p class="text-rl-lightblue text-sm font-semibold tracking-wider uppercase mb-5">Singapore & Mumbai</p>
+                <p class="text-sm text-white/70 leading-relaxed">
+                    På det ikoniske Raffles Hotel i Singapore tilbyder concierge-klinikken 'Elyx Life' hyperbarisk iltterapi, ligesom det 5-stjernede Fairmont i Mumbai har gjort HPO.TECH til en integreret del af deres high-end spa-tilbud.
+                </p>
+            </div>
+
+            <!-- Maybourne & Thermal Resorts -->
+            <div class="bg-white/5 rounded-3xl p-8 border border-white/10 hover:bg-white/10 transition duration-300 relative group">
+                <div class="absolute -right-4 -top-4 text-7xl opacity-5 group-hover:scale-110 transition-transform">✨</div>
+                <h3 class="font-serif text-2xl text-white mb-1">Maybourne & Thermal Spas</h3>
+                <p class="text-rl-lightblue text-sm font-semibold tracking-wider uppercase mb-5">London & Østeuropa</p>
+                <p class="text-sm text-white/70 leading-relaxed">
+                    Teknologien benyttes af den eksklusive members wellness club 'Surrenne' (Maybourne Hotel Group) i Knightsbridge, London, samt i store termiske spa-resorts som Olympia Thermal Center, der opererer fulde multiplace-kamre.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+        <!-- ======= BEREGNER (Hotel ROI) ======= -->
+        <section class="py-20 bg-white border-t border-rl-lightbg">
+            <div class="container mx-auto px-6">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-taupe">Business Case</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-rl-darkblue mt-2">Beregn RevPAR og mersalg</h2>
+                    <p class="text-rl-black/70 mt-4 text-lg">HBOT giver jer muligheden for at etablere nye, høj-margin tillægsydelser uden at optage markant mere plads. Beregn det årlige indtægtspotentiale ved 'Longevity' add-ons.</p>
+                </div>
+
+                <div class="max-w-2xl mx-auto bg-rl-darkblue p-8 md:p-10 rounded-3xl shadow-2xl text-white">
+                    <div class="space-y-6 mb-8">
+                        <div>
+                            <label class="block text-sm font-semibold text-rl-lightblue mb-1">Årlige hotelgæster / konference-deltagere</label>
+                            <input type="number" id="calc4-guests" class="rl-input border-transparent bg-white/10 text-white focus:bg-white focus:text-rl-black" value="25000" step="1000" oninput="calculateHotelROI()">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-rl-lightblue mb-1">Forventet konvertering til 'HBOT Recovery Session'</label>
+                            <div class="flex items-center gap-4">
+                                <input type="range" id="calc4-conversion" min="0.5" max="10" step="0.5" value="2" class="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer" oninput="document.getElementById('hotel-conv-val').innerText = this.value + '%'; calculateHotelROI()">
+                                <span id="hotel-conv-val" class="text-xl font-bold min-w-[4ch]">2%</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-rl-lightblue mb-1">Pris pr. session / add-on (DKK)</label>
+                            <input type="number" id="calc4-price" class="rl-input border-transparent bg-white/10 text-white focus:bg-white focus:text-rl-black" value="1200" step="100" oninput="calculateHotelROI()">
+                        </div>
+                    </div>
+
+                    <div class="bg-white/10 rounded-2xl p-6 border border-white/20 text-center backdrop-blur-sm relative">
+                        <span class="block text-sm text-rl-lightblue uppercase tracking-wider font-semibold mb-2">Estimeret årlig bruttoindtjening (add-on):</span>
+                        <div class="text-4xl md:text-5xl font-bold text-white mb-2" id="calc4-result">...</div>
+                        <p class="text-sm text-rl-lightblue/80 mt-4 px-4">Denne beregning dækker kun direkte salg af sessioner. Den sekundære værdi af øget gæstetilløb, højere værelsespriser (ADR) og eksklusiv branding er ikke medregnet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= CALL TO ACTION ======= -->
+        <section class="py-24 bg-rl-darkblue text-center border-t border-white/10">
+            <div class="container mx-auto px-6">
+                <h2 class="font-serif text-3xl md:text-5xl text-white mb-6">Tilbyd et ophold, der optimerer gæsten</h2>
+                <p class="text-rl-lightblue mb-10 max-w-2xl mx-auto text-lg">Vi leverer udstyret, står for driften og assisterer med at inkorporere HBOT i jeres eksisterende luksus- og konferencekoncepter.</p>
+                <a href="mailto:kontakt@rechargelife.dk" class="inline-block bg-white text-rl-darkblue font-semibold px-10 py-5 rounded-full hover:bg-rl-lightbg transition duration-300 shadow-xl text-lg">
+                    Book en uforpligtende præsentation
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="bg-rl-darkblue text-white pt-20 pb-12 border-t border-white/10">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-sm text-rl-lightbg/80 font-light tracking-wide mb-12">
+                
+                <!-- Kolonne 1: RechargeLife -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">RechargeLife</h4>
+                    <ul class="space-y-4">
+                        <li><a href="about.html" class="hover:text-white transition-colors duration-200">Om</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Finansiering</a></li>
+                        <li><a href="https://www.rechargelife.dk" target="_blank" class="hover:text-white transition-colors duration-200">Pilotklinik</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolonne 2: Løsninger -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">Løsninger</h4>
+                    <ul class="space-y-4">
+                        <li><a href="sportsklubber.html" class="hover:text-white transition-colors duration-200">Sportsklubber</a></li>
+                        <li><a href="bluezonefitness.html" class="hover:text-white transition-colors duration-200">Blue-zone fitness</a></li>
+                        <li><a href="medical.html" class="hover:text-white transition-colors duration-200">Medicinske klinikker</a></li>
+                        <li><a href="hotel.html" class="hover:text-white transition-colors duration-200">Hoteller & konferencecentre</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolonne 3: Vilkår -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">Vilkår</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Vilkår & betingelser</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Privatlivspolitik</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Cookie-politik</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolonne 4: Følg med & Nyhedsbrev -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">Følg med</h4>
+                    
+                    <div class="flex gap-4 mb-8">
+                        <a href="https://instagram.com/rechargelifehbotdk/" target="_blank" class="hover:text-white transition" aria-label="Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://facebook.com/RechargeLifeDK" target="_blank" class="hover:text-white transition" aria-label="Facebook">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/company/rechargelife-dk" target="_blank" class="hover:text-white transition" aria-label="LinkedIn">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="tel:+4531443772" class="hover:text-white transition" aria-label="Telefon">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Nyhedsbrev -->
+                    <p class="mb-4">Tilmeld dig nyhedsbrevet, og vær blandt de første til at høre om nyheder og tilbud.</p>
+                    <form action="https://formspree.io/f/mnppkeeq" method="POST" class="flex items-end pb-2 border-b border-rl-lightbg/30 mt-3">
+                        <input type="email" name="Nyhedsbrev_Email" placeholder="Din e-mail" required class="bg-transparent w-full text-white placeholder-rl-lightbg/50 focus:outline-none font-light">
+                        <input type="hidden" name="_next" value="tak-nyhedsbrev.html">
+                        <button type="submit" class="uppercase text-xs font-semibold tracking-wider hover:text-white transition-colors shrink-0">Abonnér</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="pt-8 mt-4 border-t border-white/10 text-xs text-rl-lightbg/60 text-center md:text-left">
+                &copy; 2026 RechargeLife - Beyond Living. CVR: 45890589. Recovery klinik, leasing, udlejning og driftede trykkammerløsninger.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======= FAST "BLIV KONTAKTET" KNAP ======= -->
+    <button id="open-contact-modal" class="fixed bottom-0 right-8 z-40 bg-white hover:bg-rl-lightbg text-rl-darkblue font-serif text-sm uppercase tracking-widest px-8 py-4 transition-colors duration-300 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] rounded-t-lg">
+        Bliv kontaktet
+    </button>
+
+    <!-- ======= KONTAKT MODAL (POP-UP) ======= -->
+    <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm p-4">
+        <div class="bg-white w-full max-w-4xl flex flex-col md:flex-row shadow-2xl rounded-sm overflow-hidden transform scale-95 transition-transform duration-300" id="contact-modal-content">
+            
+            <!-- Venstre: Billede af trykkammer (HPO.TECH Mediterranean) -->
+            <div class="hidden md:block md:w-1/2 relative">
+                <img src="https://images.unsplash.com/photo-1581091226033-bf5c4dce7ef2?q=80&w=800&auto=format&fit=crop" alt="HPO.TECH Hyperbaric Chamber" class="w-full h-full object-cover grayscale opacity-90">
+                <div class="absolute inset-0 bg-rl-darkblue/20"></div>
+            </div>
+
+            <!-- Højre: Formular -->
+            <div class="w-full md:w-1/2 p-8 md:p-12 relative bg-[#FAF9F6]">
+                <button id="close-contact-modal" class="absolute top-6 right-6 text-rl-black/50 hover:text-rl-black transition-colors" aria-label="Luk">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-taupe block mb-4">Kontakt</span>
+                <h3 class="font-serif text-3xl md:text-4xl text-rl-black mb-2">Har du nogle spørgsmål?</h3>
+                <p class="text-sm text-rl-black/70 mb-8">Skriv til os, så vender vi tilbage hurtigst muligt.</p>
+
+                <form action="https://formspree.io/f/xkjjldqw" method="POST" class="space-y-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Navn</label>
+                        <input type="text" name="Navn" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="w-1/3">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Landekode</label>
+                            <select name="Landekode" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors cursor-pointer appearance-none">
+                                <option>+45 DK</option><option>+46 SE</option><option>+47 NO</option><option>+49 DE</option>
+                            </select>
+                        </div>
+                        <div class="w-2/3">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Telefon</label>
+                            <input type="tel" name="Telefon" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">E-mail</label>
+                        <input type="email" name="Email" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Kommentar</label>
+                        <textarea name="Kommentar" rows="3" placeholder="Skriv dit spørgsmål her" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors resize-none placeholder-rl-lightbg text-sm"></textarea>
+                    </div>
+                    
+                    <input type="hidden" name="_next" value="tak.html">
+
+                    <button type="submit" class="w-full bg-rl-darkblue hover:bg-rl-black text-white font-serif text-sm uppercase tracking-widest py-4 transition-colors duration-300 mt-4">
+                        Kontakt mig
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript til ROI Beregner, Kontakt Modal og Mobil Menu -->
+    <script>
+        function calculateHotelROI() {
+            const totalGuests = parseFloat(document.getElementById('calc4-guests').value) || 0;
+            const conversionRate = parseFloat(document.getElementById('calc4-conversion').value) || 0;
+            const sessionPrice = parseFloat(document.getElementById('calc4-price').value) || 0;
+            
+            const sessionsSold = totalGuests * (conversionRate / 100);
+            const annualRevenue = sessionsSold * sessionPrice;
+            
+            const formattedValue = Math.round(annualRevenue).toLocaleString('da-DK') + " kr.";
+            document.getElementById('calc4-result').innerText = formattedValue;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            calculateHotelROI();
+
+            // Modal Logik for Bliv Kontaktet
+            const openBtn = document.getElementById('open-contact-modal');
+            const closeBtn = document.getElementById('close-contact-modal');
+            const modal = document.getElementById('contact-modal');
+            const modalContent = document.getElementById('contact-modal-content');
+
+            if (openBtn && modalContent) {
+                openBtn.addEventListener('click', () => {
+                    modal.classList.remove('opacity-0', 'pointer-events-none');
+                    modalContent.classList.remove('scale-95');
+                    modalContent.classList.add('scale-100');
+                });
+            }
+
+            if (closeBtn && modalContent) {
+                closeBtn.addEventListener('click', () => {
+                    modal.classList.add('opacity-0', 'pointer-events-none');
+                    modalContent.classList.remove('scale-100');
+                    modalContent.classList.add('scale-95');
+                });
+            }
+            
+            if (modal && modalContent) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.add('opacity-0', 'pointer-events-none');
+                        modalContent.classList.remove('scale-100');
+                        modalContent.classList.add('scale-95');
+                    }
+                });
+            }
+
+            // Mobil Menu Logik
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

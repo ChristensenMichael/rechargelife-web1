@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RechargeLife | Tak for din tilmelding</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Belleza -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Konfiguration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rl-darkblue': '#013F58',
+                        'rl-lightblue': '#B6CCD7',
+                        'rl-taupe': '#94857B',
+                        'rl-lightbg': '#E0DFD8',
+                        'rl-black': '#151F28',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Belleza', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-rl-darkblue text-white font-sans antialiased min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+
+    <!-- Dekorativ baggrund (Subtil gradient) -->
+    <div class="absolute inset-0 bg-gradient-to-tr from-rl-black/40 to-transparent z-0"></div>
+
+    <div class="relative z-10 w-full max-w-lg px-6 text-center">
+        
+        <!-- Logo -->
+        <div class="flex justify-center mb-8">
+            <img src="pictures/Recharge Life_Large_Transparent_Variant 1.png" alt="RechargeLife Logo" class="h-24">
+        </div>
+
+        <!-- Takke-kort -->
+        <div class="bg-white/10 backdrop-blur-md border border-white/20 p-10 rounded-3xl shadow-2xl">
+            
+            <!-- Succes Ikon -->
+            <div class="w-16 h-16 bg-rl-lightblue/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-rl-lightblue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+
+            <h1 class="font-serif text-3xl md:text-4xl mb-4">Din tilmelding er bekræftet</h1>
+            <p class="text-rl-lightblue/90 text-sm leading-relaxed mb-10">
+                Tak fordi du har bekræftet din e-mail. Du er nu officielt skrevet op og vil modtage branchenyt og B2B-muligheder vedrørende HPO.TECH-teknologien fra os.
+            </p>
+
+            <!-- Nedtælling -->
+            <div class="flex flex-col items-center justify-center mb-8">
+                <div class="w-16 h-16 rounded-full border-2 border-rl-lightblue/50 flex items-center justify-center mb-3">
+                    <span id="countdown" class="font-serif text-2xl font-bold text-white">10</span>
+                </div>
+                <p class="text-xs text-white/60 uppercase tracking-widest">Sekunder til forsiden</p>
+            </div>
+
+            <!-- Manuel knap, hvis de ikke vil vente -->
+            <a href="index.html" class="inline-block border border-white/30 text-white font-semibold px-8 py-3 rounded-full hover:bg-white hover:text-rl-darkblue transition duration-300 text-sm">
+                Gå til forsiden nu
+            </a>
+            
+        </div>
+    </div>
+
+    <!-- JavaScript til nedtælling og redirect -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let timeLeft = 10;
+            const countdownElement = document.getElementById("countdown");
+            
+            const timer = setInterval(function() {
+                timeLeft--;
+                countdownElement.textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    // Relativ redirect - virker uanset hvilket domænenavn siden ligger på
+                    window.location.href = "index.html";
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="da" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RechargeLife | For Sportsklubber</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter & Belleza -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Konfiguration med RechargeLife Farver -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rl-darkblue': '#013F58',
+                        'rl-lightblue': '#B6CCD7',
+                        'rl-taupe': '#94857B',
+                        'rl-lightbg': '#E0DFD8',
+                        'rl-black': '#151F28',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Belleza', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hover-underline-animation {
+            position: relative;
+        }
+        .hover-underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: #ffffff;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .hover-underline-animation:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        /* CSS Animation til lag-på-lag grafen */
+        .animate-overlap-bar {
+            height: 100%;
+        }
+        .in-view .animate-overlap-bar {
+            animation: shrinkToHBOT 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        @keyframes shrinkToHBOT {
+            0% { height: 100%; }
+            100% { height: 40%; } /* Skrumper ned til ca. 26 dages mærket */
+        }
+
+        /* Input styling for beregnere */
+        .rl-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #E0DFD8;
+            background-color: #FAF9F6;
+            color: #151F28;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .rl-input:focus {
+            outline: none;
+            border-color: #013F58;
+            box-shadow: 0 0 0 3px rgba(1, 63, 88, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-[#FAF9F6] text-rl-black font-sans antialiased">
+
+    <!-- ======= HEADER / NAVIGATION ======= -->
+    <header class="bg-rl-darkblue shadow-md sticky top-0 z-50 border-b border-rl-darkblue/50 h-20 flex items-center">
+        <nav class="container mx-auto px-6 flex items-center justify-between w-full">
+            
+            <a href="index.html" class="flex items-center group py-2">
+                <img src="pictures/Recharge Life_Large_Transparent_Variant 1.png" alt="RechargeLife Logo" class="h-20 md:h-28 -ml-4 md:-ml-6 object-contain object-left transition-transform duration-300 group-hover:scale-105">
+            </a>
+            
+            <div class="hidden lg:flex items-center gap-8 font-medium text-sm text-white relative">
+                <!-- Dropdown for Løsninger -->
+                <div class="group relative py-2">
+                    <button class="flex items-center gap-1 text-rl-lightblue font-semibold border-b border-rl-lightblue pb-1 focus:outline-none cursor-pointer">
+                        Løsninger
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    
+                    <div class="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border border-rl-lightbg rounded-xl shadow-xl w-64 py-2 overflow-hidden flex flex-col">
+                            <a href="sportsklubber.html" class="px-5 py-3 text-rl-darkblue font-bold bg-rl-lightbg/50 border-b border-rl-lightbg/30">Sportsklubber</a>
+                            <a href="medical.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Medicinske klinikker</a>
+                            <a href="bluezonefitness.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Blue-zone fitness kæder</a>
+                            <a href="hotel.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Hotel- og konferencecentre</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="how-it-works.html" class="hover-underline-animation">Hvordan det foregår</a>
+                <a href="about.html" class="hover-underline-animation">Om RechargeLife</a>
+                <a href="faq.html" class="hover-underline-animation">FAQ</a>
+            </div>
+
+            <div class="flex items-center gap-4 text-sm">
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-white font-semibold border border-white/30 rounded-full px-3 py-1.5 bg-transparent hover:bg-white/10 transition">
+                        <span>DA</span>
+                        <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Hamburger Knap -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none ml-2">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobil Menu Skuffe -->
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-rl-darkblue border-t border-white/10 lg:hidden shadow-xl">
+            <div class="flex flex-col px-6 py-4 space-y-2 text-white text-lg">
+                <a href="sportsklubber.html" class="block py-3 border-b border-white/10 text-rl-lightblue font-bold">Sportsklubber</a>
+                <a href="medical.html" class="block py-3 border-b border-white/10">Medicinske klinikker</a>
+                <a href="bluezonefitness.html" class="block py-3 border-b border-white/10">Blue-zone fitness kæder</a>
+                <a href="hotel.html" class="block py-3 border-b border-white/10">Hotel- og konferencecentre</a>
+                <a href="how-it-works.html" class="block py-3 border-b border-white/10">Hvordan det foregår</a>
+                <a href="about.html" class="block py-3 border-b border-white/10">Om RechargeLife</a>
+                <a href="faq.html" class="block py-3">FAQ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ======= HERO SECTION ======= -->
+    <main>
+        <section class="relative flex items-center min-h-[70vh] py-20 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1765046876564-aa4034b6c71a?q=80&w=2000&auto=format&fit=crop" alt="Athlete focus and performance" class="h-full w-full object-cover object-center">
+                <div class="absolute inset-0 bg-rl-darkblue/80 mix-blend-multiply"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] via-transparent to-transparent opacity-90"></div>
+            </div>
+
+            <div class="container relative z-10 mx-auto px-6 pt-10">
+                <div class="max-w-3xl space-y-6">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-rl-darkblue bg-white px-4 py-1.5 rounded-full shadow-lg">
+                        Nøglefærdig løsning for Eliteklubber
+                    </span>
+                    <h1 class="font-serif text-5xl md:text-7xl leading-[1.1] text-white text-shadow-sm">
+                        Den ultimative fordel på banen
+                    </h1>
+                    <p class="text-white/90 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
+                        Beskyt jeres trup og optimer 'return-to-play'. Med et medicinsk funderet trykkammer-setup (HBOT) øger I performance, forbedrer VO2Max, og halverer skadesperioden for kritiske muskelskader.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= GRAFIK OG PERFORMANCE (VO2Max & Skader) ======= -->
+        <section class="py-20 bg-[#FAF9F6]">
+            <div class="container mx-auto px-6">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-taupe">Data der tæller</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-rl-darkblue mt-2">Maksimer kapacitet og "return-to-play".</h2>
+                    <p class="text-rl-black/70 mt-4 text-lg">Hyperbaric Oxygen Therapy understøttes af tung videnskabelig evidens inden for elitesport. Det handler om at genoprette biologisk kapacitet og fysiologisk overskud hurtigere.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-16 items-start">
+                    
+                    <!-- Venstre side: Den grafiske fremstilling -->
+                    <div class="space-y-12">
+                        
+                        <!-- 1. VO2Max og VO2AT Visualisering -->
+                        <div class="bg-white p-8 rounded-3xl shadow-md border border-rl-lightbg">
+                            <h3 class="font-serif text-2xl text-rl-darkblue mb-6">Performance forbedringer</h3>
+                            <div class="flex flex-col sm:flex-row gap-8 justify-around">
+                                <div class="flex flex-col items-center text-center group">
+                                    <div class="w-36 h-36 rounded-full border-8 border-rl-lightblue flex flex-col items-center justify-center mb-4 transition-transform group-hover:scale-105">
+                                        <span class="font-bold text-xl text-rl-darkblue">+5%</span>
+                                        <span class="font-bold text-xl text-rl-darkblue">VO₂Max</span>
+                                    </div>
+                                    <h4 class="font-semibold text-rl-black">Maksimal Iltoptagelse</h4>
+                                    <p class="text-sm text-rl-taupe mt-1 max-w-[150px]">Øget kapillær tæthed og forbedret lungefunktion. <br><a href="https://sportsmedicine-open.springeropen.com/articles/10.1186/s40798-021-00403-w" target="_blank" class="underline hover:text-rl-darkblue">[Kilde: 1]</a></p>
+                                </div>
+                                <div class="flex flex-col items-center text-center group">
+                                    <div class="w-36 h-36 rounded-full border-8 border-rl-darkblue flex flex-col items-center justify-center mb-4 transition-transform group-hover:scale-105">
+                                        <span class="font-bold text-xl text-rl-darkblue">+10%</span>
+                                        <span class="font-bold text-xl text-rl-darkblue">VO₂AT</span>
+                                    </div>
+                                    <h4 class="font-semibold text-rl-black">Anaerob tærskel</h4>
+                                    <p class="text-sm text-rl-taupe mt-1 max-w-[150px]">Hurtigere clearance af mælkesyre forbedrer udholdenhed. <br><a href="https://sportsmedicine-open.springeropen.com/articles/10.1186/s40798-021-00403-w" target="_blank" class="underline hover:text-rl-darkblue">[Kilde: 2]</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Graf: Skadesnedetid med Y-akse & Overlap -->
+                        <div class="bg-white p-8 rounded-3xl shadow-md border border-rl-lightbg">
+                            <h3 class="font-serif text-2xl text-rl-darkblue mb-2">Markant reduktion af skadesperioden</h3>
+                            <p class="text-sm text-rl-taupe mb-10">Case-rapporter fra professionel fodbold viser, at fraværsperioden ved udvalgte skader kan reduceres med mellem 55 % og 70 % ved brug af trykkammerbehandling. <br>
+                            <a href="https://www.ncbi.nlm.nih.gov/pmc/" target="_blank" class="underline hover:text-rl-darkblue">[Kilde: 3]</a> · <a href="https://www.midlandsdivingchamber.co.uk/" target="_blank" class="underline hover:text-rl-darkblue">[Kilde: 4]</a>
+                            </p>
+                            
+                            <!-- Overlapping Bar Chart med Y-akse -->
+                            <div id="recovery-chart" class="relative h-[22rem] w-[85%] mx-auto mt-24 border-b-2 border-l-2 border-rl-lightbg ml-10">
+                                
+                                <div class="absolute -left-2 top-0 w-2 h-0.5 bg-rl-lightbg z-0"></div>
+                                <span class="absolute -left-8 -top-3 text-rl-taupe font-bold text-sm z-0">70</span>
+                                
+                                <div class="absolute -left-2 bottom-0 w-2 h-0.5 bg-rl-lightbg z-0"></div>
+                                <span class="absolute -left-6 -bottom-3 text-rl-taupe font-bold text-sm z-0">0</span>
+                                
+                                <div class="absolute bottom-0 left-0 w-full h-full bg-rl-lightblue/20 rounded-tr-xl z-0 flex flex-col items-center justify-end pb-8 border-t-2 border-r-2 border-dashed border-rl-lightblue">
+                                </div>
+                                
+                                <div class="absolute top-[10%] left-1/2 -translate-x-1/2 z-20 flex flex-col items-center w-full">
+                                    <span class="text-rl-darkblue font-medium text-sm md:text-base mb-3 block">Konventionel behandling</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-rl-darkblue/70">
+                                        <path d="M20 10.5h-4.5V6a1 1 0 0 0-1-1h-5a1 1 0 0 0-1 1v4.5H4a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h4.5V22a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-4.5H20a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1z" fill="currentColor" fill-opacity="0.1" stroke="none"/>
+                                        <path d="M12 3v18"/>
+                                        <path d="M9.5 8.5c0-2.5 5-2.5 5 0 0 2-5 3-5 5s5 3 5 5-5 3-5 5"/>
+                                        <circle cx="14" cy="6" r="1"/>
+                                    </svg>
+                                </div>
+
+                                <div class="animate-overlap-bar absolute bottom-0 left-0 w-full bg-rl-darkblue rounded-tr-xl z-10 flex flex-col justify-end shadow-2xl">
+                                    <div class="absolute top-0 -left-6 w-6 border-t-2 border-dashed border-rl-darkblue flex items-center z-20">
+                                        <div class="absolute -left-1.5 w-3 h-3 rounded-full bg-rl-darkblue -translate-y-1/2"></div>
+                                    </div>
+
+                                    <div class="absolute -top-16 left-1/2 -translate-x-1/2 text-center w-32 z-30">
+                                        <div class="relative h-10 w-full flex justify-center items-center">
+                                            <span id="hbot-counter" class="absolute text-rl-darkblue font-bold text-4xl drop-shadow-sm transition-opacity duration-300">70</span>
+                                            <span id="hbot-final" class="absolute text-rl-darkblue font-bold text-4xl drop-shadow-sm opacity-0 transition-opacity duration-500 whitespace-nowrap">21-31</span>
+                                        </div>
+                                        <span class="block text-rl-darkblue text-xs uppercase tracking-widest font-bold mt-1">Dage</span>
+                                    </div>
+                                    
+                                    <div class="p-4 pb-8 text-center relative z-20">
+                                        <span class="text-white font-medium text-sm md:text-base block mb-3">Avanceret HBOT</span>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 mx-auto text-white">
+                                            <rect x="2" y="8" width="20" height="9" rx="4.5" />
+                                            <circle cx="12" cy="12.5" r="2.5" />
+                                            <path d="M6 8v9M18 8v9" stroke-dasharray="1 2"/>
+                                            <path d="M6 17v2M18 17v2" />
+                                            <circle cx="12" cy="5" r="0.5" fill="currentColor"/>
+                                            <circle cx="14" cy="3" r="1" fill="currentColor"/>
+                                            <circle cx="10" cy="2" r="0.5" fill="currentColor"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Højre side: Evidens -->
+                    <div class="space-y-8 flex flex-col mt-0 h-full">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl flex-grow h-auto min-h-[400px]">
+                            <!-- Billede atlet i restitution/behandling -->
+                            <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1200&auto=format&fit=crop" alt="Athlete recovery" class="absolute inset-0 w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-rl-darkblue/20"></div>
+                        </div>
+
+                        <div class="bg-rl-lightbg/30 p-8 rounded-3xl border border-rl-lightbg">
+                            <h3 class="font-serif text-2xl text-rl-darkblue mb-4">Klinisk acceleration af vævsheling</h3>
+                            <p class="text-rl-black/80 mb-6 leading-relaxed">
+                                I elitesport er tid lig med point og lønkroner. HBOT er ikke wellness, det er fysiologisk manipulation. Ved at udsætte beskadiget væv for 100 % ilt under tryk, forcerer vi kroppens egen mikrotraume-reparation og nedbringer den kritiske inaktive fase markant.
+                            </p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-rl-darkblue shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <div>
+                                        <h4 class="font-semibold text-rl-black">Reducerer ødem og inflammation</h4>
+                                        <p class="text-sm text-rl-taupe mt-1">Trykket formindsker hævelser ved akutte sportsskader øjeblikkeligt, hvilket lader rehabiliteringen starte tidligere.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-rl-darkblue shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <div>
+                                        <h4 class="font-semibold text-rl-black">Hurtigere kollagen-syntese</h4>
+                                        <p class="text-sm text-rl-taupe mt-1">Kritisk for at genopbygge brusk, ledbånd og muskelfibre med en strukturel styrke, der modvirker tilbagefald.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <svg class="w-6 h-6 text-rl-darkblue shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <div>
+                                        <h4 class="font-semibold text-rl-black">Angiogenese (nye blodkar)</h4>
+                                        <p class="text-sm text-rl-taupe mt-1">Fremmer dannelsen af nye blodkar til beskadiget væv og ledbånd (der normalt har dårlig blodtilførsel).</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <!-- ======= SOCIAL PROOF / ELITE REFERENCER ======= -->
+        <section class="py-24 bg-rl-darkblue text-white overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-lightblue">Global Anerkendelse</span>
+                    <h2 class="font-serif text-3xl md:text-5xl mt-2">Valgt af verdenseliten</h2>
+                    <p class="text-white/70 mt-4 text-lg">Vores udstyr fra HPO.TECH er standarden i de største ligaer. Teknologien bruges til at fremtidssikre trupper og maksimere individuelle præstationer på den absolutte top.</p>
+                </div>
+
+                <!-- Klubber (Billeder) -->
+                <div class="mb-20">
+                    <h3 class="text-xl font-serif text-center mb-8 text-white/90">Fuldt integrerede og brandede klub-setups</h3>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        
+                        <!-- Manchester United -->
+                        <div class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition duration-300 group">
+                            <div class="aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-rl-black/50 relative border border-white/5">
+                                <img src="pictures/man_utd_chamber.jpg" alt="Manchester United HPO.TECH Kammer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                                <div class="absolute inset-0 flex items-center justify-center text-white/40 text-xs font-light text-center px-4 pointer-events-none">
+                                    [Indsæt Man Utd billede her]
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-lg text-white text-center">Manchester United</h4>
+                            <p class="text-rl-lightblue text-sm text-center">Premier League</p>
+                        </div>
+
+                        <!-- Florida Panthers -->
+                        <div class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition duration-300 group">
+                            <div class="aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-rl-black/50 relative border border-white/5">
+                                <img src="pictures/panthers_chamber.jpg" alt="Florida Panthers HPO.TECH Kammer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                                <div class="absolute inset-0 flex items-center justify-center text-white/40 text-xs font-light text-center px-4 pointer-events-none">
+                                    [Indsæt Panthers billede her]
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-lg text-white text-center">Florida Panthers</h4>
+                            <p class="text-rl-lightblue text-sm text-center">NHL (Stanley Cup Champions)</p>
+                        </div>
+
+                        <!-- Sheffield United / Bath Rugby -->
+                        <div class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition duration-300 group">
+                            <div class="aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-rl-black/50 relative border border-white/5">
+                                <img src="pictures/sheffield_chamber.jpg" alt="Sheffield United HPO.TECH Kammer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                                <div class="absolute inset-0 flex items-center justify-center text-white/40 text-xs font-light text-center px-4 pointer-events-none">
+                                    [Indsæt Sheffield billede her]
+                                </div>
+                            </div>
+                            <h4 class="font-bold text-lg text-white text-center">Sheffield United & Bath Rugby</h4>
+                            <p class="text-rl-lightblue text-sm text-center">Championship & Premiership Rugby</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atleter (Liste) -->
+                <div class="bg-white/5 rounded-3xl p-8 md:p-12 border border-white/10 relative overflow-hidden">
+                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-rl-lightblue/5 rounded-full blur-3xl"></div>
+                    
+                    <h3 class="text-xl font-serif text-center mb-10 text-white/90 relative z-10">Atleter der optimerer med HPO.TECH</h3>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-y-10 gap-x-6 text-center relative z-10">
+                        <div>
+                            <h4 class="font-bold text-lg text-white">Tom Brady</h4>
+                            <p class="text-rl-lightblue text-sm mt-1">7x Super Bowl Vinder (NFL)</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-white">Arda Güler</h4>
+                            <p class="text-rl-lightblue text-sm mt-1">Real Madrid (La Liga)</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-white">Saquon Barkley</h4>
+                            <p class="text-rl-lightblue text-sm mt-1">Philadelphia Eagles (NFL)</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-white">Ja Morant</h4>
+                            <p class="text-rl-lightblue text-sm mt-1">Memphis Grizzlies (NBA)</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-white">Myles Garrett</h4>
+                            <p class="text-rl-lightblue text-sm mt-1">Los Angeles Rams (NFL)</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-white">Arkadiusz Milik</h4>
+                            <p class="text-rl-lightblue text-sm mt-1">Juventus FC (Serie A)</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ======= BEREGNERE (ROI & VÆRDI) ======= -->
+        <section class="py-20 bg-white border-t border-rl-lightbg">
+            <div class="container mx-auto px-6">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-taupe">Return on Investment</span>
+                    <h2 class="font-serif text-3xl md:text-5xl text-rl-darkblue mt-2">Beregn jeres besparelse og merværdi</h2>
+                    <p class="text-rl-black/70 mt-4 text-lg">Indtast jeres egne tal for at se, hvor hurtigt trykkammeret tjener sig hjem i sparet løn, og hvor meget værdi I kan bevare i truppen ved at forlænge spillernes peak.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-10">
+                    
+                    <!-- Calculator 1: ROI på skader -->
+                    <div class="bg-rl-lightbg/30 p-8 rounded-3xl border border-rl-lightbg">
+                        <h3 class="font-serif text-2xl text-rl-darkblue mb-2">Lønbesparelse ved skader</h3>
+                        <p class="text-sm text-rl-taupe mb-6">Baseret på en gennemsnitlig halvering (50%) af skadesperioden.</p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div>
+                                <label class="block text-sm font-semibold text-rl-black mb-1">Gns. løn pr. uge pr. spiller (DKK)</label>
+                                <input type="number" id="calc1-salary" class="rl-input" value="47000" oninput="calculateSavings()">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-rl-black mb-1">Antal skader i truppen pr. sæson</label>
+                                <input type="number" id="calc1-injuries" class="rl-input" value="50" oninput="calculateSavings()">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-rl-black mb-1">Gns. fraværsdage pr. skade</label>
+                                <input type="number" id="calc1-days" class="rl-input" value="20" oninput="calculateSavings()">
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-6 border border-rl-lightblue/50 text-center shadow-sm">
+                            <span class="block text-sm text-rl-taupe uppercase tracking-wider font-semibold mb-2">Tid før besparelsen rammer 2 mio. DKK:</span>
+                            <div class="text-4xl font-bold text-rl-darkblue" id="calc1-result">...</div>
+                        </div>
+                    </div>
+
+                    <!-- Calculator 2: Longevity & Markedsværdi -->
+                    <div class="bg-rl-darkblue p-8 rounded-3xl shadow-lg text-white">
+                        <h3 class="font-serif text-2xl mb-2 flex items-center justify-between">
+                            Truppens værdi og periode for aktivt top-niveau
+                            <span class="relative group cursor-pointer text-rl-lightblue hover:text-white transition-colors" title="En fodboldspillers markedsværdi falder traditionelt, når de rammer 29-31 år. Vi regner konservativt med, at I bevarer 10% af spillerens værdi for hvert år, vi kan udskyde dette biologiske fald.">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </span>
+                        </h3>
+                        <p class="text-sm text-rl-lightblue mb-6">Beskyt klubbens dyreste aktiver. Ved at optimere cellernes alder (telomerer/mitokondrier) forlænges spillernes 'prime-time', og I undgår tidligt aldersbetinget værditab.</p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div>
+                                <label class="block text-sm font-semibold text-rl-lightblue mb-1">Samlet værdi af truppens spillere (mio. DKK)</label>
+                                <input type="number" id="calc2-value" class="rl-input border-transparent bg-white/10 text-white focus:bg-white focus:text-rl-black" value="335" oninput="calculateLongevity()">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-rl-lightblue mb-1">Antal ekstra år på topniveau (Longevity-effekt)</label>
+                                <div class="flex items-center gap-4">
+                                    <input type="range" id="calc2-years" min="1" max="5" value="2" class="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer" oninput="document.getElementById('years-val').innerText = this.value; calculateLongevity()">
+                                    <span id="years-val" class="text-xl font-bold min-w-[1ch]">2</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/10 rounded-2xl p-6 border border-white/20 text-center backdrop-blur-sm relative">
+                            <span class="block text-sm text-rl-lightblue uppercase tracking-wider font-semibold mb-2">Forhindret aldersbetinget værditab:</span>
+                            <div class="text-4xl font-bold text-white mb-4" id="calc2-result">...</div>
+                            <p class="text-xs text-rl-lightblue/80 px-2" id="calc2-conclusion"></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= CALL TO ACTION ======= -->
+        <section class="py-24 bg-rl-darkblue text-center">
+            <div class="container mx-auto px-6">
+                <!-- CTA opdateret til at fokusere på drift som en integreret del -->
+                <h2 class="font-serif text-3xl md:text-5xl text-white mb-6">Skal jeres klub have en færdig løsning på skader, øget spillertid og højere præstation?</h2>
+                <p class="text-rl-lightblue mb-10 max-w-2xl mx-auto text-lg">Vi analyserer klubbens behov, projekterer rummet, og drifter det som en integreret, evidensbaseret del af jeres medicinske stab, der beviseligt forlænger spillernes topniveau.</p>
+                <a href="mailto:kontakt@rechargelife.dk" class="inline-block bg-white text-rl-darkblue font-semibold px-10 py-5 rounded-full hover:bg-rl-lightbg transition duration-300 shadow-xl text-lg">
+                    Book et møde eller præsentation
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="bg-rl-darkblue text-white pt-20 pb-12 border-t border-white/10">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-sm text-rl-lightbg/80 font-light tracking-wide mb-12">
+                
+                <!-- Kolonne 1: RechargeLife -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">RechargeLife</h4>
+                    <ul class="space-y-4">
+                        <li><a href="about.html" class="hover:text-white transition-colors duration-200">Om</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Finansiering</a></li>
+                        <li><a href="https://www.rechargelife.dk" target="_blank" class="hover:text-white transition-colors duration-200">Pilotklinik</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolonne 2: Løsninger -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">Løsninger</h4>
+                    <ul class="space-y-4">
+                        <li><a href="sportsklubber.html" class="hover:text-white transition-colors duration-200">Sportsklubber</a></li>
+                        <li><a href="bluezonefitness.html" class="hover:text-white transition-colors duration-200">Blue-zone fitness</a></li>
+                        <li><a href="medical.html" class="hover:text-white transition-colors duration-200">Medicinske klinikker</a></li>
+                        <li><a href="hotel.html" class="hover:text-white transition-colors duration-200">Hoteller & konferencecentre</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolonne 3: Vilkår -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">Vilkår</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Vilkår & betingelser</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Privatlivspolitik</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Cookie-politik</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolonne 4: Følg med & Nyhedsbrev -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">Følg med</h4>
+                    
+                    <div class="flex gap-4 mb-8">
+                        <a href="https://instagram.com/rechargelifehbotdk/" target="_blank" class="hover:text-white transition" aria-label="Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://facebook.com/RechargeLifeDK" target="_blank" class="hover:text-white transition" aria-label="Facebook">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/company/rechargelife-dk" target="_blank" class="hover:text-white transition" aria-label="LinkedIn">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="tel:+4531443772" class="hover:text-white transition" aria-label="Telefon">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Nyhedsbrev -->
+                    <p class="mb-4">Tilmeld dig nyhedsbrevet, og vær blandt de første til at høre om nyheder og tilbud.</p>
+                    <form action="https://formspree.io/f/mnppkeeq" method="POST" target="_blank" class="flex items-end pb-2 border-b border-rl-lightbg/30 mt-3">
+                        <input type="email" name="Nyhedsbrev_Email" placeholder="Din e-mail" required class="bg-transparent w-full text-white placeholder-rl-lightbg/50 focus:outline-none font-light">
+                        <input type="hidden" name="_next" value="tak-nyhedsbrev.html">
+                        <button type="submit" class="uppercase text-xs font-semibold tracking-wider hover:text-white transition-colors shrink-0">Abonnér</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="pt-8 mt-4 border-t border-white/10 text-xs text-rl-lightbg/60 text-center md:text-left">
+                &copy; 2026 RechargeLife - Beyond Living. CVR: 45890589. Recovery klinik, leasing, udlejning og driftede trykkammerløsninger.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======= FAST "BLIV KONTAKTET" KNAP ======= -->
+    <button id="open-contact-modal" class="fixed bottom-0 right-8 z-40 bg-white hover:bg-rl-lightbg text-rl-darkblue font-serif text-sm uppercase tracking-widest px-8 py-4 transition-colors duration-300 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] rounded-t-lg">
+        Bliv kontaktet
+    </button>
+
+    <!-- ======= KONTAKT MODAL (POP-UP) ======= -->
+    <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm p-4">
+        <div class="bg-white w-full max-w-4xl flex flex-col md:flex-row shadow-2xl rounded-sm overflow-hidden transform scale-95 transition-transform duration-300" id="contact-modal-content">
+            
+            <!-- Venstre: Billede af trykkammer (HPO.TECH Mediterranean) -->
+            <div class="hidden md:block md:w-1/2 relative">
+                <img src="https://images.unsplash.com/photo-1581091226033-bf5c4dce7ef2?q=80&w=800&auto=format&fit=crop" alt="HPO.TECH Hyperbaric Chamber" class="w-full h-full object-cover grayscale opacity-90">
+                <div class="absolute inset-0 bg-rl-darkblue/20"></div>
+            </div>
+
+            <!-- Højre: Formular -->
+            <div class="w-full md:w-1/2 p-8 md:p-12 relative bg-[#FAF9F6]">
+                <button id="close-contact-modal" class="absolute top-6 right-6 text-rl-black/50 hover:text-rl-black transition-colors" aria-label="Luk">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-taupe block mb-4">Kontakt</span>
+                <h3 class="font-serif text-3xl md:text-4xl text-rl-black mb-2">Har du nogle spørgsmål?</h3>
+                <p class="text-sm text-rl-black/70 mb-8">Skriv til os, så vender vi tilbage hurtigst muligt.</p>
+
+                <form action="https://formspree.io/f/xkjjldqw" method="POST" class="space-y-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Navn</label>
+                        <input type="text" name="Navn" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="w-1/3">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Landekode</label>
+                            <select name="Landekode" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors cursor-pointer appearance-none">
+                                <option>+45 DK</option><option>+46 SE</option><option>+47 NO</option><option>+49 DE</option>
+                            </select>
+                        </div>
+                        <div class="w-2/3">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Telefon</label>
+                            <input type="tel" name="Telefon" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">E-mail</label>
+                        <input type="email" name="Email" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Kommentar</label>
+                        <textarea name="Kommentar" rows="3" placeholder="Skriv dit spørgsmål her" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors resize-none placeholder-rl-lightbg text-sm"></textarea>
+                    </div>
+                    
+                    <input type="hidden" name="_next" value="tak.html">
+
+                    <button type="submit" class="w-full bg-rl-darkblue hover:bg-rl-black text-white font-serif text-sm uppercase tracking-widest py-4 transition-colors duration-300 mt-4">
+                        Kontakt mig
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript til ROI Beregnere, Animationer og Modal -->
+    <script>
+        function calculateSavings() {
+            const salaryPerWeek = parseFloat(document.getElementById('calc1-salary').value) || 0;
+            const injuries = parseFloat(document.getElementById('calc1-injuries').value) || 0;
+            const daysInjured = parseFloat(document.getElementById('calc1-days').value) || 0;
+            
+            const costPerDay = salaryPerWeek / 7;
+            const totalInjuryCostPerYear = injuries * daysInjured * costPerDay;
+            const savingsPerYear = totalInjuryCostPerYear * 0.5;
+            const savingsPerMonth = savingsPerYear / 12;
+            
+            const targetSaving = 2000000;
+            let resultText = "-";
+            
+            if (savingsPerMonth > 0) {
+                const monthsToTarget = targetSaving / savingsPerMonth;
+                resultText = monthsToTarget.toFixed(1) + " mdr.";
+            }
+
+            document.getElementById('calc1-result').innerText = resultText;
+        }
+
+        function calculateLongevity() {
+            const currentValueInMillions = parseFloat(document.getElementById('calc2-value').value) || 0;
+            const extraYears = parseFloat(document.getElementById('calc2-years').value) || 0;
+            const valueInMillions = currentValueInMillions * (extraYears * 0.10);
+            const formattedValue = Math.round(valueInMillions).toLocaleString('da-DK') + " mio. kr.";
+            
+            document.getElementById('calc2-result').innerText = formattedValue;
+            
+            const conclusionEl = document.getElementById('calc2-conclusion');
+            if(conclusionEl) {
+                conclusionEl.innerHTML = `Gennem avanceret recovery forhindrer I et tab i truppens samlede salgsværdi på <strong>${formattedValue}</strong>, fordi spillerne bevarer deres topniveau i <strong>${extraYears}</strong> ekstra år.`;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            calculateSavings();
+            calculateLongevity();
+
+            // Animering af graf
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const counterElement = document.getElementById('hbot-counter');
+                    const finalElement = document.getElementById('hbot-final');
+                    
+                    if (entry.isIntersecting) {
+                        if (!entry.target.classList.contains('in-view')) {
+                            entry.target.classList.add('in-view');
+                            
+                            let start = 70;
+                            let end = 26; 
+                            let duration = 1500;
+                            let range = start - end;
+                            let stepTime = Math.abs(Math.floor(duration / range));
+                            
+                            let timer = setInterval(() => {
+                                start--;
+                                counterElement.innerText = start;
+                                if (start <= end) {
+                                    clearInterval(timer);
+                                    counterElement.style.opacity = '0';
+                                    finalElement.style.opacity = '1';
+                                }
+                            }, stepTime);
+                            
+                            entry.target.dataset.timer = timer;
+                        }
+                    } else {
+                        entry.target.classList.remove('in-view');
+                        if (entry.target.dataset.timer) {
+                            clearInterval(entry.target.dataset.timer);
+                        }
+                        counterElement.innerText = "70";
+                        counterElement.style.opacity = '1';
+                        finalElement.style.opacity = '0';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            const chart = document.getElementById('recovery-chart');
+            if (chart) {
+                observer.observe(chart);
+            }
+
+            // Modal Logik for Bliv Kontaktet
+            const openBtn = document.getElementById('open-contact-modal');
+            const closeBtn = document.getElementById('close-contact-modal');
+            const modal = document.getElementById('contact-modal');
+            const modalContent = document.getElementById('contact-modal-content');
+
+            if (openBtn && modalContent) {
+                openBtn.addEventListener('click', () => {
+                    modal.classList.remove('opacity-0', 'pointer-events-none');
+                    modalContent.classList.remove('scale-95');
+                    modalContent.classList.add('scale-100');
+                });
+            }
+
+            if (closeBtn && modalContent) {
+                closeBtn.addEventListener('click', () => {
+                    modal.classList.add('opacity-0', 'pointer-events-none');
+                    modalContent.classList.remove('scale-100');
+                    modalContent.classList.add('scale-95');
+                });
+            }
+            
+            if (modal && modalContent) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.add('opacity-0', 'pointer-events-none');
+                        modalContent.classList.remove('scale-100');
+                        modalContent.classList.add('scale-95');
+                    }
+                });
+            }
+
+            // Mobil Menu Logik
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

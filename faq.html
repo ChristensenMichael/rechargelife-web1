@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="da" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RechargeLife | FAQ - Ofte Stillede Spørgsmål</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rl-darkblue': '#013F58',
+                        'rl-lightblue': '#B6CCD7',
+                        'rl-taupe': '#94857B',
+                        'rl-lightbg': '#E0DFD8',
+                        'rl-black': '#151F28',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Belleza', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hover-underline-animation { position: relative; }
+        .hover-underline-animation::after {
+            content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 1px; bottom: -4px; left: 0; background-color: #ffffff; transform-origin: bottom right; transition: transform 0.25s ease-out;
+        }
+        .hover-underline-animation:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+        
+        .faq-content {
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .faq-item.active .faq-content {
+            max-height: 300px;
+            opacity: 1;
+        }
+        .faq-icon { transition: transform 0.3s ease; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="bg-[#FAF9F6] text-rl-black font-sans antialiased">
+
+    <!-- ======= HEADER ======= -->
+    <header class="bg-rl-darkblue shadow-md sticky top-0 z-50 border-b border-rl-darkblue/50 h-20 flex items-center">
+        <nav class="container mx-auto px-6 flex items-center justify-between w-full">
+            <a href="index.html" class="flex items-center group py-2">
+                <img src="pictures/Recharge Life_Large_Transparent_Variant 1.png" alt="RechargeLife Logo" class="h-20 md:h-28 -ml-4 md:-ml-6 object-contain object-left transition-transform duration-300 group-hover:scale-105">
+            </a>
+            
+            <div class="hidden lg:flex items-center gap-8 font-medium text-sm text-white relative">
+                <div class="group relative py-2">
+                    <button class="flex items-center gap-1 hover-underline-animation focus:outline-none cursor-pointer">
+                        Løsninger
+                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div class="bg-white border border-rl-lightbg rounded-xl shadow-xl w-64 py-2 overflow-hidden flex flex-col">
+                            <a href="sportsklubber.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Sportsklubber</a>
+                            <a href="medical.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Medicinske klinikker</a>
+                            <a href="bluezonefitness.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition border-b border-rl-lightbg/30">Blue-zone fitness kæder</a>
+                            <a href="hotel.html" class="px-5 py-3 text-rl-darkblue hover:bg-rl-lightbg/50 transition">Hotel- og konferencecentre</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="how-it-works.html" class="hover-underline-animation">Hvordan det foregår</a>
+                <a href="about.html" class="hover-underline-animation">Om RechargeLife</a>
+                <!-- AKTIV SIDE -->
+                <a href="faq.html" class="text-rl-lightblue font-semibold border-b border-rl-lightblue pb-1">FAQ</a>
+            </div>
+
+            <div class="flex items-center gap-4 text-sm">
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-white font-semibold border border-white/30 rounded-full px-3 py-1.5 bg-transparent hover:bg-white/10 transition">
+                        <span>DA</span>
+                        <svg class="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                </div>
+                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none ml-2">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-rl-darkblue border-t border-white/10 lg:hidden shadow-xl">
+            <div class="flex flex-col px-6 py-4 space-y-2 text-white text-lg">
+                <a href="sportsklubber.html" class="block py-3 border-b border-white/10">Sportsklubber</a>
+                <a href="medical.html" class="block py-3 border-b border-white/10">Medicinske klinikker</a>
+                <a href="bluezonefitness.html" class="block py-3 border-b border-white/10">Blue-zone fitness kæder</a>
+                <a href="hotel.html" class="block py-3 border-b border-white/10">Hotel- og konferencecentre</a>
+                <a href="how-it-works.html" class="block py-3 border-b border-white/10">Hvordan det foregår</a>
+                <a href="about.html" class="block py-3 border-b border-white/10">Om RechargeLife</a>
+                <!-- AKTIV PÅ MOBIL -->
+                <a href="faq.html" class="block py-3 text-rl-lightblue font-bold">FAQ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ======= HERO ======= -->
+    <main>
+        <section class="relative flex items-center min-h-[50vh] py-20 overflow-hidden bg-rl-darkblue">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-br from-rl-darkblue via-[#022A3B] to-rl-black opacity-90"></div>
+            </div>
+            <div class="container relative z-10 mx-auto px-6 pt-10 text-center">
+                <span class="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-rl-darkblue bg-white px-4 py-1.5 rounded-full shadow-lg mb-6">
+                    Viden & Indsigt
+                </span>
+                <h1 class="font-serif text-5xl md:text-6xl text-white text-shadow-sm mb-6">Ofte stillede spørgsmål</h1>
+                <p class="text-white/80 text-lg md:text-xl font-light max-w-2xl mx-auto">
+                    Vi har samlet svarene på de hyppigste spørgsmål vi møder fra erhvervsledere, læger og sportsdirektører omkring etableringen af trykkammer-faciliteter.
+                </p>
+            </div>
+        </section>
+
+        <!-- ======= FAQ ACCORDION ======= -->
+        <section class="py-20 bg-[#FAF9F6]">
+            <div class="container mx-auto px-6 max-w-4xl">
+                
+                <div class="space-y-4">
+                    
+                    <!-- Item 1 -->
+                    <div class="faq-item bg-white border border-rl-lightbg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="px-6 py-5 flex items-center justify-between">
+                            <h3 class="font-semibold text-rl-darkblue text-lg">1. Hvor meget plads kræver et multiplace trykkammer?</h3>
+                            <svg class="faq-icon w-5 h-5 text-rl-taupe shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-content">
+                            <div class="px-6 pb-6 text-sm text-rl-black/80 leading-relaxed border-t border-rl-lightbg/30 pt-4">
+                                Mindre end du tror. Vores mest populære model, det 4-personers <em>Mediterranean</em>, kræver et rum på minimum 5,5 x 2,8 meter. Udstyret leveres modulært (max 790mm bredde) og kan bæres ind gennem almindelige døråbninger uden at skulle rive vægge ned. <a href="how-it-works.html" class="text-rl-darkblue underline hover:text-rl-taupe">Læs mere om installation her</a>.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="faq-item bg-white border border-rl-lightbg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="px-6 py-5 flex items-center justify-between">
+                            <h3 class="font-semibold text-rl-darkblue text-lg">2. Kræver det en stor forudgående investering (CAPEX)?</h3>
+                            <svg class="faq-icon w-5 h-5 text-rl-taupe shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-content">
+                            <div class="px-6 pb-6 text-sm text-rl-black/80 leading-relaxed border-t border-rl-lightbg/30 pt-4">
+                                Nej. Vi tilbyder en favorabel 36-måneders leasing- og finansieringsmodel. Derved undgår I en tung kapitalbinding og kan drifte løsningen som en løbende, forudsigelig driftsomkostning (OPEX), der hurtigt dækkes af medlems- eller klientbetalinger.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="faq-item bg-white border border-rl-lightbg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="px-6 py-5 flex items-center justify-between">
+                            <h3 class="font-semibold text-rl-darkblue text-lg">3. Hvor hurtigt er anlægget tjent hjem (ROI)?</h3>
+                            <svg class="faq-icon w-5 h-5 text-rl-taupe shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-content">
+                            <div class="px-6 pb-6 text-sm text-rl-black/80 leading-relaxed border-t border-rl-lightbg/30 pt-4">
+                                Det afhænger af jeres branche. For sportsklubber dækkes leasingydelsen ofte alene ved at halvere skadesperioden for én enkelt topspiller. For hoteller og klinikker kan et salg på blot 2-4 add-on sessioner om dagen dække udgiften. <br><br>
+                                <a href="sportsklubber.html" class="text-rl-darkblue underline hover:text-rl-taupe mr-4">Prøv ROI-beregner for Sport</a>
+                                <a href="medical.html" class="text-rl-darkblue underline hover:text-rl-taupe">Prøv ROI-beregner for Klinikker</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="faq-item bg-white border border-rl-lightbg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="px-6 py-5 flex items-center justify-between">
+                            <h3 class="font-semibold text-rl-darkblue text-lg">4. Er udstyret lægefagligt certificeret?</h3>
+                            <svg class="faq-icon w-5 h-5 text-rl-taupe shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-content">
+                            <div class="px-6 pb-6 text-sm text-rl-black/80 leading-relaxed border-t border-rl-lightbg/30 pt-4">
+                                Ja. Alt udstyr fra vores partner HPO.TECH er fuldt MDR-certificeret (Medical Device Regulation 2017/745) og CE-mærket til medicinsk brug, hvilket sikrer den absolut højeste globale standard for patientsikkerhed.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="faq-item bg-white border border-rl-lightbg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="px-6 py-5 flex items-center justify-between">
+                            <h3 class="font-semibold text-rl-darkblue text-lg">5. Bruger I 100% ilt i selve kabinen?</h3>
+                            <svg class="faq-icon w-5 h-5 text-rl-taupe shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-content">
+                            <div class="px-6 pb-6 text-sm text-rl-black/80 leading-relaxed border-t border-rl-lightbg/30 pt-4">
+                                Nej, det er en forældet og yderst brandfarlig metode. Vi benytter lukkede <em>BIBS-systemer</em> (masker), hvor patienten indånder 100% medicinsk ilt, men udåndingsluften føres fysisk ud af kammeret. Kabineluften holdes derved altid sikkert under de kritiske 23,5% ilt.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="faq-item bg-white border border-rl-lightbg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="px-6 py-5 flex items-center justify-between">
+                            <h3 class="font-semibold text-rl-darkblue text-lg">6. Hvem står for den daglige drift og sikkerhed?</h3>
+                            <svg class="faq-icon w-5 h-5 text-rl-taupe shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-content">
+                            <div class="px-6 pb-6 text-sm text-rl-black/80 leading-relaxed border-t border-rl-lightbg/30 pt-4">
+                                Det er op til jer. Vi kan levere en komplet <em>Turnkey</em>-løsning, hvor RechargeLifes eget IBUM-certificerede personale driver anlægget for jer. Alternativt kan vi uddanne jeres eget eksisterende personale (fysioterapeuter, sygeplejersker) til selv at varetage driften sikkert og effektivt.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="faq-item bg-white border border-rl-lightbg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="px-6 py-5 flex items-center justify-between">
+                            <h3 class="font-semibold text-rl-darkblue text-lg">7. Hvad er leveringstiden på et komplet setup?</h3>
+                            <svg class="faq-icon w-5 h-5 text-rl-taupe shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-content">
+                            <div class="px-6 pb-6 text-sm text-rl-black/80 leading-relaxed border-t border-rl-lightbg/30 pt-4">
+                                Fra den endelige aftale er underskrevet til idriftsættelse går der typisk kun 8-10 uger. Anlægget produceres og certificeres specifikt til jer, og selve den fysiske montering på jeres adresse er klaret på 1-2 hverdage.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 8 -->
+                    <div class="faq-item bg-white border border-rl-lightbg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="px-6 py-5 flex items-center justify-between">
+                            <h3 class="font-semibold text-rl-darkblue text-lg">8. Kan vi teste udstyret, før vi indgår en leasingaftale?</h3>
+                            <svg class="faq-icon w-5 h-5 text-rl-taupe shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-content">
+                            <div class="px-6 pb-6 text-sm text-rl-black/80 leading-relaxed border-t border-rl-lightbg/30 pt-4">
+                                Ja. Vi tilbyder skræddersyede pilotforløb på 6-8 uger. Vi kan opsætte et midlertidigt kammer i jeres facilitet, eller vi kan lade jer sende udvalgte spillere/patienter til behandlingsforløb i vores eget <em>Center of Excellence</em> i Hillerød, så I med egne øjne kan måle den kliniske effekt inden køb.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 9 -->
+                    <div class="faq-item bg-white border border-rl-lightbg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="px-6 py-5 flex items-center justify-between">
+                            <h3 class="font-semibold text-rl-darkblue text-lg">9. Kræver kammeret store bygningsmæssige ændringer?</h3>
+                            <svg class="faq-icon w-5 h-5 text-rl-taupe shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-content">
+                            <div class="px-6 pb-6 text-sm text-rl-black/80 leading-relaxed border-t border-rl-lightbg/30 pt-4">
+                                Nej. Kammeret tilsluttes almindelig strøm (specifikationerne tilpasses jeres lokalitet). Det eneste væsentlige krav er, at rummet har aktiv ventilation eller aircondition (HVAC) for at kunne lede den overskydende varme fra maskinerne væk. I skal altså ikke ud i et byggeprojekt.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 10 -->
+                    <div class="faq-item bg-white border border-rl-lightbg rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition cursor-pointer">
+                        <div class="px-6 py-5 flex items-center justify-between">
+                            <h3 class="font-semibold text-rl-darkblue text-lg">10. Hvem benytter i forvejen udstyr fra HPO.TECH?</h3>
+                            <svg class="faq-icon w-5 h-5 text-rl-taupe shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="faq-content">
+                            <div class="px-6 pb-6 text-sm text-rl-black/80 leading-relaxed border-t border-rl-lightbg/30 pt-4">
+                                Udstyret er "industry standard" blandt verdenseliten. Det bruges i engelsk Premier League (f.eks. Manchester United), i NHL (Florida Panthers) og af globale longevity-pionerer som Bryan Johnson (Project Blueprint) og Gary Brecka. <br><br>
+                                Vil du vide mere om vores B2B-referencer? <button id="trigger-contact-from-faq" class="text-rl-darkblue underline hover:text-rl-taupe font-semibold">Kontakt os for en fuld præsentation</button>.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <!-- Ekstra CTA -->
+                <div class="mt-16 text-center">
+                    <p class="text-rl-taupe mb-6">Fandt du ikke det svar, du ledte efter?</p>
+                    <button id="open-contact-modal-2" class="bg-rl-darkblue text-white font-semibold px-8 py-3 rounded-full hover:bg-rl-lightblue hover:text-rl-darkblue transition duration-300 shadow-lg">
+                        Skriv direkte til os her
+                    </button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="bg-rl-darkblue text-white pt-20 pb-12 border-t border-white/10">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-sm text-rl-lightbg/80 font-light tracking-wide mb-12">
+                
+                <!-- Kolonne 1: RechargeLife -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">RechargeLife</h4>
+                    <ul class="space-y-4">
+                        <li><a href="about.html" class="hover:text-white transition-colors duration-200">Om</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Finansiering</a></li>
+                        <li><a href="https://www.rechargelife.dk" target="_blank" class="hover:text-white transition-colors duration-200">Pilotklinik</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolonne 2: Løsninger -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">Løsninger</h4>
+                    <ul class="space-y-4">
+                        <li><a href="sportsklubber.html" class="hover:text-white transition-colors duration-200">Sportsklubber</a></li>
+                        <li><a href="bluezonefitness.html" class="hover:text-white transition-colors duration-200">Blue-zone fitness</a></li>
+                        <li><a href="medical.html" class="hover:text-white transition-colors duration-200">Medicinske klinikker</a></li>
+                        <li><a href="hotel.html" class="hover:text-white transition-colors duration-200">Hoteller & konferencecentre</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolonne 3: Vilkår -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">Vilkår</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Vilkår & betingelser</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Privatlivspolitik</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Cookie-politik</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolonne 4: Følg med & Nyhedsbrev -->
+                <div>
+                    <h4 class="font-serif text-lg mb-6 text-white uppercase tracking-widest">Følg med</h4>
+                    
+                    <div class="flex gap-4 mb-8">
+                        <a href="https://instagram.com/rechargelifehbotdk/" target="_blank" class="hover:text-white transition" aria-label="Instagram">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://facebook.com/RechargeLifeDK" target="_blank" class="hover:text-white transition" aria-label="Facebook">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/company/rechargelife-dk" target="_blank" class="hover:text-white transition" aria-label="LinkedIn">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="tel:+4531443772" class="hover:text-white transition" aria-label="Telefon">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </a>
+                    </div>
+
+                    <p class="mb-4">Tilmeld dig nyhedsbrevet, og vær blandt de første til at høre om nyheder og tilbud.</p>
+                    <form action="https://formspree.io/f/mnppkeeq" method="POST" target="_blank" class="flex items-end pb-2 border-b border-rl-lightbg/30 mt-3">
+                        <input type="email" name="Nyhedsbrev_Email" placeholder="Din e-mail" required class="bg-transparent w-full text-white placeholder-rl-lightbg/50 focus:outline-none font-light">
+                        <input type="hidden" name="_next" value="tak-nyhedsbrev.html">
+                        <button type="submit" class="uppercase text-xs font-semibold tracking-wider hover:text-white transition-colors shrink-0">Abonnér</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="pt-8 mt-4 border-t border-white/10 text-xs text-rl-lightbg/60 text-center md:text-left">
+                &copy; 2026 RechargeLife - Beyond Living. CVR: 45890589. Recovery klinik, leasing, udlejning og driftede trykkammerløsninger.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======= FAST "BLIV KONTAKTET" KNAP ======= -->
+    <button id="open-contact-modal" class="fixed bottom-0 right-8 z-40 bg-white hover:bg-rl-lightbg text-rl-darkblue font-serif text-sm uppercase tracking-widest px-8 py-4 transition-colors duration-300 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] rounded-t-lg">
+        Bliv kontaktet
+    </button>
+
+    <!-- ======= KONTAKT MODAL (POP-UP) ======= -->
+    <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm p-4">
+        <div class="bg-white w-full max-w-4xl flex flex-col md:flex-row shadow-2xl rounded-sm overflow-hidden transform scale-95 transition-transform duration-300" id="contact-modal-content">
+            
+            <div class="hidden md:block md:w-1/2 relative">
+                <img src="https://images.unsplash.com/photo-1581091226033-bf5c4dce7ef2?q=80&w=800&auto=format&fit=crop" alt="HPO.TECH Hyperbaric Chamber" class="w-full h-full object-cover grayscale opacity-90">
+                <div class="absolute inset-0 bg-rl-darkblue/20"></div>
+            </div>
+
+            <div class="w-full md:w-1/2 p-8 md:p-12 relative bg-[#FAF9F6]">
+                <button id="close-contact-modal" class="absolute top-6 right-6 text-rl-black/50 hover:text-rl-black transition-colors" aria-label="Luk">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-taupe block mb-4">Kontakt</span>
+                <h3 class="font-serif text-3xl md:text-4xl text-rl-black mb-2">Har du nogle spørgsmål?</h3>
+                <p class="text-sm text-rl-black/70 mb-8">Skriv til os, så vender vi tilbage hurtigst muligt.</p>
+
+                <form action="https://formspree.io/f/xkjjldqw" method="POST" class="space-y-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Navn</label>
+                        <input type="text" name="Navn" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-1/3">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Landekode</label>
+                            <select name="Landekode" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors cursor-pointer appearance-none">
+                                <option>+45 DK</option><option>+46 SE</option><option>+47 NO</option><option>+49 DE</option>
+                            </select>
+                        </div>
+                        <div class="w-2/3">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Telefon</label>
+                            <input type="tel" name="Telefon" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">E-mail</label>
+                        <input type="email" name="Email" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Kommentar</label>
+                        <textarea name="Kommentar" rows="3" placeholder="Skriv dit spørgsmål her" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors resize-none placeholder-rl-lightbg text-sm"></textarea>
+                    </div>
+                    <input type="hidden" name="_next" value="tak.html">
+                    <button type="submit" class="w-full bg-rl-darkblue hover:bg-rl-black text-white font-serif text-sm uppercase tracking-widest py-4 transition-colors duration-300 mt-4">
+                        Kontakt mig
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript til FAQ Accordion, Modal og Menu -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // 1. FAQ Accordion Funktionalitet
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const header = item.querySelector('.flex'); // klikområdet
+                header.addEventListener('click', () => {
+                    // Luk alle andre
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle den man klikkede på
+                    item.classList.toggle('active');
+                });
+            });
+
+            // 2. Modal Logik for Bliv Kontaktet
+            const openBtn = document.getElementById('open-contact-modal');
+            const openBtn2 = document.getElementById('open-contact-modal-2'); // Den ekstra knap i FAQ bunden
+            const triggerFaq = document.getElementById('trigger-contact-from-faq'); // Link inde i tekst
+            
+            const closeBtn = document.getElementById('close-contact-modal');
+            const modal = document.getElementById('contact-modal');
+            const modalContent = document.getElementById('contact-modal-content');
+
+            function openModal() {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }
+
+            function closeModal() {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modalContent.classList.remove('scale-100');
+                modalContent.classList.add('scale-95');
+            }
+
+            if (openBtn) openBtn.addEventListener('click', openModal);
+            if (openBtn2) openBtn2.addEventListener('click', openModal);
+            if (triggerFaq) triggerFaq.addEventListener('click', openModal);
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeModal();
+                });
+            }
+
+            // 3. Mobil Menu Logik
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
