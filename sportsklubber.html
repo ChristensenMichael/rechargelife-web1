@@ -431,9 +431,6 @@
                         <div class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition duration-300 group">
                             <div class="aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-rl-black/50 relative border border-white/5">
                                 <img src="pictures/manchesterunited_files/890101789_122295213188170608_8808990795469229144_n.jfif" alt="Manchester United HPO.TECH Kammer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
-                                <div class="absolute inset-0 flex items-center justify-center text-white/40 text-xs font-light text-center px-4 pointer-events-none">
-                                    [Indsæt Man Utd billede her]
-                                </div>
                             </div>
                             <h4 class="font-bold text-lg text-white text-center">Manchester United</h4>
                             <p class="text-rl-lightblue text-sm text-center">Premier League</p>
@@ -441,11 +438,15 @@
 
                         <!-- Florida Panthers -->
                         <div class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition duration-300 group">
-                            <div class="aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-rl-black/50 relative border border-white/5">
-                                <img src="pictures/panthers_chamber.jpg" alt="Florida Panthers HPO.TECH Kammer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
-                                <div class="absolute inset-0 flex items-center justify-center text-white/40 text-xs font-light text-center px-4 pointer-events-none">
-                                    [Indsæt Panthers billede her]
-                                </div>
+                            <div id="panthers-slideshow" class="aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-rl-black/50 relative border border-white/5">
+                                <img id="panthers-slide-a" src="pictures/florida-panthers/output_still_image_be3a6f12-b16d-4cde-ab57-bde81024e25a.jpg" alt="Florida Panthers HPO.TECH Kammer" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-80 group-hover:opacity-100">
+                                <img id="panthers-slide-b" src="" alt="Florida Panthers HPO.TECH Kammer" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-0 pointer-events-none">
+                                <button id="panthers-prev" type="button" aria-label="Forrige billede" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-rl-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-rl-darkblue transition-opacity duration-200">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+                                </button>
+                                <button id="panthers-next" type="button" aria-label="Næste billede" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-rl-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-rl-darkblue transition-opacity duration-200">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                                </button>
                             </div>
                             <h4 class="font-bold text-lg text-white text-center">Florida Panthers</h4>
                             <p class="text-rl-lightblue text-sm text-center">NHL (Stanley Cup Champions)</p>
@@ -453,11 +454,35 @@
 
                         <!-- Sheffield United / Bath Rugby -->
                         <div class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition duration-300 group">
-                            <div class="aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-rl-black/50 relative border border-white/5">
-                                <img src="pictures/sheffield_chamber.jpg" alt="Sheffield United HPO.TECH Kammer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
-                                <div class="absolute inset-0 flex items-center justify-center text-white/40 text-xs font-light text-center px-4 pointer-events-none">
-                                    [Indsæt Sheffield billede her]
+                            <div id="sheffield-video-card" class="aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-rl-black/50 relative border border-white/5 cursor-pointer">
+                                <!-- YouTube Player Container -->
+                                <div id="sheffield-player-wrapper" class="absolute inset-0 w-full h-full"></div>
+
+                                <!-- Poster / Thumbnail Overlay (skjules ved afspilning) -->
+                                <div id="sheffield-poster" class="absolute inset-0 z-10 transition-opacity duration-500">
+                                    <img src="https://i.ytimg.com/vi/9cCHVawwvmQ/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/9cCHVawwvmQ/hqdefault.jpg';" alt="Sheffield United HPO.TECH Kammer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                                    <div class="absolute inset-0 flex items-center justify-center bg-rl-black/20">
+                                        <span class="w-14 h-14 rounded-full bg-rl-darkblue/85 text-white flex items-center justify-center shadow-lg border border-white/20 transition-transform duration-300 group-hover:scale-110">
+                                            <svg class="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                        </span>
+                                    </div>
                                 </div>
+
+                                <!-- Lyd til/fra knap -->
+                                <button id="sheffield-mute-btn" type="button" aria-label="Slå lyd til" title="Slå lyd til" class="hidden absolute top-3 right-3 z-20 w-9 h-9 rounded-full bg-rl-black/75 hover:bg-rl-darkblue text-white flex items-center justify-center border border-white/20 backdrop-blur-sm transition-colors duration-200">
+                                    <!-- Muted ikon (default) -->
+                                    <svg id="sheffield-icon-muted" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                                        <line x1="23" y1="9" x2="17" y2="15"></line>
+                                        <line x1="17" y1="9" x2="23" y2="15"></line>
+                                    </svg>
+                                    <!-- Unmuted ikon -->
+                                    <svg id="sheffield-icon-unmuted" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                        <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                                    </svg>
+                                </button>
                             </div>
                             <h4 class="font-bold text-lg text-white text-center">Sheffield United & Bath Rugby</h4>
                             <p class="text-rl-lightblue text-sm text-center">Championship & Premiership Rugby</p>
@@ -503,7 +528,7 @@
         </section>
 
         <!-- ======= BEREGNERE (ROI & VÆRDI) ======= -->
-        <section class="py-20 bg-white border-t border-rl-lightbg">
+        <section id="roi-beregner" class="py-20 bg-white border-t border-rl-lightbg">
             <div class="container mx-auto px-6">
                 
                 <div class="text-center max-w-3xl mx-auto mb-16">
@@ -877,6 +902,310 @@
             if (mobileBtn && mobileMenu) {
                 mobileBtn.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Florida Panthers Slideshow (Shuffled)
+            const panthersContainer = document.getElementById('panthers-slideshow');
+            const slideA = document.getElementById('panthers-slide-a');
+            const slideB = document.getElementById('panthers-slide-b');
+            const prevBtn = document.getElementById('panthers-prev');
+            const nextBtn = document.getElementById('panthers-next');
+
+            if (panthersContainer && slideA && slideB) {
+                const panthersBasePath = 'pictures/florida_panthers/';
+                const panthersImages = [
+                    'output_still_image_be3a6f12-b16d-4cde-ab57-bde81024e25a.jpg',
+                    'videoframe_4076.png',
+                    'videoframe_6977.png',
+                    'videoframe_12778.png',
+                    'videoframe_13875.png',
+                    'videoframe_16776.png',
+                    'videoframe_20068.png',
+                    'videoframe_20774.png',
+                    'videoframe_21323.png',
+                    'videoframe_22734.png',
+                    'videoframe_23518.png',
+                    'videoframe_24537.png',
+                    'videoframe_26496.png',
+                    'videoframe_28378.png'
+                ];
+
+                function shuffleArray(arr, avoidFirst) {
+                    const copy = [...arr];
+                    for (let i = copy.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [copy[i], copy[j]] = [copy[j], copy[i]];
+                    }
+                    if (avoidFirst && copy.length > 1 && copy[0] === avoidFirst) {
+                        [copy[0], copy[1]] = [copy[1], copy[0]];
+                    }
+                    return copy;
+                }
+
+                let playlist = shuffleArray(panthersImages);
+                let currentIndex = 0;
+                let showingA = true;
+                let slideTimer = null;
+
+                function getImageUrl(filename) {
+                    return encodeURI(panthersBasePath + filename);
+                }
+
+                function preloadNext() {
+                    const nextIdx = (currentIndex + 1) % playlist.length;
+                    const img = new Image();
+                    img.src = getImageUrl(playlist[nextIdx]);
+                }
+
+                function showSlide(filename) {
+                    const incoming = showingA ? slideB : slideA;
+                    const outgoing = showingA ? slideA : slideB;
+                    const targetSrc = getImageUrl(filename);
+
+                    const applyTransition = () => {
+                        incoming.classList.remove('opacity-0', 'pointer-events-none');
+                        incoming.classList.add('opacity-80', 'group-hover:opacity-100');
+                        outgoing.classList.remove('opacity-80', 'group-hover:opacity-100');
+                        outgoing.classList.add('opacity-0', 'pointer-events-none');
+                        showingA = !showingA;
+                        preloadNext();
+                    };
+
+                    incoming.onload = applyTransition;
+                    incoming.src = targetSrc;
+                    if (incoming.complete) {
+                        incoming.onload = null;
+                        applyTransition();
+                    }
+                }
+
+                function nextSlide() {
+                    const currentFile = playlist[currentIndex];
+                    currentIndex++;
+                    if (currentIndex >= playlist.length) {
+                        playlist = shuffleArray(panthersImages, currentFile);
+                        currentIndex = 0;
+                    }
+                    showSlide(playlist[currentIndex]);
+                }
+
+                function prevSlide() {
+                    currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+                    showSlide(playlist[currentIndex]);
+                }
+
+                function startAutoSlide() {
+                    stopAutoSlide();
+                    slideTimer = setInterval(nextSlide, 3500);
+                }
+
+                function stopAutoSlide() {
+                    if (slideTimer) {
+                        clearInterval(slideTimer);
+                        slideTimer = null;
+                    }
+                }
+
+                slideA.src = getImageUrl(playlist[0]);
+                preloadNext();
+                startAutoSlide();
+
+                panthersContainer.addEventListener('mouseenter', stopAutoSlide);
+                panthersContainer.addEventListener('mouseleave', startAutoSlide);
+
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        nextSlide();
+                    });
+                }
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        prevSlide();
+                    });
+                }
+            }
+
+            // Sheffield United YouTube Video (Hover/Klik + Lyd til/fra)
+            const sheffieldCard = document.getElementById('sheffield-video-card');
+            const sheffieldWrapper = document.getElementById('sheffield-player-wrapper');
+            const sheffieldPoster = document.getElementById('sheffield-poster');
+            const sheffieldMuteBtn = document.getElementById('sheffield-mute-btn');
+            const sheffieldIconMuted = document.getElementById('sheffield-icon-muted');
+            const sheffieldIconUnmuted = document.getElementById('sheffield-icon-unmuted');
+
+            if (sheffieldCard && sheffieldWrapper && sheffieldPoster && sheffieldMuteBtn) {
+                const videoId = '9cCHVawwvmQ';
+                let ytPlayer = null;
+                let iframeCreated = false;
+                let isPlayerReady = false;
+                let isPinned = false;
+                let isMuted = true;
+                let wantPlay = false;
+
+                function updateMuteUI(muted) {
+                    isMuted = muted;
+                    if (muted) {
+                        sheffieldIconMuted.classList.remove('hidden');
+                        sheffieldIconUnmuted.classList.add('hidden');
+                        sheffieldMuteBtn.setAttribute('aria-label', 'Slå lyd til');
+                        sheffieldMuteBtn.setAttribute('title', 'Slå lyd til');
+                    } else {
+                        sheffieldIconMuted.classList.add('hidden');
+                        sheffieldIconUnmuted.classList.remove('hidden');
+                        sheffieldMuteBtn.setAttribute('aria-label', 'Slå lyd fra');
+                        sheffieldMuteBtn.setAttribute('title', 'Slå lyd fra');
+                    }
+                }
+
+                function sendYTCommand(func, args = []) {
+                    const iframe = document.getElementById('sheffield-yt-iframe');
+                    if (iframe && iframe.contentWindow) {
+                        iframe.contentWindow.postMessage(JSON.stringify({
+                            event: 'command',
+                            func: func,
+                            args: args
+                        }), '*');
+                    }
+                }
+
+                function initYTPlayer() {
+                    if (ytPlayer || !window.YT || !window.YT.Player) return;
+                    const iframe = document.getElementById('sheffield-yt-iframe');
+                    if (!iframe) return;
+
+                    ytPlayer = new window.YT.Player('sheffield-yt-iframe', {
+                        events: {
+                            onReady: (event) => {
+                                isPlayerReady = true;
+                                event.target.mute();
+                                updateMuteUI(true);
+                                if (wantPlay) {
+                                    event.target.playVideo();
+                                } else {
+                                    event.target.pauseVideo();
+                                }
+                            }
+                        }
+                    });
+                }
+
+                function loadYouTubeAPI() {
+                    if (window.YT && window.YT.Player) {
+                        initYTPlayer();
+                        return;
+                    }
+                    const existingScript = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
+                    if (!existingScript) {
+                        const tag = document.createElement('script');
+                        tag.src = 'https://www.youtube.com/iframe_api';
+                        document.head.appendChild(tag);
+                    }
+                    const prevCallback = window.onYouTubeIframeAPIReady;
+                    window.onYouTubeIframeAPIReady = () => {
+                        if (typeof prevCallback === 'function') prevCallback();
+                        initYTPlayer();
+                    };
+                }
+
+                function ensureIframe() {
+                    if (iframeCreated) return;
+                    iframeCreated = true;
+
+                    const params = new URLSearchParams({
+                        autoplay: '1',
+                        mute: '1',
+                        enablejsapi: '1',
+                        playsinline: '1',
+                        rel: '0',
+                        controls: '1',
+                        modestbranding: '1'
+                    });
+                    if (window.location.protocol.startsWith('http')) {
+                        params.set('origin', window.location.origin);
+                    }
+
+                    const iframe = document.createElement('iframe');
+                    iframe.id = 'sheffield-yt-iframe';
+                    iframe.className = 'w-full h-full border-0';
+                    iframe.src = `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
+                    iframe.title = 'YouTube video player';
+                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+                    iframe.allowFullscreen = true;
+
+                    sheffieldWrapper.appendChild(iframe);
+                    loadYouTubeAPI();
+                }
+
+                function startVideo(pinned) {
+                    if (pinned) isPinned = true;
+                    wantPlay = true;
+                    ensureIframe();
+
+                    sheffieldPoster.classList.add('opacity-0', 'pointer-events-none');
+                    sheffieldMuteBtn.classList.remove('hidden');
+
+                    if (isPlayerReady && ytPlayer) {
+                        ytPlayer.playVideo();
+                    } else {
+                        sendYTCommand('playVideo');
+                    }
+                }
+
+                function stopHoverPreview() {
+                    if (isPinned) return;
+                    wantPlay = false;
+
+                    if (isPlayerReady && ytPlayer) {
+                        ytPlayer.pauseVideo();
+                    } else {
+                        sendYTCommand('pauseVideo');
+                    }
+
+                    sheffieldPoster.classList.remove('opacity-0', 'pointer-events-none');
+                    sheffieldMuteBtn.classList.add('hidden');
+                }
+
+                sheffieldCard.addEventListener('mouseenter', () => {
+                    startVideo(false);
+                });
+
+                sheffieldCard.addEventListener('mouseleave', () => {
+                    stopHoverPreview();
+                });
+
+                sheffieldPoster.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    startVideo(true);
+                });
+
+                sheffieldCard.addEventListener('click', () => {
+                    startVideo(true);
+                });
+
+                sheffieldMuteBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    isPinned = true;
+                    wantPlay = true;
+                    ensureIframe();
+
+                    const nextMuted = !isMuted;
+                    if (nextMuted) {
+                        if (isPlayerReady && ytPlayer) ytPlayer.mute();
+                        else sendYTCommand('mute');
+                    } else {
+                        if (isPlayerReady && ytPlayer) {
+                            ytPlayer.unMute();
+                            ytPlayer.playVideo();
+                        } else {
+                            sendYTCommand('unMute');
+                            sendYTCommand('playVideo');
+                        }
+                    }
+                    updateMuteUI(nextMuted);
                 });
             }
         });
