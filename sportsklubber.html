@@ -426,11 +426,17 @@
                 <div class="mb-20">
                     <h3 class="text-xl font-serif text-center mb-8 text-white/90">Fuldt integrerede og brandede klub-setups</h3>
                     <div class="grid md:grid-cols-3 gap-8">
-                        
                         <!-- Manchester United -->
                         <div class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition duration-300 group">
-                            <div class="aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-rl-black/50 relative border border-white/5">
-                                <img src="pictures/manchesterunited_files/890101789_122295213188170608_8808990795469229144_n.jfif" alt="Manchester United HPO.TECH Kammer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                            <div id="manutd-slideshow" class="aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-rl-black/50 relative border border-white/5">
+                                <img id="manutd-slide-a" src="pictures/manchesterunited_files/890101789_122295213188170608_8808990795469229144_n.jfif" alt="Manchester United HPO.TECH Kammer" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-80 group-hover:opacity-100">
+                                <img id="manutd-slide-b" src="" alt="Manchester United HPO.TECH Kammer" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-0 pointer-events-none">
+                                <button id="manutd-prev" type="button" aria-label="Forrige billede" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-rl-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-rl-darkblue transition-opacity duration-200">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+                                </button>
+                                <button id="manutd-next" type="button" aria-label="Næste billede" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-rl-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-rl-darkblue transition-opacity duration-200">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                                </button>
                             </div>
                             <h4 class="font-bold text-lg text-white text-center">Manchester United</h4>
                             <p class="text-rl-lightblue text-sm text-center">Premier League</p>
@@ -702,9 +708,6 @@
                     <!-- Nyhedsbrev -->
                     <p class="mb-4">Tilmeld dig nyhedsbrevet, og vær blandt de første til at høre om nyheder og tilbud.</p>
                     <form action="https://formspree.io/f/mnppkeeq" method="POST" target="_blank" class="flex items-end pb-2 border-b border-rl-lightbg/30 mt-3">
-                    <!-- Skjulte felter til dynamisk emne og side-kilde -->
-                        <input type="hidden" name="_subject" id="form-subject" value="B2B henvendelse fra: For sportsklubber">
-                        <input type="hidden" name="Side_Kilde" id="form-page-source" value="For sportsklubber (sportsklubber.html)">
                         <input type="email" name="Nyhedsbrev_Email" placeholder="Din e-mail" required class="bg-transparent w-full text-white placeholder-rl-lightbg/50 focus:outline-none font-light">
                         <input type="hidden" name="_next" value="tak-nyhedsbrev.html">
                         <button type="submit" class="uppercase text-xs font-semibold tracking-wider hover:text-white transition-colors shrink-0">Abonnér</button>
@@ -745,6 +748,9 @@
 
                 <form action="https://formspree.io/f/xkjjldqw" method="POST" class="space-y-6">
                     <div>
+                    <!-- Skjulte felter til dynamisk emne og side-kilde -->
+                        <input type="hidden" name="_subject" id="form-subject" value="B2B henvendelse fra: For sportsklubber">
+                        <input type="hidden" name="Side_Kilde" id="form-page-source" value="For sportsklubber (sportsklubber.html)">
                         <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Navn</label>
                         <input type="text" name="Navn" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
                     </div>
@@ -929,6 +935,122 @@
                 mobileBtn.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
                 });
+            }
+            // Manchester United Slideshow (Shuffled)
+            const manutdContainer = document.getElementById('manutd-slideshow');
+            const manutdSlideA = document.getElementById('manutd-slide-a');
+            const manutdSlideB = document.getElementById('manutd-slide-b');
+            const manutdPrevBtn = document.getElementById('manutd-prev');
+            const manutdNextBtn = document.getElementById('manutd-next');
+
+            if (manutdContainer && manutdSlideA && manutdSlideB) {
+                const manutdBasePath = 'pictures/manchesterunited_files/';
+                const manutdImages = [
+                    '651845825_18086831534603563_2798026655369068671_n.webp',
+                    '657688139_18058204625446169_4155805257564658188_n.webp',
+                    '887751258_122295213170170608_9048728755706611527_n.jfif',
+                    '890020873_122295213182170608_4496263349274068803_n.jfif',
+                    '890101789_122295213188170608_8808990795469229144_n.jfif',
+                    '890459338_122295213206170608_2574674798962655597_n.jfif',
+                    '893051963_122295213200170608_5050182526978397558_n.jfif',
+                    '893275137_122295213212170608_2752658549414834601_n.jfif'
+                ];
+
+                function shuffleManUtd(arr, avoidFirst) {
+                    const copy = [...arr];
+                    for (let i = copy.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [copy[i], copy[j]] = [copy[j], copy[i]];
+                    }
+                    if (avoidFirst && copy.length > 1 && copy[0] === avoidFirst) {
+                        [copy[0], copy[1]] = [copy[1], copy[0]];
+                    }
+                    return copy;
+                }
+
+                let manutdPlaylist = shuffleManUtd(manutdImages);
+                let manutdIndex = 0;
+                let manutdShowingA = true;
+                let manutdTimer = null;
+
+                function getManUtdUrl(filename) {
+                    return encodeURI(manutdBasePath + filename);
+                }
+
+                function preloadNextManUtd() {
+                    const nextIdx = (manutdIndex + 1) % manutdPlaylist.length;
+                    const img = new Image();
+                    img.src = getManUtdUrl(manutdPlaylist[nextIdx]);
+                }
+
+                function showManUtdSlide(filename) {
+                    const incoming = manutdShowingA ? manutdSlideB : manutdSlideA;
+                    const outgoing = manutdShowingA ? manutdSlideA : manutdSlideB;
+                    const targetSrc = getManUtdUrl(filename);
+
+                    const applyTransition = () => {
+                        incoming.classList.remove('opacity-0', 'pointer-events-none');
+                        incoming.classList.add('opacity-80', 'group-hover:opacity-100');
+                        outgoing.classList.remove('opacity-80', 'group-hover:opacity-100');
+                        outgoing.classList.add('opacity-0', 'pointer-events-none');
+                        manutdShowingA = !manutdShowingA;
+                        preloadNextManUtd();
+                    };
+
+                    incoming.onload = applyTransition;
+                    incoming.src = targetSrc;
+                    if (incoming.complete) {
+                        incoming.onload = null;
+                        applyTransition();
+                    }
+                }
+
+                function nextManUtdSlide() {
+                    const currentFile = manutdPlaylist[manutdIndex];
+                    manutdIndex++;
+                    if (manutdIndex >= manutdPlaylist.length) {
+                        manutdPlaylist = shuffleManUtd(manutdImages, currentFile);
+                        manutdIndex = 0;
+                    }
+                    showManUtdSlide(manutdPlaylist[manutdIndex]);
+                }
+
+                function prevManUtdSlide() {
+                    manutdIndex = (manutdIndex - 1 + manutdPlaylist.length) % manutdPlaylist.length;
+                    showManUtdSlide(manutdPlaylist[manutdIndex]);
+                }
+
+                function startManUtdAuto() {
+                    stopManUtdAuto();
+                    manutdTimer = setInterval(nextManUtdSlide, 3500);
+                }
+
+                function stopManUtdAuto() {
+                    if (manutdTimer) {
+                        clearInterval(manutdTimer);
+                        manutdTimer = null;
+                    }
+                }
+
+                manutdSlideA.src = getManUtdUrl(manutdPlaylist[0]);
+                preloadNextManUtd();
+                startManUtdAuto();
+
+                manutdContainer.addEventListener('mouseenter', stopManUtdAuto);
+                manutdContainer.addEventListener('mouseleave', startManUtdAuto);
+
+                if (manutdNextBtn) {
+                    manutdNextBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        nextManUtdSlide();
+                    });
+                }
+                if (manutdPrevBtn) {
+                    manutdPrevBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        prevManUtdSlide();
+                    });
+                }
             }
 
             // Florida Panthers Slideshow (Shuffled)
