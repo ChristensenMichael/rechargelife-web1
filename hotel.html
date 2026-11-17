@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="da" class="scroll-smooth">
 <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- ========================================== -->
     <!-- 1. PRIMÆRE META-TAGS (Søgemaskiner)        -->
@@ -141,7 +141,7 @@
         .rl-input:focus { outline: none; border-color: #013F58; box-shadow: 0 0 0 3px rgba(1, 63, 88, 0.1); }
     </style>
     <link rel="icon" href="favicon.png" type="image/png">
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N9W74J6F"></script>
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WS7KV53K"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -535,7 +535,9 @@
                             <p class="text-xs text-rl-lightblue/80 leading-relaxed mb-5">
                                 Ønsker I en skræddersyet business case for jeres værelseskapacitet – inkl. leasingforslag på 1-persons suite eller multiplace lounge?
                             </p>
-                            <button type="button" onclick="document.getElementById('open-contact-modal').click()" class="w-full bg-white text-rl-darkblue hover:bg-rl-lightbg font-semibold py-3.5 px-6 rounded-full transition duration-300 shadow-lg text-sm uppercase tracking-wider">
+                            <button type="button" 
+                                    data-emne="Forespørgsel fra Hotel & Spa (Specifik Hotel Business Case)" 
+                                    class="js-open-contact w-full bg-white text-rl-darkblue hover:bg-rl-lightbg font-semibold py-3.5 px-6 rounded-full transition duration-300 shadow-lg text-sm uppercase tracking-wider cursor-pointer">
                                 Få jeres specifikke Hotel-Case
                             </button>
                         </div>
@@ -550,9 +552,11 @@
             <div class="container mx-auto px-6">
                 <h2 class="font-serif text-3xl md:text-5xl text-white mb-6">Tilbyd et ophold, der optimerer gæsten</h2>
                 <p class="text-rl-lightblue mb-10 max-w-2xl mx-auto text-lg">Vi rådgiver om den rette sammensætning af trykkammer og komplementære restitutionsteknologier, uddanner jeres team og assisterer med at inkorporere konceptet i jeres luksus- og konferencepakker.</p>
-                <a href="mailto:kontakt@rechargelife.dk" class="inline-block bg-white text-rl-darkblue font-semibold px-10 py-5 rounded-full hover:bg-rl-lightbg transition duration-300 shadow-xl text-lg">
+                <button type="button" 
+                        data-emne="Forespørgsel fra Hotel & Spa (Book præsentation)" 
+                        class="js-open-contact inline-block bg-white text-rl-darkblue font-semibold px-10 py-5 rounded-full hover:bg-rl-lightbg transition duration-300 shadow-xl text-lg cursor-pointer">
                     Book en uforpligtende præsentation
-                </a>
+                </button>
             </div>
         </section>
 
@@ -684,6 +688,10 @@
                 <p class="text-sm text-rl-black/70 mb-8">Skriv til os, så vender vi tilbage hurtigst muligt.</p>
 
                 <form action="https://formspree.io/f/xkjjldqw" method="POST" class="space-y-6">
+                    <!-- Skjulte felter til dynamisk emne og side-kilde -->
+                    <input type="hidden" name="_subject" id="form-subject" value="B2B henvendelse fra: Hotel & Spa">
+                    <input type="hidden" name="Side_Kilde" id="form-page-source" value="Hotel & Spa (hotel.html)">
+
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Navn</label>
                         <input type="text" name="Navn" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
@@ -748,21 +756,44 @@
         document.addEventListener("DOMContentLoaded", () => {
             calculateHotelROI();
 
-            // Modal Logik for Bliv Kontaktet
+            const pageTitle = document.title.split('|')[0].trim();
+            const pageUrl = window.location.href;
+
+            // Modal Logik for Bliv Kontaktet og CTA-knapper
             const openBtn = document.getElementById('open-contact-modal');
+            const customCtaBtns = document.querySelectorAll('.js-open-contact');
             const closeBtn = document.getElementById('close-contact-modal');
             const modal = document.getElementById('contact-modal');
             const modalContent = document.getElementById('contact-modal-content');
+            const subjectInput = document.getElementById('form-subject');
+            const sourceInput = document.getElementById('form-page-source');
 
-            if (openBtn && modalContent) {
-                openBtn.addEventListener('click', () => {
+            function openContactModal(customSubject) {
+                if (subjectInput) {
+                    subjectInput.value = customSubject || `B2B henvendelse fra: ${pageTitle}`;
+                }
+                if (sourceInput) {
+                    sourceInput.value = `${pageTitle} (${pageUrl})`;
+                }
+                if (modal && modalContent) {
                     modal.classList.remove('opacity-0', 'pointer-events-none');
                     modalContent.classList.remove('scale-95');
                     modalContent.classList.add('scale-100');
-                });
+                }
             }
 
-            if (closeBtn && modalContent) {
+            if (openBtn) {
+                openBtn.addEventListener('click', () => openContactModal());
+            }
+
+            customCtaBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const emne = btn.getAttribute('data-emne');
+                    openContactModal(emne);
+                });
+            });
+
+            if (closeBtn && modal && modalContent) {
                 closeBtn.addEventListener('click', () => {
                     modal.classList.add('opacity-0', 'pointer-events-none');
                     modalContent.classList.remove('scale-100');

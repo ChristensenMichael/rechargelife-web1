@@ -7,7 +7,7 @@
     <!-- 1. PRIMÆRE META-TAGS (Søgemaskiner)        -->
     <!-- ========================================== -->
     <title>Hvordan det foregår | Turnkey Løsning | RechargeLife</title>
-    <meta name="description" content="Øg jeres RevPAR med nøglefærdige HPO.TECH trykkamre til hotel og spa. Inkl. uddannelse, sikkerhedsprotokol og fuld drift. Beregn jeres case her.">
+    <meta name="description" content="Fra idé til idriftsat trykkammer på 8-10 uger uden byggerod. Modulære HPO.TECH kamre (max 790 mm), IBUM-uddannelse og 36-måneders leasing.">
 
     <!-- Canonical tag (Forhindrer duplicate content) -->
     <link rel="canonical" href="https://b2b.rechargelife.dk/how-it-works.html">
@@ -15,12 +15,11 @@
     <!-- ========================================== -->
     <!-- 2. OPEN GRAPH META-TAGS (LinkedIn/Facebook)-->
     <!-- ========================================== -->
-    <meta property="og:title" content="Trykkammer (HBOT) til Hotel & Spa | Turnkey Løsning | RechargeLife">
-    <meta property="og:description" content="Øg jeres RevPAR med nøglefærdige HPO.TECH trykkamre til hotel og spa. Inkl. uddannelse, sikkerhedsprotokol og fuld drift. Beregn jeres case her.">
+    <meta property="og:title" content="Hvordan det foregår | Turnkey Trykkammer Løsning | RechargeLife">
+    <meta property="og:description" content="Se vores transparente 5-trins proces fra behovsanalyse og pilotforløb til modulær installation på 1-2 dage uden byggerod.">
     <meta property="og:url" content="https://b2b.rechargelife.dk/how-it-works.html">
     <meta property="og:type" content="website">
-    <!-- Husk at ændre dette link til dit rigtige .webp billede -->
-    <meta property="og:image" content="https://b2b.rechargelife.dk/images/hpo-tech-kammer.webp"> 
+    <meta property="og:image" content="https://b2b.rechargelife.dk/pictures/multikammer.png"> 
 
     <!-- ========================================== -->
     <!-- 3. JSON-LD SCHEMA MARKUP (Google Rich Snippets) -->
@@ -80,7 +79,7 @@
             }
           ]
         }
-        </script>    
+    </script>    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -132,7 +131,7 @@
         }
     </style>
     <link rel="icon" href="favicon.png" type="image/png">
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N9W74J6F"></script>
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WS7KV53K"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -347,9 +346,8 @@
 
                     <div class="relative">
                         <!-- Billede af et multiplace kammer -->
-                        <img src="pictures\MEDITERRANEAN multiplace trykkammer _ HPOTECH Danmark_files\multiplace-hyperbaric-chamber-mediterranean-01-scaled.jpg" onerror="this.src='pictures\multiplace.png'" alt="Mediterranean 4 person chamber engineering" class="rounded-3xl shadow-2xl border-4 border-white/10 w-full">
+                        <img src="pictures/MEDITERRANEAN multiplace trykkammer _ HPOTECH Danmark_files/multiplace-hyperbaric-chamber-mediterranean-01-scaled.jpg" onerror="this.src='pictures/multiplace.png'" alt="Mediterranean 4 person chamber engineering" class="rounded-3xl shadow-2xl border-4 border-white/10 w-full">
                         
-                        <!-- Ændret fra -left-8 til left-4/md:-left-4 for bedre responsiv opførsel -->
                         <div class="absolute -bottom-6 left-4 md:-left-4 right-4 md:right-auto bg-white p-6 rounded-2xl shadow-xl border border-rl-lightbg text-rl-black max-w-sm md:max-w-xs z-10">
                             <div class="flex items-center gap-3 mb-2">
                                 <div class="w-10 h-10 rounded-full bg-rl-lightblue/30 flex items-center justify-center text-rl-darkblue font-bold shrink-0">✓</div>
@@ -367,9 +365,11 @@
             <div class="container mx-auto px-6">
                 <h2 class="font-serif text-3xl md:text-5xl text-rl-darkblue mb-6">Skal vi kigge på en løsning til jer?</h2>
                 <p class="text-rl-taupe mb-10 max-w-2xl mx-auto text-lg">Kontakt os for at få udarbejdet et layout og en konkret leasing-beregning for jeres klub, klinik eller hotel.</p>
-                <a href="mailto:kontakt@rechargelife.dk" class="inline-block bg-rl-darkblue text-white font-semibold px-10 py-5 rounded-full hover:bg-rl-lightblue hover:text-rl-darkblue transition duration-300 shadow-xl text-lg">
+                <button type="button" 
+                        data-emne="Forespørgsel fra Hvordan det foregår (Layout & Leasing-beregning)" 
+                        class="js-open-contact inline-block bg-rl-darkblue text-white font-semibold px-10 py-5 rounded-full hover:bg-rl-lightblue hover:text-rl-darkblue transition duration-300 shadow-xl text-lg cursor-pointer">
                     Book et uforpligtende møde
-                </a>
+                </button>
             </div>
         </section>
 
@@ -501,6 +501,10 @@
                 <p class="text-sm text-rl-black/70 mb-8">Skriv til os, så vender vi tilbage hurtigst muligt.</p>
 
                 <form action="https://formspree.io/f/xkjjldqw" method="POST" class="space-y-6">
+                    <!-- Skjulte felter til dynamisk emne og side-kilde -->
+                    <input type="hidden" name="_subject" id="form-subject" value="B2B henvendelse fra: Hvordan det foregår">
+                    <input type="hidden" name="Side_Kilde" id="form-page-source" value="Hvordan det foregår (how-it-works.html)">
+
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Navn</label>
                         <input type="text" name="Navn" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
@@ -539,24 +543,47 @@
         </div>
     </div>
 
-    <!-- JavaScript til Modal, Mobil Menu og Flydende Knap -->
+    <!-- JavaScript til Modal & Mobil Menu -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Modal Logik for Bliv Kontaktet
+            const pageTitle = document.title.split('|')[0].trim();
+            const pageUrl = window.location.href;
+
+            // Modal Logik for Bliv Kontaktet og CTA-knapper
             const openBtn = document.getElementById('open-contact-modal');
+            const customCtaBtns = document.querySelectorAll('.js-open-contact');
             const closeBtn = document.getElementById('close-contact-modal');
             const modal = document.getElementById('contact-modal');
             const modalContent = document.getElementById('contact-modal-content');
+            const subjectInput = document.getElementById('form-subject');
+            const sourceInput = document.getElementById('form-page-source');
 
-            if (openBtn && modalContent) {
-                openBtn.addEventListener('click', () => {
+            function openContactModal(customSubject) {
+                if (subjectInput) {
+                    subjectInput.value = customSubject || `B2B henvendelse fra: ${pageTitle}`;
+                }
+                if (sourceInput) {
+                    sourceInput.value = `${pageTitle} (${pageUrl})`;
+                }
+                if (modal && modalContent) {
                     modal.classList.remove('opacity-0', 'pointer-events-none');
                     modalContent.classList.remove('scale-95');
                     modalContent.classList.add('scale-100');
-                });
+                }
             }
 
-            if (closeBtn && modalContent) {
+            if (openBtn) {
+                openBtn.addEventListener('click', () => openContactModal());
+            }
+
+            customCtaBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const emne = btn.getAttribute('data-emne');
+                    openContactModal(emne);
+                });
+            });
+
+            if (closeBtn && modal && modalContent) {
                 closeBtn.addEventListener('click', () => {
                     modal.classList.add('opacity-0', 'pointer-events-none');
                     modalContent.classList.remove('scale-100');
@@ -581,30 +608,6 @@
             if (mobileBtn && mobileMenu) {
                 mobileBtn.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
-                });
-            }
-
-            // Flydende Kontakt Menu (hvis den stadig bruges)
-            const toggleBtn = document.getElementById('contact-toggle');
-            const contactMenu = document.getElementById('contact-menu');
-            
-            if (toggleBtn && contactMenu) {
-                toggleBtn.addEventListener('click', () => {
-                    contactMenu.classList.toggle('opacity-0');
-                    contactMenu.classList.toggle('pointer-events-none');
-                    contactMenu.classList.toggle('translate-y-4');
-                    contactMenu.classList.toggle('opacity-100');
-                    contactMenu.classList.toggle('pointer-events-auto');
-                    contactMenu.classList.toggle('translate-y-0');
-                });
-                
-                document.addEventListener('click', (event) => {
-                    const isClickInside = toggleBtn.contains(event.target) || contactMenu.contains(event.target);
-                    
-                    if (!isClickInside && contactMenu.classList.contains('opacity-100')) {
-                        contactMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
-                        contactMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-                    }
                 });
             }
         });
