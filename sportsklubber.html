@@ -179,7 +179,7 @@
         }
     </style>
     <link rel="icon" href="favicon.png" type="image/png">
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N9W74J6F"></script>
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WS7KV53K"></script><script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N9W74J6F"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -600,18 +600,19 @@
             </div>
         </section>
 
-        <!-- ======= CALL TO ACTION ======= -->
+    <!-- ======= CALL TO ACTION ======= -->
         <section class="py-24 bg-rl-darkblue text-center">
             <div class="container mx-auto px-6">
                 <!-- CTA opdateret til at fokusere på drift som en integreret del -->
                 <h2 class="font-serif text-3xl md:text-5xl text-white mb-6">Skal jeres klub have en færdig løsning på skader, øget spillertid og højere præstation?</h2>
                 <p class="text-rl-lightblue mb-10 max-w-2xl mx-auto text-lg">Vi analyserer klubbens behov, projekterer rummet, og drifter det som en integreret, evidensbaseret del af jeres medicinske stab, der beviseligt forlænger spillernes topniveau.</p>
-                <a href="mailto:kontakt@rechargelife.dk" class="inline-block bg-white text-rl-darkblue font-semibold px-10 py-5 rounded-full hover:bg-rl-lightbg transition duration-300 shadow-xl text-lg">
+                <button type="button" 
+                        data-emne="Forespørgsel fra Sportsklubber (Book møde eller præsentation)" 
+                        class="js-open-contact inline-block bg-white text-rl-darkblue font-semibold px-10 py-5 rounded-full hover:bg-rl-lightbg transition duration-300 shadow-xl text-lg cursor-pointer">
                     Book et møde eller præsentation
-                </a>
+                </button>
             </div>
         </section>
-
     </main>
     <!-- ======= E-E-A-T TILLIDSBLOK / FAQ ======= -->
         <section class="py-20 bg-[#FAF9F6] border-t border-rl-lightbg">
@@ -701,6 +702,9 @@
                     <!-- Nyhedsbrev -->
                     <p class="mb-4">Tilmeld dig nyhedsbrevet, og vær blandt de første til at høre om nyheder og tilbud.</p>
                     <form action="https://formspree.io/f/mnppkeeq" method="POST" target="_blank" class="flex items-end pb-2 border-b border-rl-lightbg/30 mt-3">
+                    <!-- Skjulte felter til dynamisk emne og side-kilde -->
+                        <input type="hidden" name="_subject" id="form-subject" value="B2B henvendelse fra: For sportsklubber">
+                        <input type="hidden" name="Side_Kilde" id="form-page-source" value="For sportsklubber (sportsklubber.html)">
                         <input type="email" name="Nyhedsbrev_Email" placeholder="Din e-mail" required class="bg-transparent w-full text-white placeholder-rl-lightbg/50 focus:outline-none font-light">
                         <input type="hidden" name="_next" value="tak-nyhedsbrev.html">
                         <button type="submit" class="uppercase text-xs font-semibold tracking-wider hover:text-white transition-colors shrink-0">Abonnér</button>
@@ -864,28 +868,51 @@
                 observer.observe(chart);
             }
 
-            // Modal Logik for Bliv Kontaktet
+            const pageTitle = document.title.split('|')[0].trim();
+            const pageUrl = window.location.href;
+
+            // Modal Logik for Bliv Kontaktet og CTA-knapper
             const openBtn = document.getElementById('open-contact-modal');
+            const customCtaBtns = document.querySelectorAll('.js-open-contact');
             const closeBtn = document.getElementById('close-contact-modal');
             const modal = document.getElementById('contact-modal');
             const modalContent = document.getElementById('contact-modal-content');
+            const subjectInput = document.getElementById('form-subject');
+            const sourceInput = document.getElementById('form-page-source');
 
-            if (openBtn && modalContent) {
-                openBtn.addEventListener('click', () => {
+            function openContactModal(customSubject) {
+                if (subjectInput) {
+                    subjectInput.value = customSubject || `B2B henvendelse fra: ${pageTitle}`;
+                }
+                if (sourceInput) {
+                    sourceInput.value = `${pageTitle} (${pageUrl})`;
+                }
+                if (modal && modalContent) {
                     modal.classList.remove('opacity-0', 'pointer-events-none');
                     modalContent.classList.remove('scale-95');
                     modalContent.classList.add('scale-100');
-                });
+                }
             }
 
-            if (closeBtn && modalContent) {
+            if (openBtn) {
+                openBtn.addEventListener('click', () => openContactModal());
+            }
+
+            customCtaBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const emne = btn.getAttribute('data-emne');
+                    openContactModal(emne);
+                });
+            });
+
+            if (closeBtn && modal && modalContent) {
                 closeBtn.addEventListener('click', () => {
                     modal.classList.add('opacity-0', 'pointer-events-none');
                     modalContent.classList.remove('scale-100');
                     modalContent.classList.add('scale-95');
                 });
             }
-            
+
             if (modal && modalContent) {
                 modal.addEventListener('click', (e) => {
                     if (e.target === modal) {
@@ -895,7 +922,6 @@
                     }
                 });
             }
-
             // Mobil Menu Logik
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
