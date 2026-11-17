@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="da" class="scroll-smooth">
 <head>
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N9W74J6F"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie-politik | RechargeLife B2B</title>
@@ -16,7 +10,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = { theme: { extend: { colors: { 'rl-darkblue': '#013F58', 'rl-lightblue': '#B6CCD7', 'rl-taupe': '#94857B', 'rl-lightbg': '#E0DFD8', 'rl-black': '#151F28' } } } }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rl-darkblue': '#013F58',
+                        'rl-lightblue': '#B6CCD7',
+                        'rl-taupe': '#94857B',
+                        'rl-lightbg': '#E0DFD8',
+                        'rl-black': '#151F28'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Belleza', 'serif']
+                    }
+                }
+            }
+        }
     </script>
     <link rel="icon" href="favicon.png" type="image/png">
     <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WS7KV53K"></script>
@@ -29,7 +39,7 @@
 <body class="bg-[#FAF9F6] text-rl-black font-sans antialiased">
     <header class="bg-rl-darkblue shadow-md sticky top-0 z-50 h-20 flex items-center">
         <nav class="container mx-auto px-6 flex items-center justify-between w-full">
-            <a href="index.html"><img src="pictures/Recharge Life_Large_Transparent_Variant 1.png" alt="Logo" class="h-16 md:h-20 object-contain"></a>
+            <a href="index.html"><img src="pictures/Recharge Life_Large_Transparent_Variant 1.png" alt="RechargeLife Logo" class="h-16 md:h-20 object-contain"></a>
             <a href="index.html" class="text-white text-sm hover:underline">Tilbage til forsiden</a>
         </nav>
     </header>
@@ -37,23 +47,38 @@
     <main class="py-20">
         <div class="container mx-auto px-6 max-w-4xl space-y-8">
             <h1 class="font-serif text-4xl text-rl-darkblue">Cookiepolitik</h1>
-            <p class="text-sm text-rl-taupe">Sidst opdateret: Januar 2026</p>
+            <p class="text-sm text-rl-taupe">Sidst opdateret: November 2026</p>
             
             <div class="space-y-6 text-rl-black/80 leading-relaxed">
                 <h2 class="font-serif text-2xl text-rl-darkblue pt-4">1. Hvad er cookies?</h2>
-                <p>En cookie er en lille tekstfil, der lagres på din computer, tablet eller smartphone, når du besøger en hjemmeside. Cookies indeholder ikke skadelig kode som f.eks. virussen.</p>
+                <p>En cookie er en lille tekstfil, der lagres på din computer, tablet eller smartphone, når du besøger en hjemmeside. Cookies gør det muligt at genkende din enhed, huske dine samtykkevalg og indsamle statistik over, hvordan hjemmesiden anvendes. Cookies indeholder ikke skadelig kode som f.eks. virus[cite: 11].</p>
 
-                <h2 class="font-serif text-2xl text-rl-darkblue pt-4">2. Anvendelse af cookies på sitet</h2>
-                <p>I øjeblikket anvender denne B2B-hjemmeside som udgangspunkt ikke statistiske eller markedsføringsmæssige cookies, før der indhentes aktivt samtykke. Ved implementering af f.eks. Google Analytics vil der blive etableret en samtykkeløsning (cookie-banner).</p>
+                <h2 class="font-serif text-2xl text-rl-darkblue pt-4">2. Hvilke cookies anvender vi på b2b.rechargelife.dk?</h2>
+                <p>På denne hjemmeside bruger vi kun statistiske cookies, når du har givet dit aktive samtykke via vores cookie-banner. Vi opdeler cookies i følgende kategorier:</p>
+                
+                <div class="space-y-4 pt-2">
+                    <div class="bg-white p-6 rounded-2xl border border-rl-lightbg">
+                        <h3 class="font-semibold text-rl-darkblue text-lg mb-1">Nødvendige cookies (Teknisk funktion &amp; samtykke)</h3>
+                        <p class="text-sm text-rl-black/80">Disse cookies er påkrævede for, at hjemmesiden og vores tag-styring (<strong>Google Tag Manager</strong>) fungerer teknisk korrekt, samt for at huske dit valg i vores cookie-banner, så du ikke bliver spurgt ved hvert sideklik. Disse kræver ikke samtykke.</p>
+                    </div>
 
-                <h2 class="font-serif text-2xl text-rl-darkblue pt-4">3. Sådan sletter eller blokerer du cookies</h2>
-                <p>Du kan til enhver tid slette eller blokere cookies i indstillingerne på din browser. Vejledning hertil afhænger af, hvilken browser du benytter (Chrome, Safari, Firefox, Edge m.fl.).</p>
+                    <div class="bg-white p-6 rounded-2xl border border-rl-lightbg">
+                        <h3 class="font-semibold text-rl-darkblue text-lg mb-1">Statistiske cookies (Hotjar &amp; Google Analytics)</h3>
+                        <p class="text-sm text-rl-black/80">Med dit samtykke anvender vi <strong>Hotjar</strong> (leveret af Hotjar Ltd.) og eventuelt <strong>Google Analytics</strong> (leveret af Google Ireland Ltd.) til at analysere trafik, klikmønstre og brugervenlighed i anonymiseret form. Formålet er udelukkende at forbedre hjemmesidens struktur, indhold og B2B-beregnere. Hotjar sætter bl.a. cookies som <code>_hjSessionUser_*</code> og <code>_hjSession_*</code> for at skelne mellem besøgende uden at identificere dig personligt.</p>
+                    </div>
+                </div>
+
+                <h2 class="font-serif text-2xl text-rl-darkblue pt-4">3. Sådan ændrer du samtykke eller sletter cookies</h2>
+                <p>Du kan til enhver tid ændre eller trække dit samtykke tilbage via vores samtykkeindstillinger, eller slette og blokere cookies direkte i indstillingerne på din browser (Chrome, Safari, Firefox, Edge m.fl.)[cite: 11]. Vær opmærksom på, at hvis du blokerer alle cookies, kan visse funktioner på hjemmesiden fungere mindre optimalt.</p>
+
+                <h2 class="font-serif text-2xl text-rl-darkblue pt-4">4. Kontaktoplysninger</h2>
+                <p>Hjemmesiden udbydes af Re Charge Life ApS (CVR: 45890589), Baldersvej 9, 3400 Hillerød[cite: 12]. Har du spørgsmål til vores brug af cookies, kan du kontakte os på <a href="mailto:kontakt@rechargelife.dk" class="text-rl-darkblue underline">kontakt@rechargelife.dk</a>[cite: 12].</p>
             </div>
         </div>
     </main>
 
     <footer class="bg-rl-darkblue text-white pt-12 pb-8 border-t border-white/10 text-center text-xs">
-        &copy; 2026 RechargeLife - Beyond Living. CVR: 45890589.
+        &copy; 2026 RechargeLife - Beyond Living. CVR: 45890589[cite: 11].
     </footer>
 </body>
 </html>
