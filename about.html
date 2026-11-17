@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="da" class="scroll-smooth">
 <head>
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N9W74J6F"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- ========================================== -->
     <!-- 1. PRIMÆRE META-TAGS (Søgemaskiner)        -->
     <!-- ========================================== -->
     <title>Om RechargeLife | Vores Fundament</title>
-    <meta name="description" content="Kort beskrivelse af siden her (maks 155 tegn).">
+    <meta name="description" content="IBUM-certificerede specialister og DTU-ingeniørbaggrund. Vi rådgiver om, leverer og drifter nøglefærdige HPO.TECH trykkammerløsninger i Skandinavien.">
 
     <!-- Canonical tag (Forhindrer duplicate content) -->
     <link rel="canonical" href="https://b2b.rechargelife.dk/about.html">
@@ -21,8 +15,8 @@
     <!-- ========================================== -->
     <!-- 2. OPEN GRAPH META-TAGS (LinkedIn/Facebook)-->
     <!-- ========================================== -->
-    <meta property="og:title" content="Sidetitel Her | RechargeLife">
-    <meta property="og:description" content="Kort beskrivelse af siden her.">
+    <meta property="og:title" content="Om RechargeLife | Vores Fundament & Ekspertise">
+    <meta property="og:description" content="Mød holdet bag RechargeLife. IBUM-certificerede specialister med stærk naturvidenskabelig og klinisk baggrund inden for hyperbarisk iltterapi (HBOT).">
     <meta property="og:url" content="https://b2b.rechargelife.dk/about.html">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://b2b.rechargelife.dk/pictures/multikammer.png"> 
@@ -54,7 +48,7 @@
                 "contactType": "Kundeservice"
               }
             },
-{
+            {
               "@type": "FAQPage",
               "mainEntity": [
                 {
@@ -85,7 +79,7 @@
             }
           ]
         }
-        </script>
+    </script>
         
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -226,7 +220,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-rl-black text-lg">IBUM certificeret ledelse</h4>
-                                    <p class="text-rl-taupe text-sm mt-1">Vi er uddannet som <em>Advanced Hyperbaric Technicians</em> og <em>Safety Directors</em> under International Baric Underwater Medicine (IBUM), og trækker på løbende uddannelse og medlemskab af den Europæiske Baromedicinske Association (EBAss).</p>
+                                    <p class="text-rl-taupe text-sm mt-1">Vi er uddannet som <em>Advanced Hyperbaric Technicians</em> og <em>Safety Directors</em> under International Board of Undersea Medicine (IBUM), og trækker på løbende uddannelse og medlemskab af den Europæiske Baromedicinske Association (EBAss).</p>
                                 </div>
                             </div>
                             
@@ -294,9 +288,11 @@
             <div class="container mx-auto px-6">
                 <h2 class="font-serif text-3xl md:text-5xl text-rl-darkblue mb-6">Skal vi tage en snak om jeres facilitet?</h2>
                 <p class="text-rl-taupe mb-10 max-w-2xl mx-auto text-lg">Kontakt os for at arrangere et besøg i vores showroom eller for at modtage materiale omkring vores Turnkey- og driftsløsninger.</p>
-                <a href="mailto:kontakt@rechargelife.dk" class="inline-block bg-rl-darkblue text-white font-semibold px-10 py-5 rounded-full hover:bg-rl-lightblue hover:text-rl-darkblue transition duration-300 shadow-xl text-lg">
+                <button type="button" 
+                        data-emne="Forespørgsel fra Om RechargeLife (Showroom / Turnkey-løsning)" 
+                        class="js-open-contact inline-block bg-rl-darkblue text-white font-semibold px-10 py-5 rounded-full hover:bg-rl-lightblue hover:text-rl-darkblue transition duration-300 shadow-xl text-lg cursor-pointer">
                     Kontakt RechargeLife
-                </a>
+                </button>
             </div>
         </section>
 
@@ -311,7 +307,7 @@
             </div>
 
             <div class="space-y-6">
-<!-- Spørgsmål 1 -->
+                <!-- Spørgsmål 1 -->
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-rl-lightbg/50">
                     <h3 class="font-semibold text-xl text-rl-darkblue mb-3">Hvem står for den daglige drift og sikkerhed?</h3>
                     <p class="text-rl-taupe leading-relaxed">Vi leverer en komplet <em>Turnkey</em>-løsning, hvor RechargeLifes eget IBUM-certificerede personale driver anlægget for jer, eller vi uddanner jeres eget team. I samarbejde med <strong>HPO.TECH</strong> sørger vi for officiel <strong>IBUM-certificering</strong> af jeres operatører, suppleret med praktisk "hands-on" træning i vores egen klinik i Hillerød inden opstart. Dette inkluderer faste sikkerhedsprotokoller, brugen af antistatiske tekstiler (100% bomuld) og opretholdelse af et sikkert, kontrolleret iltmiljø under 23,5%.</p>
@@ -428,6 +424,10 @@
                 <p class="text-sm text-rl-black/70 mb-8">Skriv til os, så vender vi tilbage hurtigst muligt.</p>
 
                 <form action="https://formspree.io/f/xkjjldqw" method="POST" class="space-y-6">
+                    <!-- Skjulte felter til dynamisk emne og side-kilde -->
+                    <input type="hidden" name="_subject" id="form-subject" value="B2B henvendelse fra: Om RechargeLife">
+                    <input type="hidden" name="Side_Kilde" id="form-page-source" value="Om RechargeLife (about.html)">
+
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Navn</label>
                         <input type="text" name="Navn" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
@@ -469,21 +469,44 @@
     <!-- JavaScript til Modal & Navigation -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Modal Logik for Bliv Kontaktet
+            const pageTitle = document.title.split('|')[0].trim();
+            const pageUrl = window.location.href;
+
+            // Modal Logik for Bliv Kontaktet og CTA-knapper
             const openBtn = document.getElementById('open-contact-modal');
+            const customCtaBtns = document.querySelectorAll('.js-open-contact');
             const closeBtn = document.getElementById('close-contact-modal');
             const modal = document.getElementById('contact-modal');
             const modalContent = document.getElementById('contact-modal-content');
+            const subjectInput = document.getElementById('form-subject');
+            const sourceInput = document.getElementById('form-page-source');
 
-            if (openBtn && modalContent) {
-                openBtn.addEventListener('click', () => {
+            function openContactModal(customSubject) {
+                if (subjectInput) {
+                    subjectInput.value = customSubject || `B2B henvendelse fra: ${pageTitle}`;
+                }
+                if (sourceInput) {
+                    sourceInput.value = `${pageTitle} (${pageUrl})`;
+                }
+                if (modal && modalContent) {
                     modal.classList.remove('opacity-0', 'pointer-events-none');
                     modalContent.classList.remove('scale-95');
                     modalContent.classList.add('scale-100');
-                });
+                }
             }
 
-            if (closeBtn && modalContent) {
+            if (openBtn) {
+                openBtn.addEventListener('click', () => openContactModal());
+            }
+
+            customCtaBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const emne = btn.getAttribute('data-emne');
+                    openContactModal(emne);
+                });
+            });
+
+            if (closeBtn && modal && modalContent) {
                 closeBtn.addEventListener('click', () => {
                     modal.classList.add('opacity-0', 'pointer-events-none');
                     modalContent.classList.remove('scale-100');
