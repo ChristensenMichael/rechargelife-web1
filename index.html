@@ -489,9 +489,8 @@
 
                     <!-- Nyhedsbrev -->
                     <p class="mb-4">Tilmeld dig nyhedsbrevet, og vær blandt de første til at høre om nyheder og tilbud.</p>
-                    <form action="https://formspree.io/f/mnppkeeq" method="POST" target="_blank" class="flex items-end pb-2 border-b border-rl-lightbg/30 mt-3">
+                    <form action="https://formspree.io/f/mnppkeeq" method="POST" class="flex items-end pb-2 border-b border-rl-lightbg/30 mt-3">
                         <input type="email" name="Nyhedsbrev_Email" placeholder="Din e-mail" required class="bg-transparent w-full text-white placeholder-rl-lightbg/50 focus:outline-none font-light">
-                        <input type="hidden" name="_next" value="https://b2b.rechargelife.dk/tak-nyhedsbrev.html">
                         <button type="submit" class="uppercase text-xs font-semibold tracking-wider hover:text-white transition-colors shrink-0">Abonnér</button>
                     </form>
                 </div>
@@ -528,10 +527,10 @@
                 <h3 class="font-serif text-3xl md:text-4xl text-rl-black mb-2">Har du nogle spørgsmål?</h3>
                 <p class="text-sm text-rl-black/70 mb-8">Skriv til os, så vender vi tilbage hurtigst muligt.</p>
 
-                <form action="https://formspree.io/f/xkjjldqw" method="POST" class="space-y-6" target="_blank">
+                <form action="https://formspree.io/f/xkjjldqw" method="POST" class="space-y-6">
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Navn</label>
-                        <input type="text" name="Navn" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Firmanavn</label>
+                        <input type="text" name="Firmanavn" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors">
                     </div>
 
                     <div class="flex gap-4">
@@ -557,8 +556,6 @@
                         <textarea name="Kommentar" rows="3" placeholder="Skriv dit spørgsmål her" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors resize-none placeholder-rl-lightbg text-sm"></textarea>
                     </div>
                     
-                    <input type="hidden" name="_next" value="https://b2b.rechargelife.dk/tak.html">
-
                     <button type="submit" class="w-full bg-rl-darkblue hover:bg-rl-black text-white font-serif text-sm uppercase tracking-widest py-4 transition-colors duration-300 mt-4">
                         Kontakt mig
                     </button>
@@ -630,6 +627,41 @@
                 });
             });
         });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        // Find alle formularer der sender til Formspree
+        const formspreeForms = document.querySelectorAll('form[action^="https://formspree.io"]');
+        
+        formspreeForms.forEach(form => {
+            form.addEventListener("submit", async function(event) {
+                event.preventDefault(); // Forhindrer at siden skifter
+                
+                const button = form.querySelector('button[type="submit"]');
+                const originalButtonText = button.innerHTML;
+                button.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sender...`; // Giver brugeren feedback mens den tænker
+                
+                const data = new FormData(form);
+                
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    
+                    if (response.ok) {
+                        // Udskift selve formularen med en takkebesked i Rechargelife design
+                        form.innerHTML = "<div class='text-rl-darkblue font-serif text-xl py-8 text-center'>Tak for din henvendelse.<br><span class='text-sm font-sans text-rl-taupe'>Vi vender tilbage hurtigst muligt.</span></div>";
+                    } else {
+                        button.innerHTML = "Der skete en fejl. Prøv igen.";
+                    }
+                } catch (error) {
+                    button.innerHTML = "Netværksfejl. Prøv igen.";
+                }
+            });
+        });
+    });
     </script>
 </body>
 </html>
