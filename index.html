@@ -65,7 +65,7 @@
                   "name": "Hvad kræver det af plads at installere et trykkammer?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Vores kamre leveres i moduler. Et 1-persons kammer som HPO.TECH Zeugma kræver typisk kun 12-15 m² plads med aktiv ventilation."
+                    "text": "Vores kamre leveres i moduler. Et 1-persons kammer som HPO.TECH Zeugma kræver typisk kun 15 m² plads med aktiv ventilation."
                   }
                 },
                 {
@@ -427,7 +427,7 @@
                 <!-- Spørgsmål 3 -->
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-rl-lightbg/50">
                     <h3 class="font-semibold text-xl text-rl-darkblue mb-3">Hvad kræver det af plads at installere et trykkammer?</h3>
-                    <p class="text-rl-taupe leading-relaxed">Vores løsninger passer ind i langt de fleste erhvervslokaler. Et 1-persons kammer (Zeugma) kan typisk integreres i et rum på 12-15 m². Da vores udstyr er modulopbygget i sektioner (max 790 mm i bredden), kan selv de helt store 4-personers kamre bæres ind gennem almindelige døråbninger. Rummet kræver blot almindelig strøm og adgang til aktiv ventilation (HVAC).</p>
+                    <p class="text-rl-taupe leading-relaxed">Vores løsninger passer ind i langt de fleste erhvervslokaler. Et 1-persons kammer (Zeugma) kan typisk integreres i et rum på 15 m². Da vores udstyr er modulopbygget i sektioner (max 790 mm i bredden), kan selv de helt store 4-personers kamre bæres ind gennem almindelige døråbninger. Rummet kræver blot almindelig strøm og adgang til aktiv ventilation (HVAC).</p>
                 </div>
             </div>
         </div>
@@ -528,6 +528,13 @@
                 <p class="text-sm text-rl-black/70 mb-8">Skriv til os, så vender vi tilbage hurtigst muligt.</p>
 
                 <form action="https://formspree.io/f/xkjjldqw" method="POST" class="space-y-6">
+                    <!-- Skjulte felter til dynamisk emne og side-kilde -->
+                    <input type="hidden" name="_subject" id="form-subject" value="B2B henvendelse fra: Hovedside">
+                    <input type="hidden" name="Side_Kilde" id="form-page-source" value="Hovedsiden (index.html)">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Navn</label>
+                        <input type="text" name="Navn" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                    </div>
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Firmanavn</label>
                         <input type="text" name="Firmanavn" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors">
@@ -630,38 +637,87 @@
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-        // Find alle formularer der sender til Formspree
-        const formspreeForms = document.querySelectorAll('form[action^="https://formspree.io"]');
-        
-        formspreeForms.forEach(form => {
-            form.addEventListener("submit", async function(event) {
-                event.preventDefault(); // Forhindrer at siden skifter
-                
-                const button = form.querySelector('button[type="submit"]');
-                const originalButtonText = button.innerHTML;
-                button.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sender...`; // Giver brugeren feedback mens den tænker
-                
-                const data = new FormData(form);
-                
-                try {
-                    const response = await fetch(form.action, {
-                        method: form.method,
-                        body: data,
-                        headers: { 'Accept': 'application/json' }
-                    });
+            // Find alle formularer der sender til Formspree
+            const formspreeForms = document.querySelectorAll('form[action^="https://formspree.io"]');
+            
+            formspreeForms.forEach(form => {
+                form.addEventListener("submit", async function(event) {
+                    event.preventDefault(); // Forhindrer at siden skifter
                     
-                    if (response.ok) {
-                        // Udskift selve formularen med en takkebesked i Rechargelife design
-                        form.innerHTML = "<div class='text-rl-darkblue font-serif text-xl py-8 text-center'>Tak for din henvendelse.<br><span class='text-sm font-sans text-rl-taupe'>Vi vender tilbage hurtigst muligt.</span></div>";
-                    } else {
-                        button.innerHTML = "Der skete en fejl. Prøv igen.";
+                    const button = form.querySelector('button[type="submit"]');
+                    const originalButtonText = button.innerHTML;
+                    button.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sender...`;
+                    
+                    const data = new FormData(form);
+                    
+                    try {
+                        const response = await fetch(form.action, {
+                            method: form.method,
+                            body: data,
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        
+                        if (response.ok) {
+                            // TJEK: Er dette kontaktformularen i pop-up'en?
+                            if (form.closest('#contact-modal-content')) {
+                                form.innerHTML = `
+                                    <div class="text-center py-8 animate-fade-in">
+                                        <h4 class="text-rl-darkblue font-serif text-2xl mb-2">Tak for din henvendelse</h4>
+                                        <p class="text-sm font-sans text-rl-taupe mb-8">Vi vender tilbage hurtigst muligt.</p>
+                                        
+                                        <div class="flex flex-col items-center justify-center">
+                                            <div class="w-12 h-12 rounded-full border-2 border-rl-lightblue/50 flex items-center justify-center mb-2">
+                                                <span id="contact-countdown" class="font-serif text-xl font-bold text-rl-darkblue">7</span>
+                                            </div>
+                                            <p class="text-[10px] text-rl-taupe uppercase tracking-widest">Lukker automatisk</p>
+                                        </div>
+                                    </div>
+                                `;
+
+                                let timeLeft = 7;
+                                const countdownEl = document.getElementById('contact-countdown');
+                                const modal = document.getElementById('contact-modal');
+                                const modalContent = document.getElementById('contact-modal-content');
+                                
+                                const timer = setInterval(() => {
+                                    timeLeft--;
+                                    if (countdownEl) {
+                                        countdownEl.textContent = timeLeft;
+                                    }
+                                    
+                                    if (timeLeft <= 0) {
+                                        clearInterval(timer);
+                                        if (modal && modalContent) {
+                                            modal.classList.add('opacity-0', 'pointer-events-none');
+                                            modalContent.classList.remove('scale-100');
+                                            modalContent.classList.add('scale-95');
+                                            
+                                            // Nulstil formularen efter den er lukket
+                                            setTimeout(() => { location.reload(); }, 500); 
+                                        }
+                                    }
+                                }, 1000);
+
+                            // ELLERS: Dette er nyhedsbrevet i footeren
+                            } else {
+                                form.innerHTML = `
+                                    <div class="text-white text-sm py-2">
+                                        Tak! Du er nu tilmeldt nyhedsbrevet.
+                                    </div>
+                                `;
+                                // Nulstil input-feltet efter et par sekunder
+                                setTimeout(() => { location.reload(); }, 4000);
+                            }
+
+                        } else {
+                            button.innerHTML = "Der skete en fejl. Prøv igen.";
+                        }
+                    } catch (error) {
+                        button.innerHTML = "Netværksfejl. Prøv igen.";
                     }
-                } catch (error) {
-                    button.innerHTML = "Netværksfejl. Prøv igen.";
-                }
+                });
             });
         });
-    });
     </script>
 </body>
 </html>
