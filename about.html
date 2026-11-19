@@ -557,10 +557,18 @@
                             body: data,
                             headers: { 'Accept': 'application/json' }
                         });
-                        
                         if (response.ok) {
+                            window.dataLayer = window.dataLayer || [];
+                            const currentPage = document.title.split('|')[0].trim();
+
                             // TJEK: Er dette kontaktformularen i pop-up'en?
                             if (form.closest('#contact-modal-content')) {
+                                window.dataLayer.push({
+                                    'event': 'form_submit',
+                                    'form_type': 'contact_modal',
+                                    'page_source': currentPage
+                                });
+
                                 form.innerHTML = `
                                     <div class="text-center py-8 animate-fade-in">
                                         <h4 class="text-rl-darkblue font-serif text-2xl mb-2">Tak for din henvendelse</h4>
@@ -601,6 +609,12 @@
 
                             // ELLERS: Dette er nyhedsbrevet i footeren
                             } else {
+                                window.dataLayer.push({
+                                    'event': 'newsletter_signup',
+                                    'form_type': 'footer_newsletter',
+                                    'page_source': currentPage
+                                });
+
                                 form.innerHTML = `
                                     <div class="text-white text-sm py-2">
                                         Tak! Du er nu tilmeldt nyhedsbrevet.
