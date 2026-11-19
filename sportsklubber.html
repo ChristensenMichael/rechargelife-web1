@@ -158,9 +158,8 @@
         }
         @keyframes shrinkToHBOT {
             0% { height: 100%; }
-            100% { height: 40%; } /* Skrumper ned til ca. 26 dages mærket */
+            100% { height: 75%; } /* Skrumper ned til ca. 49-56 dages mærket (20-30% reduktion) */
         }
-
         /* Input styling for beregnere */
         .rl-input {
             width: 100%;
@@ -267,7 +266,7 @@
                         Den ultimative fordel på banen
                     </h1>
                     <p class="text-white/90 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
-                        Beskyt jeres trup og optimer 'return-to-play'. Med et medicinsk funderet trykkammer-setup (HBOT) øger I performance, forbedrer VO2Max, og halverer skadesperioden for kritiske muskelskader.
+                        Beskyt jeres trup og optimer 'return-to-play'. Med et medicinsk funderet trykkammer-setup (HBOT) understøtter I hurtigere restitution, øger performance, forbedrer VO2Max, og styrker kroppens biologiske vævsheling ved skader.
                     </p>
                 </div>
             </div>
@@ -287,39 +286,50 @@
                     
                     <!-- Venstre side: Den grafiske fremstilling -->
                     <div class="space-y-12">
-                        
-                        <!-- 1. VO2Max og VO2AT Visualisering -->
+                        <!-- 1. VO2Max, VO2AT og MTG Visualisering -->
                         <div class="bg-white p-8 rounded-3xl shadow-md border border-rl-lightbg">
-                            <h3 class="font-serif text-2xl text-rl-darkblue mb-6">Performance forbedringer</h3>
-                            <div class="flex flex-col sm:flex-row gap-8 justify-around">
+                            <h3 class="font-serif text-2xl text-rl-darkblue mb-2">Dokumenteret aerob kapacitet</h3>
+                            <p class="text-xs text-rl-taupe mb-6">
+                                Randomiseret studie (Hadanny et al., 2022) på 37 masteratleter efter 40 HBOT-sessioner ved 2,0 ATA.
+                                <a href="https://sportsmedicine-open.springeropen.com/articles/10.1186/s40798-021-00403-w" target="_blank" class="underline hover:text-rl-darkblue">[Kilde: 1]</a>
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 justify-items-center">
                                 <div class="flex flex-col items-center text-center group">
-                                    <div class="w-36 h-36 rounded-full border-8 border-rl-lightblue flex flex-col items-center justify-center mb-4 transition-transform group-hover:scale-105">
-                                        <span class="font-bold text-xl text-rl-darkblue">+5%</span>
-                                        <span class="font-bold text-xl text-rl-darkblue">VO₂Max</span>
+                                    <div class="w-32 h-32 rounded-full border-8 border-rl-lightblue flex flex-col items-center justify-center mb-3 transition-transform group-hover:scale-105">
+                                        <span class="font-bold text-lg text-rl-darkblue">+4,3%</span>
+                                        <span class="font-bold text-sm text-rl-darkblue">VO₂Max</span>
                                     </div>
-                                    <h4 class="font-semibold text-rl-black">Maksimal Iltoptagelse</h4>
-                                    <p class="text-sm text-rl-taupe mt-1 max-w-[150px]">Øget kapillær tæthed og forbedret lungefunktion. <br><a href="https://sportsmedicine-open.springeropen.com/articles/10.1186/s40798-021-00403-w" target="_blank" class="underline hover:text-rl-darkblue">[Kilde: 1]</a></p>
+                                    <h4 class="font-semibold text-sm text-rl-black">Maksimal iltoptagelse</h4>
+                                    <p class="text-xs text-rl-taupe mt-1">Signifikant stigning (p = 0,010)</p>
                                 </div>
                                 <div class="flex flex-col items-center text-center group">
-                                    <div class="w-36 h-36 rounded-full border-8 border-rl-darkblue flex flex-col items-center justify-center mb-4 transition-transform group-hover:scale-105">
-                                        <span class="font-bold text-xl text-rl-darkblue">+10%</span>
-                                        <span class="font-bold text-xl text-rl-darkblue">VO₂AT</span>
+                                    <div class="w-32 h-32 rounded-full border-8 border-rl-darkblue flex flex-col items-center justify-center mb-3 transition-transform group-hover:scale-105">
+                                        <span class="font-bold text-lg text-rl-darkblue">+10,9%</span>
+                                        <span class="font-bold text-sm text-rl-darkblue">VO₂AT</span>
                                     </div>
-                                    <h4 class="font-semibold text-rl-black">Anaerob tærskel</h4>
-                                    <p class="text-sm text-rl-taupe mt-1 max-w-[150px]">Hurtigere clearance af mælkesyre forbedrer udholdenhed. <br><a href="https://sportsmedicine-open.springeropen.com/articles/10.1186/s40798-021-00403-w" target="_blank" class="underline hover:text-rl-darkblue">[Kilde: 2]</a></p>
+                                    <h4 class="font-semibold text-sm text-rl-black">Anaerob tærskel</h4>
+                                    <p class="text-xs text-rl-taupe mt-1">Højere belastning før syreophobning (p = 0,026)</p>
+                                </div>
+                                <div class="flex flex-col items-center text-center group">
+                                    <div class="w-32 h-32 rounded-full border-8 border-rl-taupe flex flex-col items-center justify-center mb-3 transition-transform group-hover:scale-105">
+                                        <span class="font-bold text-lg text-rl-darkblue">+17,1%</span>
+                                        <span class="font-bold text-sm text-rl-darkblue">MTG</span>
+                                    </div>
+                                    <h4 class="font-semibold text-sm text-rl-black">Mitokondriel masse</h4>
+                                    <p class="text-xs text-rl-taupe mt-1">Øget cellulær energikapacitet (p = 0,0002)</p>
                                 </div>
                             </div>
                         </div>
-
                         <!-- 2. Graf: Skadesnedetid med Y-akse & Overlap -->
                         <div class="bg-white p-8 rounded-3xl shadow-md border border-rl-lightbg">
-                            <h3 class="font-serif text-2xl text-rl-darkblue mb-2">Markant reduktion af skadesperioden</h3>
-                            <p class="text-sm text-rl-taupe mb-10">Klinisk evidens og idrætsmedicinske studier viser, at fraværsperioden ved udvalgte muskuloskeletale skader (f.eks. ledbånd og muskeloverrivninger) kan reduceres markant – i professionelle cases op mod 55-70 % – ved brug af HBOT som supplerende behandling. <br>
-                            <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3382683/" target="_blank" class="underline hover:text-rl-darkblue" title="Barata et al. (2011) - Hyperbaric oxygen effects on sports injuries">[Kilde: 3]</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/16083217/" target="_blank" class="underline hover:text-rl-darkblue" title="Ishii et al. (2005) - Hyperbaric oxygen as an adjuvant for athletes">[Kilde: 4]</a>
+                            <h3 class="font-serif text-2xl text-rl-darkblue mb-2">Understøttelse af hurtigere "return-to-play"</h3>
+                            <p class="text-sm text-rl-taupe mb-10">
+                                Idrætsmedicinske oversigtsartikler beskriver solid biologisk plausibilitet for, at HBOT fremmer angiogenese, type 1-kollagensyntese og knogledannelse. Grafen viser et konservativt, illustrativt scenarie (20–30 % kortere forløb) ved HBOT som supplement til konventionel genoptræning; den kliniske evidens på atleter er fortsat primært baseret på ikke-randomiserede studier og klinisk erfaring. <br>
+                                <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3382683/" target="_blank" class="underline hover:text-rl-darkblue" title="Barata et al. (2011) - Hyperbaric oxygen effects on sports injuries">[Kilde: 3]</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/16083217/" target="_blank" class="underline hover:text-rl-darkblue" title="Ishii et al. (2005) - Hyperbaric oxygen as an adjuvant for athletes">[Kilde: 4]</a>
                             </p>
                             
                             <!-- Overlapping Bar Chart med Y-akse -->
-                            <div id="recovery-chart" class="relative h-[22rem] w-[85%] mx-auto mt-24 border-b-2 border-l-2 border-rl-lightbg ml-10">
+                            <div id="recovery-chart" class="relative h-[22rem] w-[85%] mx-auto mt-10 border-b-2 border-l-2 border-rl-lightbg ml-10">
                                 
                                 <div class="absolute -left-2 top-0 w-2 h-0.5 bg-rl-lightbg z-0"></div>
                                 <span class="absolute -left-8 -top-3 text-rl-taupe font-bold text-sm z-0">70</span>
@@ -327,35 +337,38 @@
                                 <div class="absolute -left-2 bottom-0 w-2 h-0.5 bg-rl-lightbg z-0"></div>
                                 <span class="absolute -left-6 -bottom-3 text-rl-taupe font-bold text-sm z-0">0</span>
                                 
-                                <div class="absolute bottom-0 left-0 w-full h-full bg-rl-lightblue/20 rounded-tr-xl z-0 flex flex-col items-center justify-end pb-8 border-t-2 border-r-2 border-dashed border-rl-lightblue">
+                                <div class="absolute bottom-0 left-0 w-full h-full bg-rl-lightblue/20 rounded-tr-xl z-0 border-t-2 border-r-2 border-dashed border-rl-lightblue">
                                 </div>
                                 
-                                <div class="absolute top-[10%] left-1/2 -translate-x-1/2 z-20 flex flex-col items-center w-full">
-                                    <span class="text-rl-darkblue font-medium text-sm md:text-base mb-3 block">Konventionel behandling</span>
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-10 h-10 text-rl-darkblue/70">
+                                <!-- Konventionel behandling: Kompakt i toppen (øverste ~20%) -->
+                                <div class="absolute top-3 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center gap-2 w-full px-3">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-rl-darkblue/70 shrink-0">
                                         <path d="M20 10.5h-4.5V6a1 1 0 0 0-1-1h-5a1 1 0 0 0-1 1v4.5H4a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h4.5V22a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-4.5H20a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1z" fill="currentColor" fill-opacity="0.1" stroke="none"/>
                                         <path d="M12 3v18"/>
                                         <path d="M9.5 8.5c0-2.5 5-2.5 5 0 0 2-5 3-5 5s5 3 5 5-5 3-5 5"/>
                                         <circle cx="14" cy="6" r="1"/>
                                     </svg>
+                                    <span class="text-rl-darkblue font-medium text-sm md:text-base whitespace-nowrap">Konventionel behandling (70 dage)</span>
                                 </div>
 
-                                <div class="animate-overlap-bar absolute bottom-0 left-0 w-full bg-rl-darkblue rounded-tr-xl z-10 flex flex-col justify-end shadow-2xl">
+                                <!-- HBOT-søjle (75% højde) med tallet inde i toppen -->
+                                <div class="animate-overlap-bar absolute bottom-0 left-0 w-full bg-rl-darkblue rounded-tr-xl z-10 flex flex-col justify-between py-6 px-4 shadow-2xl">
                                     <div class="absolute top-0 -left-6 w-6 border-t-2 border-dashed border-rl-darkblue flex items-center z-20">
                                         <div class="absolute -left-1.5 w-3 h-3 rounded-full bg-rl-darkblue -translate-y-1/2"></div>
                                     </div>
 
-                                    <div class="absolute -top-16 left-1/2 -translate-x-1/2 text-center w-32 z-30">
+                                    <!-- Tæller i hvid inde i toppen af søjlen -->
+                                    <div class="text-center w-full z-30">
                                         <div class="relative h-10 w-full flex justify-center items-center">
-                                            <span id="hbot-counter" class="absolute text-rl-darkblue font-bold text-4xl drop-shadow-sm transition-opacity duration-300">70</span>
-                                            <span id="hbot-final" class="absolute text-rl-darkblue font-bold text-4xl drop-shadow-sm opacity-0 transition-opacity duration-500 whitespace-nowrap">21-31</span>
+                                            <span id="hbot-counter" class="absolute text-white font-bold text-4xl drop-shadow-sm transition-opacity duration-300">70</span>
+                                            <span id="hbot-final" class="absolute text-white font-bold text-4xl drop-shadow-sm opacity-0 transition-opacity duration-500 whitespace-nowrap">49-56</span>
                                         </div>
-                                        <span class="block text-rl-darkblue text-xs uppercase tracking-widest font-bold mt-1">Dage</span>
+                                        <span class="block text-rl-lightblue text-xs uppercase tracking-widest font-bold mt-1">Dage</span>
                                     </div>
                                     
-                                    <div class="p-4 pb-8 text-center relative z-20">
-                                        <span class="text-white font-medium text-sm md:text-base block mb-3">Avanceret HBOT</span>
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 mx-auto text-white">
+                                    <div class="text-center relative z-20">
+                                        <span class="text-white font-medium text-sm md:text-base block mb-2">Avanceret HBOT</span>
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-11 h-11 mx-auto text-white">
                                             <rect x="2" y="8" width="20" height="9" rx="4.5" />
                                             <circle cx="12" cy="12.5" r="2.5" />
                                             <path d="M6 8v9M18 8v9" stroke-dasharray="1 2"/>
@@ -521,17 +534,71 @@
                         </div>
                         <div>
                             <h4 class="font-bold text-lg text-white">Myles Garrett</h4>
-                            <p class="text-rl-lightblue text-sm mt-1">Los Angeles Rams (NFL)</p>
+                            <p class="text-rl-lightblue text-sm mt-1">Cleveland Browns (NFL)</p>
                         </div>
                         <div>
                             <h4 class="font-bold text-lg text-white">Arkadiusz Milik</h4>
                             <p class="text-rl-lightblue text-sm mt-1">Juventus FC (Serie A)</p>
                         </div>
                     </div>
+
                 </div>
 
+                <!-- 3. Fuld bredde: Dokumenteret restitution (kontrollerede studier) -->
+                <div class="mt-12 bg-white p-8 md:p-10 rounded-3xl shadow-md border border-rl-lightbg">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                        <div>
+                            <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-taupe">Restitution i tætte kampprogrammer</span>
+                            <h3 class="font-serif text-2xl md:text-3xl text-rl-darkblue mt-1">Hvad viser kontrollerede studier om restitution?</h3>
+                        </div>
+                        <p class="text-sm text-rl-taupe max-w-md">
+                            Nyere klinisk forskning fokuserer på mærkbare effekter på oplevet restitution, laktatclearance og parasympatisk reaktivering efter hård belastning.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!-- Kort 1: Gušić et al. (2024) -->
+                        <div class="bg-[#FAF9F6] p-6 rounded-2xl border border-rl-lightbg/80 flex flex-col justify-between">
+                            <div>
+                                <span class="inline-block text-xs font-bold uppercase tracking-wider text-rl-darkblue bg-rl-lightblue/40 px-3 py-1 rounded-full mb-4">
+                                    Hooper Index (p = 0,012)
+                                </span>
+                                <h4 class="font-semibold text-lg text-rl-black mb-2">Bedre subjektiv restitution</h4>
+                                <p class="text-sm text-rl-black/75 leading-relaxed">
+                                    Gušić et al. (2024) påviste signifikant bedre oplevet restitution (søvn, træthed, stress og ømhed) allerede 1 time efter HBOT, uden signifikant forskel i biokemiske skadesmarkører.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Kort 2: 2025-metaanalyse -->
+                        <div class="bg-[#FAF9F6] p-6 rounded-2xl border border-rl-lightbg/80 flex flex-col justify-between">
+                            <div>
+                                <span class="inline-block text-xs font-bold uppercase tracking-wider text-rl-darkblue bg-rl-lightblue/40 px-3 py-1 rounded-full mb-4">
+                                    Metaanalyse · 15 RCT'er
+                                </span>
+                                <h4 class="font-semibold text-lg text-rl-black mb-2">Lavere blodlaktat efter belastning</h4>
+                                <p class="text-sm text-rl-black/75 leading-relaxed">
+                                    En samlet metaanalyse fra 2025 af 15 randomiserede kontrollerede studier viser signifikant lavere blodlaktat efter HBOT, men ingen signifikant reduktion i kreatinkinase (CK).
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Kort 3: Mihailovic et al. -->
+                        <div class="bg-[#FAF9F6] p-6 rounded-2xl border border-rl-lightbg/80 flex flex-col justify-between">
+                            <div>
+                                <span class="inline-block text-xs font-bold uppercase tracking-wider text-rl-darkblue bg-rl-lightblue/40 px-3 py-1 rounded-full mb-4">
+                                    HRV & +7 W (p = 0,005)
+                                </span>
+                                <h4 class="font-semibold text-lg text-rl-black mb-2">Parasympatisk reaktivering samme dag</h4>
+                                <p class="text-sm text-rl-black/75 leading-relaxed">
+                                    Mihailovic et al. dokumenterede forbedret HRV-relateret parasympatisk reaktivering efter fysisk udmattelse samt en beskeden fremgang i efterfølgende 5-minutters cykeleffekt (+7 W) samme dag.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
+        </section>                        
 
         <!-- ======= BEREGNERE (ROI & VÆRDI) ======= -->
         <section id="roi-beregner" class="py-20 bg-white border-t border-rl-lightbg">
@@ -544,11 +611,10 @@
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-10">
-                    
                     <!-- Calculator 1: ROI på skader -->
                     <div class="bg-rl-lightbg/30 p-8 rounded-3xl border border-rl-lightbg">
                         <h3 class="font-serif text-2xl text-rl-darkblue mb-2">Lønbesparelse ved skader</h3>
-                        <p class="text-sm text-rl-taupe mb-6">Baseret på en gennemsnitlig halvering (50%) af skadesperioden.</p>
+                        <p class="text-sm text-rl-taupe mb-6">Simulér jeres potentielle besparelse ved en konservativ reduktion i skadesfravær.</p>
                         
                         <div class="space-y-4 mb-8">
                             <div>
@@ -563,6 +629,13 @@
                                 <label class="block text-sm font-semibold text-rl-black mb-1">Gns. fraværsdage pr. skade</label>
                                 <input type="number" id="calc1-days" class="rl-input" value="20" oninput="calculateSavings()">
                             </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-rl-black mb-1">Estimeret reduktion i skadesfravær (scenarie)</label>
+                                <div class="flex items-center gap-4">
+                                    <input type="range" id="calc1-reduction" min="10" max="30" value="15" class="w-full h-2 bg-rl-lightblue/50 rounded-lg appearance-none cursor-pointer" oninput="document.getElementById('reduction-val').innerText = this.value + '%'; calculateSavings()">
+                                    <span id="reduction-val" class="text-lg font-bold text-rl-darkblue min-w-[4ch]">15%</span>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="bg-white rounded-2xl p-6 border border-rl-lightblue/50 text-center shadow-sm">
@@ -570,7 +643,6 @@
                             <div class="text-4xl font-bold text-rl-darkblue" id="calc1-result">...</div>
                         </div>
                     </div>
-
                     <!-- Calculator 2: Longevity & Markedsværdi -->
                     <div class="bg-rl-darkblue p-8 rounded-3xl shadow-lg text-white">
                         <h3 class="font-serif text-2xl mb-2 flex items-center justify-between">
@@ -611,7 +683,7 @@
             <div class="container mx-auto px-6">
                 <!-- CTA opdateret til at fokusere på drift som en integreret del -->
                 <h2 class="font-serif text-3xl md:text-5xl text-white mb-6">Skal jeres klub have en færdig løsning på skader, øget spillertid og højere præstation?</h2>
-                <p class="text-rl-lightblue mb-10 max-w-2xl mx-auto text-lg">Vi analyserer klubbens behov, projekterer rummet, og drifter det som en integreret, evidensbaseret del af jeres medicinske stab, der beviseligt forlænger spillernes topniveau.</p>
+                <p class="text-rl-lightblue mb-10 max-w-2xl mx-auto text-lg">Vi analyserer klubbens behov, projekterer rummet, og drifter det som en integreret, evidensbaseret del af jeres medicinske stab, der understøtter hurtigere restitution og spillernes fysiske holdbarhed gennem sæsonen.</p>
                 <button type="button" 
                         data-emne="Forespørgsel fra Sportsklubber (Book møde eller præsentation)" 
                         class="js-open-contact inline-block bg-white text-rl-darkblue font-semibold px-10 py-5 rounded-full hover:bg-rl-lightbg transition duration-300 shadow-xl text-lg cursor-pointer">
@@ -794,10 +866,11 @@
             const salaryPerWeek = parseFloat(document.getElementById('calc1-salary').value) || 0;
             const injuries = parseFloat(document.getElementById('calc1-injuries').value) || 0;
             const daysInjured = parseFloat(document.getElementById('calc1-days').value) || 0;
+            const reductionPct = (parseFloat(document.getElementById('calc1-reduction').value) || 15) / 100;
             
             const costPerDay = salaryPerWeek / 7;
             const totalInjuryCostPerYear = injuries * daysInjured * costPerDay;
-            const savingsPerYear = totalInjuryCostPerYear * 0.5;
+            const savingsPerYear = totalInjuryCostPerYear * reductionPct;
             const savingsPerMonth = savingsPerYear / 12;
             
             const targetSaving = 2000000;
@@ -810,7 +883,6 @@
 
             document.getElementById('calc1-result').innerText = resultText;
         }
-
         function calculateLongevity() {
             const currentValueInMillions = parseFloat(document.getElementById('calc2-value').value) || 0;
             const extraYears = parseFloat(document.getElementById('calc2-years').value) || 0;
@@ -838,9 +910,8 @@
                     if (entry.isIntersecting) {
                         if (!entry.target.classList.contains('in-view')) {
                             entry.target.classList.add('in-view');
-                            
                             let start = 70;
-                            let end = 26; 
+                            let end = 52;
                             let duration = 1500;
                             let range = start - end;
                             let stepTime = Math.abs(Math.floor(duration / range));
