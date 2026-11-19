@@ -29,24 +29,21 @@
           "@context": "https://schema.org",
           "@graph": [
             {
-              "@type": "Organization",
-              "name": "RechargeLife",
-              "legalName": "Re Charge Life ApS",
-              "url": "https://b2b.rechargelife.dk",
-              "logo": "https://b2b.rechargelife.dk/pictures/Recharge Life_Large_Transparent_Variant 1.png",
-              "taxID": "45890589",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Baldersvej 9",
-                "addressLocality": "Hillerød",
-                "postalCode": "3400",
-                "addressCountry": "DK"
-              },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+4531443772",
-                "contactType": "Kundeservice"
-              }
+            "@type": "Service",
+            "name": "EU-MDR certificerede trykkammerløsninger til medicinske klinikker",
+            "serviceType": "Turnkey HBOT til plastikkirurgi og speciallæger",
+            "description": "Nøglefærdige, EU-MDR certificerede trykkammerløsninger (HBOT) til plastikkirurger og speciallæger inkl. uddannelse, sikkerhedsprotokol og 36-måneders OPEX leasing.",
+            "image": "https://b2b.rechargelife.dk/pictures/multikammer.png",
+            "url": "https://b2b.rechargelife.dk/medical.html",
+            "provider": {
+                "@type": "Organization",
+                "name": "RechargeLife",
+                "url": "https://b2b.rechargelife.dk"
+            },
+            "areaServed": {
+                "@type": "Country",
+                "name": "Denmark"
+            }
             }
           ]
         }
@@ -410,7 +407,7 @@
                     <!-- Nyhedsbrev -->
                     <p class="mb-4">Tilmeld dig nyhedsbrevet, og vær blandt de første til at høre om nyheder og tilbud.</p>
                     <form action="https://formspree.io/f/mnppkeeq" method="POST" class="flex items-end pb-2 border-b border-rl-lightbg/30 mt-3">
-                        <input type="email" name="Nyhedsbrev_Email" placeholder="Din e-mail" required class="bg-transparent w-full text-white placeholder-rl-lightbg/50 focus:outline-none font-light">
+                        <input type="email" name="Nyhedsbrev_Email" maxlength="100" placeholder="Din e-mail" required class="bg-transparent w-full text-white placeholder-rl-lightbg/50 focus:outline-none font-light">
                         <button type="submit" class="uppercase text-xs font-semibold tracking-wider hover:text-white transition-colors shrink-0">Abonnér</button>
                     </form>
                 </div>

@@ -462,7 +462,7 @@
                     <!-- Nyhedsbrev -->
                     <p class="mb-4">Tilmeld dig nyhedsbrevet, og vær blandt de første til at høre om nyheder og tilbud.</p>
                     <form action="https://formspree.io/f/mnppkeeq" method="POST" class="flex items-end pb-2 border-b border-rl-lightbg/30 mt-3">
-                        <input type="email" name="Nyhedsbrev_Email" placeholder="Din e-mail" required class="bg-transparent w-full text-white placeholder-rl-lightbg/50 focus:outline-none font-light">
+                        <input type="email" name="Nyhedsbrev_Email" maxlength="100" placeholder="Din e-mail" required class="bg-transparent w-full text-white placeholder-rl-lightbg/50 focus:outline-none font-light">
                         <button type="submit" class="uppercase text-xs font-semibold tracking-wider hover:text-white transition-colors shrink-0">Abonnér</button>
                     </form>
                 </div>
@@ -506,11 +506,11 @@
 
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Navn</label>
-                        <input type="text" name="Navn" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                        <input type="text" name="Navn" maxlength="100" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
                     </div>
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Firmanavn</label>
-                        <input type="text" name="Firmanavn" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors">
+                        <input type="text" name="Firmanavn" maxlength="100" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors">
                     </div>                    
 
                     <div class="flex gap-4">
@@ -522,18 +522,18 @@
                         </div>
                         <div class="w-2/3">
                             <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Telefon</label>
-                            <input type="tel" name="Telefon" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                            <input type="tel" name="Telefon" maxlength="20" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">E-mail</label>
-                        <input type="email" name="Email" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
+                        <input type="email" name="Email" maxlength="100" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors" required>
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-widest text-rl-black/60 mb-2">Kommentar</label>
-                        <textarea name="Kommentar" rows="3" placeholder="Skriv dit spørgsmål her" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors resize-none placeholder-rl-lightbg text-sm"></textarea>
+                        <textarea name="Kommentar" rows="3" maxlength="1000" placeholder="Skriv dit spørgsmål her" class="w-full bg-transparent border-b border-rl-lightbg pb-2 text-rl-black focus:outline-none focus:border-rl-darkblue transition-colors resize-none placeholder-rl-lightbg text-sm"></textarea>
                     </div>
                     
                     <button type="submit" class="w-full bg-rl-darkblue hover:bg-rl-black text-white font-serif text-sm uppercase tracking-widest py-4 transition-colors duration-300 mt-4">
