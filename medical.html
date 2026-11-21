@@ -29,26 +29,75 @@
           "@context": "https://schema.org",
           "@graph": [
             {
-            "@type": "Service",
-            "name": "EU-MDR certificerede trykkammerløsninger til medicinske klinikker",
-            "serviceType": "Turnkey HBOT til plastikkirurgi og speciallæger",
-            "description": "Nøglefærdige, EU-MDR certificerede trykkammerløsninger (HBOT) til plastikkirurger og speciallæger inkl. uddannelse, sikkerhedsprotokol og 36-måneders OPEX leasing.",
-            "image": "https://b2b.rechargelife.dk/pictures/multikammer.png",
-            "url": "https://b2b.rechargelife.dk/medical.html",
-            "provider": {
+              "@type": "Organization",
+              "name": "RechargeLife",
+              "legalName": "Re Charge Life ApS",
+              "url": "https://b2b.rechargelife.dk",
+              "logo": "https://b2b.rechargelife.dk/pictures/Recharge Life_Large_Transparent_Variant 1.png",
+              "taxID": "45890589",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Baldersvej 9",
+                "addressLocality": "Hillerød",
+                "postalCode": "3400",
+                "addressCountry": "DK"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+4531443772",
+                "contactType": "Kundeservice"
+              }
+            },
+            {
+              "@type": "Service",
+              "name": "EU-MDR certificerede trykkammerløsninger til medicinske klinikker",
+              "serviceType": "Turnkey HBOT til plastikkirurgi og speciallæger",
+              "description": "Nøglefærdige, EU-MDR certificerede trykkammerløsninger (HBOT) til plastikkirurger og speciallæger inkl. uddannelse, sikkerhedsprotokol og 36-måneders OPEX leasing.",
+              "image": "https://b2b.rechargelife.dk/pictures/multikammer.png",
+              "url": "https://b2b.rechargelife.dk/medical.html",
+              "provider": {
                 "@type": "Organization",
                 "name": "RechargeLife",
                 "url": "https://b2b.rechargelife.dk"
-            },
-            "areaServed": {
+              },
+              "areaServed": {
                 "@type": "Country",
                 "name": "Denmark"
-            }
+              }
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Hvem står for iltordination (STPS) og lægefaglig clearing af patienterne?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Klinikkens egne læger står som udgangspunkt for iltordination og medicinsk clearing i henhold til Styrelsen for Patientsikkerheds (STPS) regler via en enkel 1-sides tjekliste. Hvis det ønskes, kan clearing og ordination også varetages via RechargeLifes tilknyttede læge."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Hvem står for den daglige drift og sikkerhed i klinikken?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Vi leverer en komplet Turnkey-løsning, hvor vi enten uddanner og IBUM-certificerer jeres eget klinikpersonale eller drifter anlægget for jer med faste sikkerhedsprotokoller, antistatisk tøj og et kontrolleret iltmiljø under 23,5% i kabinen."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Hvad kræver det af plads og byggearbejde at installere et trykkammer?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Vores EU-MDR certificerede kamre leveres i moduler på maks. 790 mm bredde og kan bæres ind gennem almindelige døråbninger uden byggerod. Installationen tager 1-2 dage og kræver blot almindelig strøm og aktiv ventilation."
+                  }
+                }
+              ]
             }
           ]
         }
     </script>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -165,7 +214,7 @@
                         Klinisk heling.<br>Accelereret.
                     </h1>
                     <p class="text-white/90 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
-                        Tilbyd vores patienter en kompromisløs postoperativ protokol. Med vores EU-MDR certificerede trykkammerløsninger accelereres sårhelingen og den synlige downtime reduceres markant.
+                        Tilbyd jeres patienter en kompromisløs postoperativ protokol. Med vores EU-MDR certificerede trykkammerløsninger accelereres sårhelingen og den synlige downtime reduceres markant.
                     </p>
                 </div>
             </div>
@@ -208,10 +257,14 @@
 
                         <!-- Akademiske Kilder -->
                         <div class="bg-rl-lightbg/30 p-6 rounded-2xl border border-rl-lightbg text-xs text-rl-black/60">
-                            <h4 class="font-bold text-rl-darkblue uppercase tracking-widest mb-2">Akademiske referencer & Fysiologisk grundlag</h4>
+                            <h4 class="font-bold text-rl-darkblue uppercase tracking-widest mb-2">Akademiske referencer &amp; Fysiologisk grundlag</h4>
                             <ol class="list-decimal pl-4 space-y-2">
-                                <li id="kilde-1">Mortada, H., et al. (2023). <em>The efficacy of hyperbaric oxygen therapy in plastic surgery: A systematic review.</em> PubMed / Fagfællebedømt klinisk studie.</li>
-                                <li id="kilde-2">Henrys lov (Gasopløselighed): Fysiologisk princip, der dokumenterer, at mængden af opløst gas (ilt) i blodplasmaet er direkte proportional med partialtrykket (anvendt klinisk ved 1.5 - 2.0 ATA).</li>
+                                <li id="kilde-1">Mousa, M. et al. (2023). <em>Facial Plastic Surgery &amp; Aesthetic Medicine.</em> Dokumenterer en reduktion af synlig postoperativ downtime efter ansigtsløft fra 36,9 til 13,3 dage ved supplerende HBOT.</li>
+                                <li id="kilde-2">Henrys lov (Gasopløselighed): Fysiologisk princip, der dokumenterer, at mængden af opløst gas (ilt) i blodplasmaet er direkte proportional med partialtrykket (anvendt klinisk ved 1,5&ndash;2,4 ATA).</li>
+                                <li id="kilde-3">Molina-Vega, M. et al. (2026). <em>Systematisk review af 1.281 plastikkirurgiske patienter.</em> Viser 52 % reduktion i postoperative komplikationer samt 89&ndash;100 % salvage-rate for truede hudlapper og grafts ved opstart inden for 24 timer.</li>
+                                <li id="kilde-4">Aguilar, M. et al. (2024). <em>Klinisk studie (296 patienter).</em> Dokumenterer 30&ndash;50 % hurtigere restitution og return-to-work ved bryst- og kropskirurgi (f.eks. 3 dage mod 5+ dage ved brystkirurgi).</li>
+                                <li id="kilde-5">Friedman, T. et al. (2019). Påviser, at 1&ndash;3 præ-operative HBOT-sessioner før abdominoplastik iltmætter vævet og sænker postoperative sårkomplikationer markant.</li>
+                                <li id="kilde-6">Parnis, A., Fenech Magrin, A. &amp; Hassan, S. (2024). <em>Review af 17 humane studier.</em> Bekræfter tydelig reduktion i postoperativt ødem og iskæmisk vævsbeskyttelse i den kritiske fase før angiogenese.</li>
                             </ol>
                         </div>
                     </div>
@@ -348,7 +401,33 @@
         </section>
 
     </main>
+    <!-- ======= E-E-A-T TILLIDSBLOK / FAQ ======= -->
+    <section class="py-20 bg-[#FAF9F6] border-t border-rl-lightbg">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-taupe">Dansk Ekspertise</span>
+                <h2 class="font-serif text-3xl md:text-5xl text-rl-darkblue mt-2">Sikkerhed, certificering og drift</h2>
+                <p class="text-rl-black/70 mt-4 text-lg">Når I samarbejder med RechargeLife, bygger I videre på kompromisløs teknisk sikkerhed, EU-MDR godkendt udstyr og certificeret klinisk erfaring.</p>
+            </div>
 
+            <div class="space-y-6">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-rl-lightbg/50">
+                    <h3 class="font-semibold text-xl text-rl-darkblue mb-3">Hvem står for iltordination (STPS) og lægefaglig clearing af patienterne?</h3>
+                    <p class="text-rl-taupe leading-relaxed">Klinikkens egne læger står som udgangspunkt for iltordination og medicinsk clearing i henhold til Styrelsen for Patientsikkerheds (STPS) regler via en enkel 1-sides tjekliste. Hvis det ønskes, kan clearing og ordination også varetages via RechargeLifes tilknyttede læge.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-rl-lightbg/50">
+                    <h3 class="font-semibold text-xl text-rl-darkblue mb-3">Hvem står for den daglige drift og sikkerhed i klinikken?</h3>
+                    <p class="text-rl-taupe leading-relaxed">Vi leverer en komplet <em>Turnkey</em>-løsning, hvor vi enten uddanner og IBUM-certificerer jeres eget klinikpersonale eller drifter anlægget for jer med faste sikkerhedsprotokoller, antistatisk tøj og et kontrolleret iltmiljø under 23,5% i kabinen.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-rl-lightbg/50">
+                    <h3 class="font-semibold text-xl text-rl-darkblue mb-3">Hvad kræver det af plads og byggearbejde at installere et trykkammer?</h3>
+                    <p class="text-rl-taupe leading-relaxed">Vores EU-MDR certificerede kamre leveres i moduler på maks. 790 mm bredde og kan bæres ind gennem almindelige døråbninger uden byggerod. Installationen tager 1-2 dage og kræver blot almindelig strøm og aktiv ventilation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- ======= FOOTER ======= -->
     <footer class="bg-rl-darkblue text-white pt-20 pb-12 border-t border-white/10">
         <div class="container mx-auto px-6 max-w-7xl">
