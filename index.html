@@ -111,10 +111,45 @@
         .hover-underline-animation { position: relative; }
         .hover-underline-animation::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 1px; bottom: -4px; left: 0; background-color: #ffffff; transform-origin: bottom right; transition: transform 0.25s ease-out; }
         .hover-underline-animation:hover::after { transform: scaleX(1); transform-origin: bottom left; }
-        .process-step-content { transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, margin 0.4s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; margin-top: 0; }
-        .process-step-active .process-step-content { max-height: 200px; opacity: 1; margin-top: 1rem; }
-        .process-step-indicator { transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
-        .process-step-active .process-step-indicator { background-color: #013F58; color: #ffffff; border-color: #013F58; }
+        #process-accordion .process-step {
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+        }
+        #process-accordion .process-step-content {
+            max-height: none;
+            opacity: 0.8;
+            margin-top: 0;
+            font-size: 0.85rem;
+            line-height: 1.55;
+            color: #475569;
+            transition: color 0.25s ease, opacity 0.25s ease;
+        }
+        #process-accordion .process-step-indicator {
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+        }
+        #process-accordion .process-step:hover,
+        #process-accordion .process-step.process-step-active {
+            transform: translateY(-5px);
+            border-color: #013F58;
+            background-color: #ffffff;
+            box-shadow: 0 16px 32px -10px rgba(1, 63, 88, 0.22);
+        }
+        #process-accordion .process-step:hover h4,
+        #process-accordion .process-step.process-step-active h4 {
+            color: #013F58;
+        }
+        #process-accordion .process-step:hover .process-step-content,
+        #process-accordion .process-step.process-step-active .process-step-content {
+            opacity: 1;
+            color: #151F28;
+            font-weight: 500;
+        }
+        #process-accordion .process-step:hover .process-step-indicator,
+        #process-accordion .process-step.process-step-active .process-step-indicator {
+            background-color: #013F58;
+            color: #ffffff;
+            border-color: #013F58;
+            transform: scale(1.08);
+        }
     </style>
     <link rel="icon" href="favicon.png" type="image/png">
     <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N9W74J6F"></script>
@@ -301,7 +336,7 @@
                 <div class="text-center mb-16">
                     <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rl-taupe">Vejen til Premium Recovery</span>
                     <h2 class="font-serif text-3xl md:text-5xl text-rl-darkblue mt-2">Fra beslutning til idriftsat center</h2>
-                    <p class="text-rl-black/70 mt-4 text-lg">Klik på de enkelte trin for at se, hvor smertefrit og struktureret vi etablerer jeres nye trykkammer-facilitet – typisk inden for blot 8-10 uger.</p>
+                    <p class="text-rl-black/70 mt-4 text-lg">Klik på de enkelte trin for at se, hvor smertefrit og struktureret vi etablerer jeres nye trykkammer-facilitet – typisk inden for blot 10 uger.</p>
                 </div>
 
                 <div class="relative mb-12">
